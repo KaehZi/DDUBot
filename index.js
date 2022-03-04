@@ -8,10 +8,7 @@ require("dotenv").config();
 const myIntents = new Intents();
     myIntents.add( Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES )
 const client = new Client({ intents: myIntents });
-// When the client is ready, run this code (only once)
-// client.once("ready", () => {
-//   console.log("I am fucking ready!");
-//});
+// When the client is ready, run this code
 client.on('ready', readyDiscord);
 
 function readyDiscord(){
