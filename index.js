@@ -1,6 +1,7 @@
 // Require the necessary discord.js classes
 const { Client, Intents } = require("discord.js");
 const { MessageEmbed } = require("discord.js");
+const { SlashCommandBuilder } = require('@discordjs/builders');
 require("dotenv").config();
 
 // Create a new client instance
@@ -47,7 +48,7 @@ function gotMessage(msg){
     
     } else if(commands[0] === "!gay"){
 
-        msg.channel.send("Lasse er gay")
+        msg.channel.send("Lasse er sej")
     
     }
     //Pythagoras funktion med embed implementeret
@@ -56,7 +57,7 @@ function gotMessage(msg){
         let pythagoras = Math.sqrt(commands[1] * commands[1] + commands[2] * commands[2])
 
         //msg.channel.send("Svar: " + pythagoras);
-        const exampleEmbed = new MessageEmbed()
+        const pythagorasEmbed = new MessageEmbed()
         .setColor('#0099ff')
         .setTitle(commands[0])
         .setURL('https://discord.js.org/')
@@ -74,7 +75,7 @@ function gotMessage(msg){
         .setTimestamp()
         //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
 
-        msg.channel.send({ embeds: [exampleEmbed] });
+        msg.author.send({ embeds: [pythagorasEmbed] });
 
     }
 
