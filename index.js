@@ -37,7 +37,19 @@ function gotMessage(msg){
     
     }
 
+    if(commands[0] === "madias" && commands[1] === "er" && commands[2] === "gay"){
 
+        msg.channel.send("@madias#0744 er gay")
+
+    } else if(commands[0] === "!Madias" && commands[1] === "gay"){
+
+       msg.channel.send("*FEEEED*!")
+    
+    } else if(commands[0] === "!gay"){
+
+        msg.channel.send("Lasse er gay")
+    
+    }
 
 
 
