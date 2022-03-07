@@ -1,6 +1,6 @@
 // Require the necessary discord.js classes
 const { Client, Intents } = require("discord.js");
-//const { token } = require("./config.json");
+const { MessageEmbed } = require("discord.js");
 require("dotenv").config();
 
 // Create a new client instance
@@ -50,8 +50,33 @@ function gotMessage(msg){
         msg.channel.send("Lasse er gay")
     
     }
+    //Pythagoras funktion med embed implementeret
+    if(commands[0] === "/pythagoras"){
 
+        let pythagoras = Math.sqrt(commands[1] * commands[1] + commands[2] * commands[2])
 
+        //msg.channel.send("Svar: " + pythagoras);
+        const exampleEmbed = new MessageEmbed()
+        .setColor('#0099ff')
+        .setTitle(commands[0])
+        .setURL('https://discord.js.org/')
+        .setAuthor({ name: 'Studiehjælperen: Udregning af Pythagoras'})
+        .setDescription('Pythagoras udregning af Lone')
+        //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
+        .addFields(
+            { name: 'Pythagoras:', value: "Svar: " + pythagoras },
+            //{ name: '\u200B', value: '\u200B' },
+            // { name: 'Inline field title', value: 'Some value here', inline: true },
+            // { name: 'Inline field title', value: 'Some value here', inline: true },
+        )
+        //.addField('Inline field title', 'Some value here', true)
+        //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
+        .setTimestamp()
+        //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
+
+        msg.channel.send({ embeds: [exampleEmbed] });
+
+    }
 
     for(let i = 0; i < commands.length; i++){
     console.log(commands[i]);
