@@ -2,23 +2,23 @@
 //Hello();
 // Require the necessary discord.js classes
 const { Client, Intents } = require("discord.js");
-//const { MessageEmbed } = require("discord.js");
-//const { SlashCommandBuilder } = require('@discordjs/builders');
+const { MessageEmbed } = require("discord.js");
+const { SlashCommandBuilder } = require('@discordjs/builders');
 require("dotenv").config();
 
 // Create a new client instance
-
 const myIntents = new Intents();
     myIntents.add( Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES )
 const client = new Client({ intents: myIntents });
 // When the client is ready, run this code
+client.login();
 client.on('ready', readyDiscord);
-
 function readyDiscord(){
   console.log('Botten er tændt'); 
-  
 }
 client.on("messageCreate",gotMessage);
+
+//**********************************************************************************************//
 
 function gotMessage(msg){
     //console.log(msg.content);
@@ -54,32 +54,32 @@ function gotMessage(msg){
     
     // }
     //Pythagoras funktion med embed implementeret
-    // if(commands[0] === "/pythagoras"){
+    if(commands[0] === "/pythagoras"){
 
-    //     let pythagoras = Math.sqrt(commands[1] * commands[1] + commands[2] * commands[2])
+        let pythagoras = Math.sqrt(commands[1] * commands[1] + commands[2] * commands[2])
 
-    //     //msg.channel.send("Svar: " + pythagoras);
-    //     //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
-    //     const pythagorasEmbed = new MessageEmbed()
-    //     .setColor('#0099ff')
-    //     .setTitle(commands[0])
-    //     .setURL('https://discord.js.org/')
-    //     .setAuthor({ name: 'Studiehjælperen: Udregning af Pythagoras'})
-    //     .setDescription('Pythagoras udregning af Lone')
-    //     //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
-    //     .addFields(
-    //         { name: 'For at udregne med pythagoras, skriv:', value: "/pythagoras <a> <b>"},
-    //         //{ name: '\u200B', value: '\u200B' },
-    //         // { name: 'Inline field title', value: 'Some value here', inline: true },
-    //         // { name: 'Inline field title', value: 'Some value here', inline: true },
-    //     )
-    //     //.addField('Inline field title', 'Some value here', true)
-    //     //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
-    //     .setTimestamp()
-    //     //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
+        //msg.channel.send("Svar: " + pythagoras);
+        //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
+        const pythagorasEmbed = new MessageEmbed()
+        .setColor('#0099ff')
+        .setTitle(commands[0])
+        .setURL('https://discord.js.org/')
+        .setAuthor({ name: 'Studiehjælperen: Udregning af Pythagoras'})
+        .setDescription('Pythagoras udregning af Lone')
+        //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
+        .addFields(
+            { name: 'For at udregne med pythagoras, skriv:', value: "/pythagoras <a> <b>"},
+            //{ name: '\u200B', value: '\u200B' },
+            // { name: 'Inline field title', value: 'Some value here', inline: true },
+            // { name: 'Inline field title', value: 'Some value here', inline: true },
+        )
+        //.addField('Inline field title', 'Some value here', true)
+        //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
+        .setTimestamp()
+        //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
 
-    //     msg.channel.send({ embeds: [pythagorasEmbed] });
-    //     }
+        msg.channel.send({ embeds: [pythagorasEmbed] });
+        }
 
     
 
@@ -89,5 +89,5 @@ function gotMessage(msg){
 
 
 // Login to Discord with your client's token
-client.login();
-}
+
+  }
