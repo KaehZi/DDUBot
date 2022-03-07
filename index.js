@@ -22,6 +22,7 @@ function gotMessage(msg){
 
     let commands = msg.content.split(" ")
     console.log(commands)
+    //Test af liv for botten med tre simple kommandoer
     if(commands[0] === "!hej" && commands[1] === "med" && commands[2] === "dig"){
 
         msg.channel.send("Hej med dig!")
