@@ -53,6 +53,8 @@ function gotMessage(msg){
     //     msg.channel.send("Lasse er sej")
     
     // }
+
+
     //Pythagoras funktion med embed implementeret
     if(commands[0] === "/pythagoras"){
       if(isNaN(commands[1])|| isNaN(commands[2])|| isNaN(commands[1]) && isNaN(commands[2])){
@@ -88,14 +90,91 @@ function gotMessage(msg){
         //msg.channel.send("Svar: " + pythagoras);
         //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
         const pythagorasEmbed = new MessageEmbed()
+          .setColor('#0099ff')
+          .setTitle(commands[0])
+          .setURL('https://www.webmatematik.dk/lektioner/matematik-c/trigonometri/retvinklede-trekanter')
+          .setAuthor({ name: 'Studiehjælperen: Udregning af Pythagoras'})
+          .setDescription('Pythagoras udregning af Lone')
+          //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
+          .addFields(
+              { name: 'Pythagoras udregnet:', value: "Svar: " + pythagoras},
+              //{ name: '\u200B', value: '\u200B' },
+              // { name: 'Inline field title', value: 'Some value here', inline: true },
+              // { name: 'Inline field title', value: 'Some value here', inline: true },
+          )
+          //.addField('Inline field title', 'Some value here', true)
+          //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
+          .setTimestamp()
+          //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
+
+        msg.channel.send({ embeds: [pythagorasEmbed] });
+
+
+
+        }
+    }
+    //Oversigt over areal funktioner
+    if(commands[0] === "/areal" || commands[0] === "/areal" && commands[1] === "hjælp"){
+      
+      const arealEmbed = new MessageEmbed()
+      .setColor('#0099ff')
+      .setTitle(commands[0])
+      .setURL('https://www.webmatematik.dk/lektioner/matematik-c/trigonometri/retvinklede-trekanter')
+      .setAuthor({ name: 'Studiehjælperen: Udregning af arealer'})
+      .setDescription('Areal udregning af Lone')
+      //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
+      .addFields(
+          { name: 'For at udregne areal af en firkant, skriv:', value: "/areal firkant <a> <b>"},
+        //{ name: '\u200B', value: '\u200B' },
+          { name: 'For at udregne areal af en trekant, skriv:', value: '/areal trekant <h> <g>' },
+        // { name: 'Inline field title', value: 'Some value here', inline: true },
+      )
+      //.addField('Inline field title', 'Some value here', true)
+      //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
+      .setTimestamp()
+      //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
+      msg.channel.send({ embeds: [arealEmbed] });
+      }
+    //Areal for en firkant funktion med embed
+    if(commands[0] === "/areal" && commands[1] === "firkant"){ 
+      if(isNaN(commands[2])|| isNaN(commands[3])|| isNaN(commands[2]) && isNaN(commands[3])){
+        //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
+        const arealfirkantEmbed = new MessageEmbed()
+          .setColor('#0099ff')
+          .setTitle(commands[0])
+          .setURL('https://www.webmatematik.dk/lektioner/matematik-c/trigonometri/retvinklede-trekanter')
+          .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en firkant'})
+          .setDescription('Areal udregning af Lone')
+          //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
+          .addFields(
+              { name: 'For at udregne areal af en firkant , skriv:', value: "/areal firkant <a> <b>"},
+            //{ name: '\u200B', value: '\u200B' },
+            // { name: 'Inline field title', value: 'Some value here', inline: true },
+            // { name: 'Inline field title', value: 'Some value here', inline: true },
+          )
+          //.addField('Inline field title', 'Some value here', true)
+          //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
+          .setTimestamp()
+          //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
+
+        msg.channel.send({ embeds: [arealfirkantEmbed] });
+      
+        }else{
+          console.log("noget")
+
+          let arealFirkant = (commands[2] * commands[3])
+
+        //msg.channel.send("Svar: " + pythagoras);
+        //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
+        const arealfirkantEmbed = new MessageEmbed()
         .setColor('#0099ff')
         .setTitle(commands[0])
         .setURL('https://www.webmatematik.dk/lektioner/matematik-c/trigonometri/retvinklede-trekanter')
-        .setAuthor({ name: 'Studiehjælperen: Udregning af Pythagoras'})
-        .setDescription('Pythagoras udregning af Lone')
+        .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en firkant'})
+        .setDescription('Areal udregning af Lone')
         //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
         .addFields(
-            { name: 'Pythagoras udregnet, skriv:', value: "Svar: " + pythagoras},
+            { name: 'Areal for en firkant udregnet:', value: "Svar: " + arealFirkant},
             //{ name: '\u200B', value: '\u200B' },
             // { name: 'Inline field title', value: 'Some value here', inline: true },
             // { name: 'Inline field title', value: 'Some value here', inline: true },
@@ -105,14 +184,16 @@ function gotMessage(msg){
         .setTimestamp()
         //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
 
-        msg.channel.send({ embeds: [pythagorasEmbed] });
+        msg.channel.send({ embeds: [arealfirkantEmbed] });
 
 
 
         }
-    }
-
     
+
+
+
+
 
     for(let i = 0; i < commands.length; i++){
     console.log(commands[i]);
@@ -122,3 +203,4 @@ function gotMessage(msg){
 // Login to Discord with your client's token
 
   }
+}
