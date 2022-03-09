@@ -6,6 +6,10 @@ const { MessageEmbed } = require("discord.js");
 const { SlashCommandBuilder } = require('@discordjs/builders');
 require("dotenv").config();
 
+
+//Der kommer en fejl med at det ikke er den rigtige pakke der bliver åbnet når SlashCommandBuilder bliver executed
+//const pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras')
+
 // Create a new client instance
 const myIntents = new Intents();
     myIntents.add( Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES )
@@ -25,35 +29,6 @@ function gotMessage(msg){
 
     let commands = msg.content.split(" ")
     console.log(commands)
-    //Test af liv for botten med tre simple kommandoer
-    // if(commands[0] === "!hej" && commands[1] === "med" && commands[2] === "dig"){
-
-    //     msg.channel.send("Hej med dig!")
-
-    // } else if(commands[0] === "!hej" && commands[1] === "bot"){
-
-    //    msg.channel.send("Hej *biip boop*!")
-    
-    // } else if(commands[0] === "!hej"){
-
-    //     msg.channel.send("Hej!")
-    
-    // }
-
-    // if(commands[0] === "madias" && commands[1] === "er" && commands[2] === "gay"){
-
-    //     msg.channel.send("@madias#0744 er gay")
-
-    // } else if(commands[0] === "!Madias" && commands[1] === "gay"){
-
-    //    msg.channel.send("*FEEEED*!")
-    
-    // } else if(commands[0] === "!gay"){
-
-    //     msg.channel.send("Lasse er sej")
-    
-    // }
-
 
     //Pythagoras funktion med embed implementeret
     if(commands[0] === "/pythagoras"){
@@ -62,7 +37,7 @@ function gotMessage(msg){
 
         //msg.channel.send("Svar: " + pythagoras);
         //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
-        const pythagorasEmbed = new MessageEmbed()
+        const pythagorasHelpEmbed = new MessageEmbed()
           .setColor('#0099ff')
           .setTitle(commands[0])
           .setURL('https://www.webmatematik.dk/lektioner/matematik-c/trigonometri/retvinklede-trekanter')
@@ -80,15 +55,15 @@ function gotMessage(msg){
           .setTimestamp()
           //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
 
-        msg.channel.send({ embeds: [pythagorasEmbed] });
+        msg.channel.send({ embeds: [pythagorasHelpEmbed] });
       
         }else{
           console.log("noget")
 
           let pythagoras = Math.sqrt(commands[1] * commands[1] + commands[2] * commands[2])
 
-        //msg.channel.send("Svar: " + pythagoras);
-        //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
+        
+        pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras')
         const pythagorasEmbed = new MessageEmbed()
           .setColor('#0099ff')
           .setTitle(commands[0])
@@ -108,15 +83,13 @@ function gotMessage(msg){
           //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
 
         msg.channel.send({ embeds: [pythagorasEmbed] });
-
-
-
         }
     }
+
     //Oversigt over areal funktioner
-    if(commands[0] === "/areal" || commands[0] === "/areal" && commands[1] === "hjælp"){
+    if(commands[0] === "/areal" && commands[1] === "" || (commands[0] === "/areal" && commands[1] === "hjælp")){
       
-      const arealEmbed = new MessageEmbed()
+      const arealHelpEmbed = new MessageEmbed()
       .setColor('#0099ff')
       .setTitle(commands[0])
       .setURL('https://www.webmatematik.dk/lektioner/matematik-c/trigonometri/retvinklede-trekanter')
@@ -133,13 +106,14 @@ function gotMessage(msg){
       //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
       .setTimestamp()
       //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
-      msg.channel.send({ embeds: [arealEmbed] });
+      msg.channel.send({ embeds: [arealHelpEmbed] });
       }
+      
     //Areal for en firkant funktion med embed
     if(commands[0] === "/areal" && commands[1] === "firkant"){ 
-      if(isNaN(commands[2])|| isNaN(commands[3])|| isNaN(commands[2]) && isNaN(commands[3])){
+      if(isNaN(commands[2])|| isNaN(commands[3])|| (isNaN(commands[2]) && isNaN(commands[3]))){
         //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
-        const arealfirkantEmbed = new MessageEmbed()
+        const arealfirkantHelpEmbed = new MessageEmbed()
           .setColor('#0099ff')
           .setTitle(commands[0])
           .setURL('https://www.webmatematik.dk/lektioner/matematik-c/trigonometri/retvinklede-trekanter')
@@ -157,24 +131,22 @@ function gotMessage(msg){
           .setTimestamp()
           //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
 
-        msg.channel.send({ embeds: [arealfirkantEmbed] });
+        msg.channel.send({ embeds: [arealfirkantHelpEmbed] });
       
         }else{
-          console.log("noget")
+          //console.log("else bliver executed")
 
           let arealFirkant = (commands[2] * commands[3])
 
-        //msg.channel.send("Svar: " + pythagoras);
-        //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
-        const arealfirkantEmbed = new MessageEmbed()
-        .setColor('#0099ff')
-        .setTitle(commands[0])
-        .setURL('https://www.webmatematik.dk/lektioner/matematik-c/trigonometri/retvinklede-trekanter')
-        .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en firkant'})
-        .setDescription('Areal udregning af Lone')
-        //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
-        .addFields(
-            { name: 'Areal for en firkant udregnet:', value: "Svar: " + arealFirkant},
+          const arealfirkantEmbed = new MessageEmbed()
+          .setColor('#0099ff')
+          .setTitle(commands[0] + commands[1])
+          .setURL('https://www.webmatematik.dk/lektioner/matematik-c/trigonometri/retvinklede-trekanter')
+          .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en firkant'})
+          .setDescription('Areal udregning af Lone')
+          //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
+          .addFields(
+           { name: 'Areal for en firkant udregnet:', value: "Svar: " + arealFirkant},
             //{ name: '\u200B', value: '\u200B' },
             // { name: 'Inline field title', value: 'Some value here', inline: true },
             // { name: 'Inline field title', value: 'Some value here', inline: true },
@@ -183,24 +155,23 @@ function gotMessage(msg){
         //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
         .setTimestamp()
         //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
-
+        msg.channel.send("Første besked");
         msg.channel.send({ embeds: [arealfirkantEmbed] });
-
-
-
+        
+       
         }
     
 
 
+      }
 
 
-
-    for(let i = 0; i < commands.length; i++){
-    console.log(commands[i]);
-    }
+    // for(let i = 0; i < commands.length; i++){
+    // console.log(commands[i]);
+    // }
 
 
 // Login to Discord with your client's token
 
-  }
+ 
 }
