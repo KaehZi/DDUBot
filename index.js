@@ -9,7 +9,6 @@ require("dotenv").config();
 
 //Der kommer en fejl med at det ikke er den rigtige pakke der bliver åbnet når SlashCommandBuilder bliver executed
 //const pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras')
-
 // Create a new client instance
 const myIntents = new Intents();
     myIntents.add( Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES )
@@ -34,7 +33,6 @@ function gotMessage(msg){
     if(commands[0] === "/pythagoras"){
       if(isNaN(commands[1])|| isNaN(commands[2])|| isNaN(commands[1]) && isNaN(commands[2])){
         //let pythagoras = Math.sqrt(commands[1] * commands[1] + commands[2] * commands[2])
-
         //msg.channel.send("Svar: " + pythagoras);
         //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
         const pythagorasHelpEmbed = new MessageEmbed()
@@ -58,12 +56,12 @@ function gotMessage(msg){
         msg.channel.send({ embeds: [pythagorasHelpEmbed] });
       
         }else{
-          console.log("noget")
+          //console.log("noget")
 
           let pythagoras = Math.sqrt(commands[1] * commands[1] + commands[2] * commands[2])
 
         
-        pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras')
+        //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras')
         const pythagorasEmbed = new MessageEmbed()
           .setColor('#0099ff')
           .setTitle(commands[0])
@@ -155,7 +153,7 @@ function gotMessage(msg){
         //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
         .setTimestamp()
         //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
-        msg.channel.send("Første besked");
+        //msg.channel.send("Første besked");
         msg.channel.send({ embeds: [arealfirkantEmbed] });
         
        
