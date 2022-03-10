@@ -1,5 +1,4 @@
-//import "./commands"
-//Hello();
+
 // Require the necessary discord.js classes
 const { Client, Intents } = require("discord.js");
 const { MessageEmbed } = require("discord.js");
@@ -23,6 +22,14 @@ client.on("messageCreate",gotMessage);
 
 //**********************************************************************************************//
 
+//Opbygning af SlashCommands med SlashCommandBuilder
+
+// const pythagorasSlash = SlashCommandBuilder()
+//   .setName('pythagoras')
+//   .setDescription('Udregner pythagoras')
+
+
+
 function gotMessage(msg){
     //console.log(msg.content);
 
@@ -36,8 +43,8 @@ function gotMessage(msg){
         //msg.channel.send("Svar: " + pythagoras);
         //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
         const pythagorasHelpEmbed = new MessageEmbed()
-          .setColor('#0099ff')
-          .setTitle(commands[0])
+          .setColor('#ff0000')
+          .setTitle("Pythagoras")
           .setURL('https://www.webmatematik.dk/lektioner/matematik-c/trigonometri/retvinklede-trekanter')
           .setAuthor({ name: 'Studiehjælperen: Udregning af Pythagoras'})
           .setDescription('Pythagoras udregning af Lone')
@@ -63,8 +70,8 @@ function gotMessage(msg){
         
         //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras')
         const pythagorasEmbed = new MessageEmbed()
-          .setColor('#0099ff')
-          .setTitle(commands[0])
+          .setColor('#00ff00')
+          .setTitle("Pythagoras")
           .setURL('https://www.webmatematik.dk/lektioner/matematik-c/trigonometri/retvinklede-trekanter')
           .setAuthor({ name: 'Studiehjælperen: Udregning af Pythagoras'})
           .setDescription('Pythagoras udregning af Lone')
@@ -88,14 +95,14 @@ function gotMessage(msg){
     if(commands[0] === "/areal" && commands[1] === "" || (commands[0] === "/areal" && commands[1] === "hjælp")){
       
       const arealHelpEmbed = new MessageEmbed()
-      .setColor('#0099ff')
-      .setTitle(commands[0])
-      .setURL('https://www.webmatematik.dk/lektioner/matematik-c/trigonometri/retvinklede-trekanter')
+      .setColor('#ffff00')
+      .setTitle("Areal beregning")
+      .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal')
       .setAuthor({ name: 'Studiehjælperen: Udregning af arealer'})
       .setDescription('Areal udregning af Lone')
       //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
       .addFields(
-          { name: 'For at udregne areal af en firkant, skriv:', value: "/areal firkant <a> <b>"},
+          { name: 'For at udregne areal af en firkant, skriv:', value: "/areal firkant <l> <b>"},
         //{ name: '\u200B', value: '\u200B' },
           { name: 'For at udregne areal af en trekant, skriv:', value: '/areal trekant <h> <g>' },
         // { name: 'Inline field title', value: 'Some value here', inline: true },
@@ -112,14 +119,14 @@ function gotMessage(msg){
       if(isNaN(commands[2])|| isNaN(commands[3])|| (isNaN(commands[2]) && isNaN(commands[3]))){
         //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
         const arealfirkantHelpEmbed = new MessageEmbed()
-          .setColor('#0099ff')
-          .setTitle(commands[0])
-          .setURL('https://www.webmatematik.dk/lektioner/matematik-c/trigonometri/retvinklede-trekanter')
+          .setColor('#ff0000')
+          .setTitle("Areal af en firkant")
+          .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/rektangel')
           .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en firkant'})
-          .setDescription('Areal udregning af Lone')
+          .setDescription('Formel: l * b')
           //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
           .addFields(
-              { name: 'For at udregne areal af en firkant , skriv:', value: "/areal firkant <a> <b>"},
+              { name: 'For at udregne areal af en firkant , skriv:', value: "/areal firkant <> <b>"},
             //{ name: '\u200B', value: '\u200B' },
             // { name: 'Inline field title', value: 'Some value here', inline: true },
             // { name: 'Inline field title', value: 'Some value here', inline: true },
@@ -137,11 +144,11 @@ function gotMessage(msg){
           let arealFirkant = (commands[2] * commands[3])
 
           const arealfirkantEmbed = new MessageEmbed()
-          .setColor('#0099ff')
-          .setTitle(commands[0] + commands[1])
-          .setURL('https://www.webmatematik.dk/lektioner/matematik-c/trigonometri/retvinklede-trekanter')
+          .setColor('#00ff00')
+          .setTitle("Areal af en firkant")
+          .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/rektangel')
           .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en firkant'})
-          .setDescription('Areal udregning af Lone')
+          .setDescription('Formel: l * b')
           //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
           .addFields(
            { name: 'Areal for en firkant udregnet:', value: "Svar: " + arealFirkant},
@@ -155,15 +162,159 @@ function gotMessage(msg){
         //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
         //msg.channel.send("Første besked");
         msg.channel.send({ embeds: [arealfirkantEmbed] });
-        
-       
         }
-    
-
-
       }
 
+    //Areal for en trekant funktion med embed
+    if(commands[0] === "/areal" && commands[1] === "trekant"){ 
+      if(isNaN(commands[2])|| isNaN(commands[3])|| (isNaN(commands[2]) && isNaN(commands[3]))){
+        //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
+        const arealTrekantHelpEmbed = new MessageEmbed()
+          .setColor('#ff0000')
+          .setTitle("Areal af en trekant")
+          .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/trekant')
+          .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en trekant'})
+          .setDescription('Formel: 1/2 * h * g')
+          //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
+          .addFields(
+              { name: 'For at udregne areal af en trekant , skriv:', value: "/areal trekant <h> <g>"},
+            //{ name: '\u200B', value: '\u200B' },
+            // { name: 'Inline field title', value: 'Some value here', inline: true },
+            // { name: 'Inline field title', value: 'Some value here', inline: true },
+          )
+          //.addField('Inline field title', 'Some value here', true)
+          //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
+          .setTimestamp()
+          //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
 
+        msg.channel.send({ embeds: [arealTrekantHelpEmbed] });
+      
+        }else{
+          //console.log("else bliver executed")
+
+          let arealTrekant = (1/2 * commands[2] * commands[3])
+
+          const arealTrekantEmbed = new MessageEmbed()
+          .setColor('#00ff00')
+          .setTitle("Areal af en trekant")
+          .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/trekant')
+          .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en trekant'})
+          .setDescription('Formel: 1/2 * h * g')
+          //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
+          .addFields(
+          { name: 'Areal for en trekant udregnet:', value: "Svar: " + arealTrekant},
+            //{ name: '\u200B', value: '\u200B' },
+            // { name: 'Inline field title', value: 'Some value here', inline: true },
+            // { name: 'Inline field title', value: 'Some value here', inline: true },
+        )
+        //.addField('Inline field title', 'Some value here', true)
+        //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
+        .setTimestamp()
+        //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
+        //msg.channel.send("Første besked");
+        msg.channel.send({ embeds: [arealTrekantEmbed] });
+        }
+  }
+  if(commands[0] === "/areal" && commands[1] === "cirkel"){ 
+    if(isNaN(commands[2])){
+      //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
+      const arealCirkelHelpEmbed = new MessageEmbed()
+        .setColor('#ff0000')
+        .setTitle("Areal af en cirkel")
+        .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/rektangel')
+        .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en cirkel'})
+        .setDescription('Formel: pi * r')
+        //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
+        .addFields(
+            { name: 'For at udregne areal af en cirkel , skriv:', value: "/areal cirkel <r>"},
+          //{ name: '\u200B', value: '\u200B' },
+          // { name: 'Inline field title', value: 'Some value here', inline: true },
+          // { name: 'Inline field title', value: 'Some value here', inline: true },
+        )
+        //.addField('Inline field title', 'Some value here', true)
+        //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
+        .setTimestamp()
+        //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
+
+      msg.channel.send({ embeds: [arealCirkelHelpEmbed] });
+    
+      }else{
+        //console.log("else bliver executed")
+
+        let arealCirkel = (Math.PI * (commands[2]))
+
+        const arealCirkelEmbed = new MessageEmbed()
+        .setColor('#00ff00')
+        .setTitle("Areal af en cirkel")
+        .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/rektangel')
+        .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en cirkel'})
+        .setDescription('Formel: pi * r')
+        //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
+        .addFields(
+         { name: 'Areal for en cirkel udregnet:', value: "Svar: " + arealCirkel},
+          //{ name: '\u200B', value: '\u200B' },
+          // { name: 'Inline field title', value: 'Some value here', inline: true },
+          // { name: 'Inline field title', value: 'Some value here', inline: true },
+      )
+      //.addField('Inline field title', 'Some value here', true)
+      //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
+      .setTimestamp()
+      //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
+      //msg.channel.send("Første besked");
+      msg.channel.send({ embeds: [arealCirkelEmbed] });
+      }
+    }
+
+    //Areal template
+  //   if(commands[0] === "/areal" && commands[1] === "trekant"){ 
+  //     if(isNaN(commands[2])|| isNaN(commands[3])|| (isNaN(commands[2]) && isNaN(commands[3]))){
+  //       //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
+  //       const arealTrekantHelpEmbed = new MessageEmbed()
+  //         .setColor('#ff0000')
+  //         .setTitle("Areal af en trekant")
+  //         .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/trekant')
+  //         .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en trekant'})
+  //         .setDescription('Areal udregning af Lone')
+  //         //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
+  //         .addFields(
+  //             { name: 'For at udregne areal af en trekant , skriv:', value: "/areal trekant <h> <g>"},
+  //           //{ name: '\u200B', value: '\u200B' },
+  //           // { name: 'Inline field title', value: 'Some value here', inline: true },
+  //           // { name: 'Inline field title', value: 'Some value here', inline: true },
+  //         )
+  //         //.addField('Inline field title', 'Some value here', true)
+  //         //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
+  //         .setTimestamp()
+  //         //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
+
+  //       msg.channel.send({ embeds: [arealTrekantHelpEmbed] });
+      
+  //       }else{
+  //         //console.log("else bliver executed")
+
+  //         let arealTrekant = (1/2 * commands[2] * commands[3])
+
+  //         const arealTrekantEmbed = new MessageEmbed()
+  //         .setColor('#00ff00')
+  //         .setTitle("Areal af en trekant")
+  //         .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/trekant')
+  //         .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en trekant'})
+  //         .setDescription('Areal udregning af Lone')
+  //         //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
+  //         .addFields(
+  //         { name: 'Areal for en trekant udregnet:', value: "Svar: " + arealTrekant},
+  //           //{ name: '\u200B', value: '\u200B' },
+  //           // { name: 'Inline field title', value: 'Some value here', inline: true },
+  //           // { name: 'Inline field title', value: 'Some value here', inline: true },
+  //       )
+  //       //.addField('Inline field title', 'Some value here', true)
+  //       //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
+  //       .setTimestamp()
+  //       //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
+  //       //msg.channel.send("Første besked");
+  //       msg.channel.send({ embeds: [arealTrekantEmbed] });
+  //       }
+  // }
     // for(let i = 0; i < commands.length; i++){
     // console.log(commands[i]);
     // }
