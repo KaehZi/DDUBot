@@ -1,4 +1,3 @@
-
 // Require the necessary discord.js classes
 const { Client, Intents } = require("discord.js");
 const { MessageEmbed } = require("discord.js");
@@ -33,6 +32,7 @@ client.on("messageCreate",gotMessage);
 function gotMessage(msg){
     //console.log(msg.content);
 
+    
     let commands = msg.content.split(" ")
     console.log(commands)
 
@@ -93,7 +93,7 @@ function gotMessage(msg){
 
     //Oversigt over areal funktioner
     if(commands[0] === "/areal" && commands[1] === "" || (commands[0] === "/areal" && commands[1] === "hjælp")){
-      
+        
       const arealHelpEmbed = new MessageEmbed()
       .setColor('#ffff00')
       .setTitle("Areal beregning")
@@ -107,7 +107,7 @@ function gotMessage(msg){
           { name: 'For at udregne areal af et paralellogram, skriv:', value: '/areal parallelogram <h> <g>' },
           { name: 'For at udregne areal af en cirkel, skriv:', value: "/areal cirkel <r>" },
           { name: 'For at udregne areal af en trapez, skriv:', value: "/areal trapez <h> <a1> <a2>" },
-        )
+      )
       //.addField('Inline field title', 'Some value here', true)
       //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
       .setTimestamp()
@@ -115,11 +115,11 @@ function gotMessage(msg){
       msg.channel.send({ embeds: [arealHelpEmbed] });
       }
       
-    //Areal for en firkant funktion med embed
-    if(commands[0] === "/areal" && commands[1] === "firkant"){ 
+  //Areal for en firkant funktion med embed
+  if(commands[0] === "/areal" && commands[1] === "firkant"){ 
       if(isNaN(commands[2])|| isNaN(commands[3])|| (isNaN(commands[2]) && isNaN(commands[3]))){
-        //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
-        const arealfirkantHelpEmbed = new MessageEmbed()
+      //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
+      const arealfirkantHelpEmbed = new MessageEmbed()
           .setColor('#ff0000')
           .setTitle("Areal af en firkant")
           .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/rektangel')
@@ -128,18 +128,18 @@ function gotMessage(msg){
           //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
           .addFields(
               { name: 'For at udregne areal af en firkant , skriv:', value: "/areal firkant <l> <b>"},
-            //{ name: '\u200B', value: '\u200B' },
-            // { name: 'Inline field title', value: 'Some value here', inline: true },
-            // { name: 'Inline field title', value: 'Some value here', inline: true },
+          //{ name: '\u200B', value: '\u200B' },
+          // { name: 'Inline field title', value: 'Some value here', inline: true },
+          // { name: 'Inline field title', value: 'Some value here', inline: true },
           )
           //.addField('Inline field title', 'Some value here', true)
           //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
           .setTimestamp()
           //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
 
-        msg.channel.send({ embeds: [arealfirkantHelpEmbed] });
+      msg.channel.send({ embeds: [arealfirkantHelpEmbed] });
       
-        }else{
+      }else{
           //console.log("else bliver executed")
 
           let arealFirkant = (commands[2] * commands[3])
@@ -152,25 +152,25 @@ function gotMessage(msg){
           .setDescription('Formel: l * b')
           //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
           .addFields(
-           { name: 'Areal for en firkant udregnet:', value: "Svar: " + arealFirkant},
-            //{ name: '\u200B', value: '\u200B' },
-            // { name: 'Inline field title', value: 'Some value here', inline: true },
-            // { name: 'Inline field title', value: 'Some value here', inline: true },
-        )
-        //.addField('Inline field title', 'Some value here', true)
-        //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
-        .setTimestamp()
-        //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
-        //msg.channel.send("Første besked");
-        msg.channel.send({ embeds: [arealfirkantEmbed] });
-        }
+          { name: 'Areal for en firkant udregnet:', value: "Svar: " + arealFirkant},
+          //{ name: '\u200B', value: '\u200B' },
+          // { name: 'Inline field title', value: 'Some value here', inline: true },
+          // { name: 'Inline field title', value: 'Some value here', inline: true },
+      )
+      //.addField('Inline field title', 'Some value here', true)
+      //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
+      .setTimestamp()
+      //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
+      //msg.channel.send("Første besked");
+      msg.channel.send({ embeds: [arealfirkantEmbed] });
+      }
       }
 
-    //Areal for en trekant funktion med embed
-    if(commands[0] === "/areal" && commands[1] === "trekant"){ 
+  //Areal for en trekant funktion med embed
+  if(commands[0] === "/areal" && commands[1] === "trekant"){ 
       if(isNaN(commands[2])|| isNaN(commands[3])|| (isNaN(commands[2]) && isNaN(commands[3]))){
-        //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
-        const arealTrekantHelpEmbed = new MessageEmbed()
+      //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
+      const arealTrekantHelpEmbed = new MessageEmbed()
           .setColor('#ff0000')
           .setTitle("Areal af en trekant")
           .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/trekant')
@@ -179,18 +179,18 @@ function gotMessage(msg){
           //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
           .addFields(
               { name: 'For at udregne areal af en trekant , skriv:', value: "/areal trekant <h> <g>"},
-            //{ name: '\u200B', value: '\u200B' },
-            // { name: 'Inline field title', value: 'Some value here', inline: true },
-            // { name: 'Inline field title', value: 'Some value here', inline: true },
+          //{ name: '\u200B', value: '\u200B' },
+          // { name: 'Inline field title', value: 'Some value here', inline: true },
+          // { name: 'Inline field title', value: 'Some value here', inline: true },
           )
           //.addField('Inline field title', 'Some value here', true)
           //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
           .setTimestamp()
           //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
 
-        msg.channel.send({ embeds: [arealTrekantHelpEmbed] });
+      msg.channel.send({ embeds: [arealTrekantHelpEmbed] });
       
-        }else{
+      }else{
           //console.log("else bliver executed")
 
           let arealTrekant = (1/2 * commands[2] * commands[3])
@@ -204,55 +204,55 @@ function gotMessage(msg){
           //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
           .addFields(
           { name: 'Areal for en trekant udregnet:', value: "Svar: " + arealTrekant},
-            //{ name: '\u200B', value: '\u200B' },
-            // { name: 'Inline field title', value: 'Some value here', inline: true },
-            // { name: 'Inline field title', value: 'Some value here', inline: true },
-        )
-        //.addField('Inline field title', 'Some value here', true)
-        //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
-        .setTimestamp()
-        //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
-        //msg.channel.send("Første besked");
-        msg.channel.send({ embeds: [arealTrekantEmbed] });
-        }
-  }
-  if(commands[0] === "/areal" && commands[1] === "cirkel"){ 
-    if(isNaN(commands[2])){
-      //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
-      const arealCirkelHelpEmbed = new MessageEmbed()
-        .setColor('#ff0000')
-        .setTitle("Areal af en cirkel")
-        .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/rektangel')
-        .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en cirkel'})
-        .setDescription('Formel: pi * r')
-        //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
-        .addFields(
-            { name: 'For at udregne areal af en cirkel , skriv:', value: "/areal cirkel <r>"},
           //{ name: '\u200B', value: '\u200B' },
           // { name: 'Inline field title', value: 'Some value here', inline: true },
           // { name: 'Inline field title', value: 'Some value here', inline: true },
-        )
-        //.addField('Inline field title', 'Some value here', true)
-        //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
-        .setTimestamp()
-        //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
+      )
+      //.addField('Inline field title', 'Some value here', true)
+      //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
+      .setTimestamp()
+      //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
+      //msg.channel.send("Første besked");
+      msg.channel.send({ embeds: [arealTrekantEmbed] });
+      }
+  }
+  if(commands[0] === "/areal" && commands[1] === "cirkel"){ 
+  if(isNaN(commands[2])){
+      //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
+      const arealCirkelHelpEmbed = new MessageEmbed()
+      .setColor('#ff0000')
+      .setTitle("Areal af en cirkel")
+      .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/rektangel')
+      .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en cirkel'})
+      .setDescription('Formel: pi * r')
+      //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
+      .addFields(
+          { name: 'For at udregne areal af en cirkel , skriv:', value: "/areal cirkel <r>"},
+          //{ name: '\u200B', value: '\u200B' },
+          // { name: 'Inline field title', value: 'Some value here', inline: true },
+          // { name: 'Inline field title', value: 'Some value here', inline: true },
+      )
+      //.addField('Inline field title', 'Some value here', true)
+      //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
+      .setTimestamp()
+      //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
 
       msg.channel.send({ embeds: [arealCirkelHelpEmbed] });
-    
+  
       }else{
-        //console.log("else bliver executed")
+      //console.log("else bliver executed")
 
-        let arealCirkel = (Math.PI * (commands[2]))
+      let arealCirkel = (Math.PI * (commands[2]))
 
-        const arealCirkelEmbed = new MessageEmbed()
-        .setColor('#00ff00')
-        .setTitle("Areal af en cirkel")
-        .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/rektangel')
-        .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en cirkel'})
-        .setDescription('Formel: pi * r')
-        //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
-        .addFields(
-         { name: 'Areal for en cirkel udregnet:', value: "Svar: " + arealCirkel},
+      const arealCirkelEmbed = new MessageEmbed()
+      .setColor('#00ff00')
+      .setTitle("Areal af en cirkel")
+      .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/rektangel')
+      .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en cirkel'})
+      .setDescription('Formel: pi * r')
+      //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
+      .addFields(
+      { name: 'Areal for en cirkel udregnet:', value: "Svar: " + arealCirkel},
           //{ name: '\u200B', value: '\u200B' },
           // { name: 'Inline field title', value: 'Some value here', inline: true },
           // { name: 'Inline field title', value: 'Some value here', inline: true },
@@ -264,13 +264,13 @@ function gotMessage(msg){
       //msg.channel.send("Første besked");
       msg.channel.send({ embeds: [arealCirkelEmbed] });
       }
-    }
+  }
 
-    //Areal af parallelogram
-    if(commands[0] === "/areal" && commands[1] === "parallelogram" || commands[0] === "areal" && commands[1] === "parallel"){ 
+  //Areal af parallelogram
+  if(commands[0] === "/areal" && commands[1] === "parallelogram" || commands[0] === "areal" && commands[1] === "parallel"){ 
       if(isNaN(commands[2])|| isNaN(commands[3])|| (isNaN(commands[2]) && isNaN(commands[3]))){
-        //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
-        const arealParallelHelpEmbed = new MessageEmbed()
+      //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
+      const arealParallelHelpEmbed = new MessageEmbed()
           .setColor('#ff0000')
           .setTitle("Areal af et parallelogram")
           .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/parallellogram')
@@ -279,18 +279,18 @@ function gotMessage(msg){
           //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
           .addFields(
               { name: 'For at udregne areal af et parallelogram , skriv:', value: "/areal parallelogram <h> <g>"},
-            //{ name: '\u200B', value: '\u200B' },
-            // { name: 'Inline field title', value: 'Some value here', inline: true },
-            // { name: 'Inline field title', value: 'Some value here', inline: true },
+          //{ name: '\u200B', value: '\u200B' },
+          // { name: 'Inline field title', value: 'Some value here', inline: true },
+          // { name: 'Inline field title', value: 'Some value here', inline: true },
           )
           //.addField('Inline field title', 'Some value here', true)
           //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
           .setTimestamp()
           //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
 
-        msg.channel.send({ embeds: [arealParallelHelpEmbed] });
+      msg.channel.send({ embeds: [arealParallelHelpEmbed] });
       
-        }else{
+      }else{
           //console.log("else bliver executed")
 
           let arealParallel = (commands[2] * commands[3])
@@ -304,25 +304,25 @@ function gotMessage(msg){
           //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
           .addFields(
           { name: 'Areal for et paralellogram udregnet:', value: "Svar: " + arealParallel},
-            //{ name: '\u200B', value: '\u200B' },
-            // { name: 'Inline field title', value: 'Some value here', inline: true },
-            // { name: 'Inline field title', value: 'Some value here', inline: true },
-        )
-        //.addField('Inline field title', 'Some value here', true)
-        //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
-        .setTimestamp()
-        //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
-        //msg.channel.send("Første besked");
-        msg.channel.send({ embeds: [arealParallelEmbed] });
-        }
+          //{ name: '\u200B', value: '\u200B' },
+          // { name: 'Inline field title', value: 'Some value here', inline: true },
+          // { name: 'Inline field title', value: 'Some value here', inline: true },
+      )
+      //.addField('Inline field title', 'Some value here', true)
+      //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
+      .setTimestamp()
+      //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
+      //msg.channel.send("Første besked");
+      msg.channel.send({ embeds: [arealParallelEmbed] });
+      }
   }
 
 
-    //Areal af parallelogram
-    if(commands[0] === "/areal" && commands[1] === "trapez"){ 
+  //Areal af parallelogram
+  if(commands[0] === "/areal" && commands[1] === "trapez"){ 
       if(isNaN(commands[2]) || isNaN(commands[3]) || isNaN(commands[4]) || (isNaN(commands[2]) && isNaN(commands[3]) && isNaN(commands[4]))){
-        //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
-        const arealTrapezHelpEmbed = new MessageEmbed()
+      //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
+      const arealTrapezHelpEmbed = new MessageEmbed()
           .setColor('#ff0000')
           .setTitle("Areal af en trapez")
           .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/trapez')
@@ -331,18 +331,18 @@ function gotMessage(msg){
           //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
           .addFields(
               { name: 'For at udregne areal af et parallelogram , skriv:', value: "/areal trapez <h> <a1> <a2>"},
-            //{ name: '\u200B', value: '\u200B' },
-            // { name: 'Inline field title', value: 'Some value here', inline: true },
-            // { name: 'Inline field title', value: 'Some value here', inline: true },
+          //{ name: '\u200B', value: '\u200B' },
+          // { name: 'Inline field title', value: 'Some value here', inline: true },
+          // { name: 'Inline field title', value: 'Some value here', inline: true },
           )
           //.addField('Inline field title', 'Some value here', true)
           //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
           .setTimestamp()
           //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
 
-        msg.channel.send({ embeds: [arealTrapezHelpEmbed] });
+      msg.channel.send({ embeds: [arealTrapezHelpEmbed] });
       
-        }else{
+      }else{
           //console.log("else bliver executed")
 
           let arealTrapez = (1/2 * commands[2] * (commands[3] + commands[4]))
@@ -356,21 +356,19 @@ function gotMessage(msg){
           //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
           .addFields(
           { name: 'Areal for en trapez udregnet:', value: "Svar: " + arealTrapez},
-            //{ name: '\u200B', value: '\u200B' },
-            // { name: 'Inline field title', value: 'Some value here', inline: true },
-            // { name: 'Inline field title', value: 'Some value here', inline: true },
-        )
-        //.addField('Inline field title', 'Some value here', true)
-        //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
-        .setTimestamp()
-        //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
-        //msg.channel.send("Første besked");
-        msg.channel.send({ embeds: [arealTrapezEmbed] });
-        }
-  }
-    for(let i = 0; i < commands.length; i++){
-    console.log(commands[i]);
-    }
+          //{ name: '\u200B', value: '\u200B' },
+          // { name: 'Inline field title', value: 'Some value here', inline: true },
+          // { name: 'Inline field title', value: 'Some value here', inline: true },
+      )
+      //.addField('Inline field title', 'Some value here', true)
+      //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
+      .setTimestamp()
+      //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
+      //msg.channel.send("Første besked");
+      msg.channel.send({ embeds: [arealTrapezEmbed] });
+      }
+   }
+    
 
 
 
