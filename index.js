@@ -18,7 +18,6 @@ function readyDiscord(){
   console.log('Botten er tændt'); 
 }
 client.on("messageCreate",gotMessage);
-
 //**********************************************************************************************//
 
 //Opbygning af SlashCommands med SlashCommandBuilder
@@ -26,7 +25,6 @@ client.on("messageCreate",gotMessage);
 // const pythagorasSlash = SlashCommandBuilder()
 //   .setName('pythagoras')
 //   .setDescription('Udregner pythagoras')
-
 
 
 function gotMessage(msg){
@@ -366,6 +364,57 @@ function gotMessage(msg){
       }
    }
     
+   //Kvadratrod af et tal
+   if(commands[0] === "/kvadratrod"){
+    if(isNaN(commands[1])){
+      const kvadratrodHelpEmbed = new MessageEmbed()
+      .setColor('#ff0000')
+      .setTitle("Kvadratrod")
+      .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/trapez')
+      .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en trapez'})
+      .setDescription('Kvadratroden af et tal')
+      //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
+      .addFields(
+          { name: 'For at tage kvadratroden af et tal, skriv:', value: "/kvadratrod <tal>"},
+      //{ name: '\u200B', value: '\u200B' },
+      // { name: 'Inline field title', value: 'Some value here', inline: true },
+      // { name: 'Inline field title', value: 'Some value here', inline: true },
+      )
+      //.addField('Inline field title', 'Some value here', true)
+      //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
+      .setTimestamp()
+      //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
+
+  msg.channel.send({ embeds: [kvadratrodHelpEmbed] });
+
+    }else{
+      
+      let kvadratrod = Math.sqrt(commands[1])
+
+      const kvadratrodEmbed = new MessageEmbed()
+      .setColor('#00ff00')
+      .setTitle("Kvadratrod")
+      .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/trapez')
+      .setAuthor({ name: 'Studiehjælperen: Kvadratrod'})
+      .setDescription('Kvadratroden af et tal')
+      //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
+      .addFields(
+          { name: 'Kvadraten af et tal:', value: "Svar: " + kvadratrod},
+      //{ name: '\u200B', value: '\u200B' },
+      // { name: 'Inline field title', value: 'Some value here', inline: true },
+      // { name: 'Inline field title', value: 'Some value here', inline: true },
+      )
+      //.addField('Inline field title', 'Some value here', true)
+      //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
+      .setTimestamp()
+      //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
+
+  msg.channel.send({ embeds: [kvadratrodEmbed] });
+
+
+    }
+
+   }
 
 
 
