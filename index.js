@@ -20,6 +20,7 @@ function readyDiscord(){
   console.log('Botten er tændt'); 
 }
 client.on("messageCreate",gotMessage);
+
 //**********************************************************************************************//
 
 //Opbygning af SlashCommands med SlashCommandBuilder
@@ -27,6 +28,7 @@ client.on("messageCreate",gotMessage);
 // const pythagorasSlash = SlashCommandBuilder()
 //   .setName('pythagoras')
 //   .setDescription('Udregner pythagoras')
+
 
 
 function gotMessage(msg){
@@ -331,6 +333,7 @@ function gotMessage(msg){
       }
    }
     
+<<<<<<< HEAD
    //Kvadratrod af et tal
    if(commands[0] === "/kvadratrod"){
     if(isNaN(commands[1])){
@@ -383,6 +386,14 @@ function gotMessage(msg){
 
     }
    }
+=======
+
+
+
+
+
+
+>>>>>>> parent of f699537 (idk)
     for(let i = 0; i < commands.length; i++){
     console.log(commands[i]);
     }
