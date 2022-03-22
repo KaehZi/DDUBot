@@ -460,7 +460,6 @@ function gotMessage(msg){
             //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
     msg.channel.send({ embeds: [rumfangHelpEmbed] });
         console.log("Rumfang hjælp embed er blevet afsendt")
-        //Test
 }
 
 
