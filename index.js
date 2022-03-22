@@ -439,12 +439,12 @@ function gotMessage(msg){
 
     //Rumfang hjælp kommando
         if(commands[0] === "/rumfang" && commands[1] === "hjælp"){
-            const arealHelpEmbed = new MessageEmbed()
+            const rumfangHelpEmbed = new MessageEmbed()
             .setColor('#ffff00')
             .setTitle("Rumfang beregning")
             .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/rumfang-og-overfladeareal')
             .setAuthor({ name: 'Studiehjælperen: Udregning af rumfang'})
-            .setDescription('Areal udregning af Lone')
+            .setDescription('Rumfangs beregning af Studiehjælperen')
             //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
                 { name: 'For at udregne rumfang af en firkant/kasse, skriv:', value: "/rumfang firkant <l> <b> <h>"},
@@ -458,7 +458,7 @@ function gotMessage(msg){
             //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
             .setTimestamp()
             //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
-    msg.channel.send({ embeds: [arealHelpEmbed] });
+    msg.channel.send({ embeds: [rumfangHelpEmbed] });
     }
     
 
