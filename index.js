@@ -31,9 +31,9 @@ client.on("messageCreate",gotMessage);
 
 
 function gotMessage(msg){
-    //console.log(msg.content);
+    console.log(msg.content);
     let commands = msg.content.split(" ")
-    //console.log(commands)
+    console.log(commands)
 
   //Pythagoras funktion med embed implementeret
   if(commands[0] === "/pythagoras"){
