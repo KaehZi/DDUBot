@@ -6,7 +6,7 @@ const { Client, Intents } = require("discord.js");
 const { MessageEmbed } = require("discord.js");
 //const { SlashCommandBuilder } = require('./@discordjs/builders');
 require("dotenv").config();
-
+//test
 
 //Der kommer en fejl med at det ikke er den rigtige pakke der bliver åbnet når SlashCommandBuilder bliver executed
 //const pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras')
