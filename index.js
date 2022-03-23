@@ -433,12 +433,11 @@ function gotMessage(msg){
   msg.channel.send(
       { embeds: [kvadratrodEmbed] });
         console.log("kvadratrodEmbed afsendt")
-
+        }
     }
 
-   
-    //Rumfang hjælp kommando
-    /*if(commands[0] === "/rumfang"){
+    //Rumfang hjælp
+    if(commands[0] === "/rumfang" && commands[1] === "hjælp"){
         const rumfangHelpEmbed = new MessageEmbed()
             .setColor('#ffff00')
             .setTitle("Rumfang beregning")
@@ -458,15 +457,21 @@ function gotMessage(msg){
             //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
             .setTimestamp()
             //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
-    msg.channel.send({ embeds: [rumfangHelpEmbed] });
-        console.log("Rumfang hjælp embed er blevet afsendt")}*/
+    msg.channel.send(
+        { embeds: [rumfangHelpEmbed] });
+
+
+
+    }
+
+    
 
 
 
 
 
     //Vejr funktion
-    if(commands[0] === "/vejret" && isNaN(commands[1])){
+    /*if(commands[0] === "/vejret" && isNaN(commands[1])){
          const vejretEmbed = new MessageEmbed()
          .setColor('#00ff00')
          .setTitle("Vejret i " + commands[1])
@@ -493,16 +498,17 @@ function gotMessage(msg){
          
         }
 
-    }
-
-
-    
-    for(let i = 0; i < commands.length; i++){
+*/
+for(let i = 0; i < commands.length; i++){
     //console.log(commands[i]);
     }  
 
+    }
+
+    
+    
 
 
 
 
-}
+
