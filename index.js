@@ -6,7 +6,7 @@ const { Client, Intents } = require("discord.js");
 const { MessageEmbed } = require("discord.js");
 //const { SlashCommandBuilder } = require('./@discordjs/builders');
 require("dotenv").config();
-//test
+
 
 //Der kommer en fejl med at det ikke er den rigtige pakke der bliver åbnet når SlashCommandBuilder bliver executed
 //const pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras')
@@ -95,88 +95,27 @@ function gotMessage(msg){
     //Oversigt over areal funktioner
     if(commands[0] === "/areal" && commands[1] === "" ||
       (commands[0] === "/areal" && commands[1] === "hjælp")){
-
-      if(commands[0] === "/pythagoras"){
-        if(isNaN(commands[1])|| 
-        isNaN(commands[2])|| 
-        isNaN(commands[1]) && isNaN(commands[2])){
-          //let pythagoras = Math.sqrt(commands[1] * commands[1] + commands[2] * commands[2])
-          //msg.channel.send("Svar: " + pythagoras);
-          //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
-          const pythagorasHelpEmbed = new MessageEmbed()
-            .setColor('#ff0000')
-            .setTitle("Pythagoras")
-            .setURL('https://www.webmatematik.dk/lektioner/matematik-c/trigonometri/retvinklede-trekanter')
-            .setAuthor({ name: 'Studiehjælperen: Udregning af Pythagoras'})
-            .setDescription('Pythagoras udregning af Lone')
-            //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
-            .addFields(
-                { name: 'For at udregne med pythagoras, skriv:', value: "/pythagoras <a> <b>"},
-              //{ name: '\u200B', value: '\u200B' },
-              // { name: 'Inline field title', value: 'Some value here', inline: true },
-              // { name: 'Inline field title', value: 'Some value here', inline: true },
-            )
-            //.addField('Inline field title', 'Some value here', true)
-            //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
-            .setTimestamp()
-            //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
-
-          msg.channel.send(
-              { embeds: [pythagorasHelpEmbed] });
-
         
-          }else{
-            //console.log("noget")
-
-            let pythagoras = Math.sqrt(commands[1] * commands[1] + commands[2] * commands[2])
-
-          
-          //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras')
-          const pythagorasEmbed = new MessageEmbed()
-            .setColor('#00ff00')
-            .setTitle("Pythagoras")
-            .setURL('https://www.webmatematik.dk/lektioner/matematik-c/trigonometri/retvinklede-trekanter')
-            .setAuthor({ name: 'Studiehjælperen: Udregning af Pythagoras'})
-            .setDescription('Pythagoras udregning af Lone')
+      const arealHelpEmbed = new MessageEmbed()
+            .setColor('#ffff00')
+            .setTitle("Areal beregning")
+            .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal')
+            .setAuthor({ name: 'Studiehjælperen: Udregning af arealer'})
+            .setDescription('Areal udregning af Lone')
             //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
-                { name: 'Pythagoras udregnet:', value: "Svar: " + pythagoras},
-                //{ name: '\u200B', value: '\u200B' },
-                // { name: 'Inline field title', value: 'Some value here', inline: true },
-                // { name: 'Inline field title', value: 'Some value here', inline: true },
+                { name: 'For at udregne areal af en firkant, skriv:', value: "/areal firkant <l> <b>"},
+                { name: 'For at udregne areal af en trekant, skriv:', value: '/areal trekant <h> <g>' },
+                { name: 'For at udregne areal af et paralellogram, skriv:', value: '/areal parallelogram <h> <g>' },
+                { name: 'For at udregne areal af en cirkel, skriv:', value: "/areal cirkel <r>" },
+                { name: 'For at udregne areal af en trapez, skriv:', value: "/areal trapez <h> <a1> <a2>" },
             )
             //.addField('Inline field title', 'Some value here', true)
             //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
             .setTimestamp()
             //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
-
-          msg.channel.send({ embeds: [pythagorasEmbed] });
-          }
+      msg.channel.send({ embeds: [arealHelpEmbed] });
       }
-        //Oversigt over areal funktioner
-        if(commands[0] === "/areal" && commands[1] === "" ||
-          (commands[0] === "/areal" && commands[1] === "hjælp")){
-            
-          const arealHelpEmbed = new MessageEmbed()
-                .setColor('#ffff00')
-                .setTitle("Areal beregning")
-                .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal')
-                .setAuthor({ name: 'Studiehjælperen: Udregning af arealer'})
-                .setDescription('Areal udregning af Lone')
-                //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
-                .addFields(
-                    { name: 'For at udregne areal af en firkant, skriv:', value: "/areal firkant <l> <b>"},
-                    { name: 'For at udregne areal af en trekant, skriv:', value: '/areal trekant <h> <g>' },
-                    { name: 'For at udregne areal af et paralellogram, skriv:', value: '/areal parallelogram <h> <g>' },
-                    { name: 'For at udregne areal af en cirkel, skriv:', value: "/areal cirkel <r>" },
-                    { name: 'For at udregne areal af en trapez, skriv:', value: "/areal trapez <h> <a1> <a2>" },
-                )
-                //.addField('Inline field title', 'Some value here', true)
-                //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
-                .setTimestamp()
-                //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
-          msg.channel.send({ embeds: [arealHelpEmbed] });
-          }
       
   //Areal for en firkant funktion med embed
   if(commands[0] === "/areal" && commands[1] === "firkant"){ 
@@ -498,30 +437,29 @@ function gotMessage(msg){
     }
 
    
-      //Rumfang hjælp kommando
-      if(commands[0] === "/rumfang"){
-          const rumfangHelpEmbed = new MessageEmbed()
-              .setColor('#ffff00')
-              .setTitle("Rumfang beregning")
-              .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/rumfang-og-overfladeareal')
-              .setAuthor({ name: 'Studiehjælperen: Udregning af rumfang'})
-              .setDescription('Rumfangs beregning af Studiehjælperen')
-              //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
-              .addFields(
-                  { name: 'For at udregne rumfang af en firkant/kasse, skriv:', value: "/rumfang firkant <l> <b> <h>"},
-                  { name: 'For at udregne rumfang af en cylinder, skriv:', value: '/rumfang cylinder <h> <r>' },
-                  { name: 'For at udregne rumfang af en kugle, skriv:', value: "/rumfang kugle <r>" },
-                  { name: 'For at udregne rumfang af en kegle, skriv:', value: "/rumfang kegle <h> <r>" },
-                  { name: 'For at udregne rumfang af en pyramide, skriv:', value: '/rumfang pyramide <Areal af grundfladen> <h>'},
+    //Rumfang hjælp kommando
+    /*if(commands[0] === "/rumfang"){
+        const rumfangHelpEmbed = new MessageEmbed()
+            .setColor('#ffff00')
+            .setTitle("Rumfang beregning")
+            .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/rumfang-og-overfladeareal')
+            .setAuthor({ name: 'Studiehjælperen: Udregning af rumfang'})
+            .setDescription('Rumfangs beregning af Studiehjælperen')
+            //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
+            .addFields(
+                { name: 'For at udregne rumfang af en firkant/kasse, skriv:', value: "/rumfang firkant <l> <b> <h>"},
+                { name: 'For at udregne rumfang af en cylinder, skriv:', value: '/rumfang cylinder <h> <r>' },
+                { name: 'For at udregne rumfang af en kugle, skriv:', value: "/rumfang kugle <r>" },
+                { name: 'For at udregne rumfang af en kegle, skriv:', value: "/rumfang kegle <h> <r>" },
+                { name: 'For at udregne rumfang af en pyramide, skriv:', value: '/rumfang pyramide <Areal af grundfladen> <h>'},
 
-              )
-              //.addField('Inline field title', 'Some value here', true)
-              //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
-              .setTimestamp()
-              //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
-      msg.channel.send({ embeds: [rumfangHelpEmbed] });
-          console.log("Rumfang hjælp embed er blevet afsendt")
-  }
+            )
+            //.addField('Inline field title', 'Some value here', true)
+            //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
+            .setTimestamp()
+            //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
+    msg.channel.send({ embeds: [rumfangHelpEmbed] });
+        console.log("Rumfang hjælp embed er blevet afsendt")}*/
 
 
 
@@ -564,5 +502,7 @@ function gotMessage(msg){
     }  
 
 
-  }
+
+
+
 }
