@@ -1,6 +1,3 @@
-let locationData;
-let vejrData = []
-
 // Require the necessary discord.js classes
 const { Client, Intents } = require("discord.js");
 const { MessageEmbed } = require("discord.js");
@@ -337,13 +334,13 @@ function gotMessage(msg){
          isNaN(commands[3]) ||
          isNaN(commands[4]) || 
         (isNaN(commands[2]) && isNaN(commands[3]) && isNaN(commands[4]))){
-      //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
+
       const arealTrapezHelpEmbed = new MessageEmbed()
             .setColor('#ff0000')
             .setTitle("Areal af en trapez")
             .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/trapez')
             .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en trapez'})
-            .setDescription('Formel: 1/2 * h * (a1 + a2)')
+            //.setDescription('Formel: 1/2 * h * (a1 + a2)')
             //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
                 { name: 'For at udregne areal af et parallelogram , skriv:', value: "/areal trapez <h> <a1> <a2>"},
@@ -459,12 +456,44 @@ function gotMessage(msg){
             //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
     msg.channel.send(
         { embeds: [rumfangHelpEmbed] });
-
-
-
     }
 
+    //Rumfang af en kasse
+    if(commands[0] === "/rumfang" && commands[1] === "kasse"){ 
+        if(isNaN(commands[2]) || 
+           isNaN(commands[3]) ||
+           isNaN(commands[4]) || 
+          (isNaN(commands[2]) && isNaN(commands[3]) && isNaN(commands[4]))){
     
+        const rumfangKasseHelpEmbed = new MessageEmbed()
+            .setColor('ff0000')
+            .setTitle("Rumfang af en kasse")
+            .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/rumfang-og-overfladeareal/kasse')
+            .setAuthor({ name: 'Studiehjælperen: Udregning af rumfang for en kasse'})
+            .setDescription('Rumfangs beregning af Studiehjælperen')
+            .addFields(
+                { name: 'For at udregne rumfang af en firkant/kasse, skriv:', value: "/rumfang firkant <l> <b> <h>"},    
+            )
+            .setTimestamp()
+        msg.channel.send({ embeds: [rumfangKasseHelpEmbed]});
+
+    }else{
+
+        let rumfangKasse = (commands[2] * commands[3] * commands[4])
+
+        const rumfangKasseEmbed = new MessageEmbed()
+            .setColor('00ff00')
+            .setTitle("Rumfang af en kasse")
+            .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/rumfang-og-overfladeareal/kasse')
+            .setAuthor({ name: 'Studiehjælperen: Udregning af rumfang for en kasse'})
+            .setDescription('Rumfangs beregning af Studiehjælperen')
+            .addFields(
+                { name: 'Rumfanget af en kasse: ', value: "Svar: " + rumfangKasse},    
+            )
+            .setTimestamp()
+        msg.channel.send({ embeds: [rumfangKasseEmbed]});
+    }
+
 
 
 
@@ -511,4 +540,4 @@ for(let i = 0; i < commands.length; i++){
 
 
 
-
+}
