@@ -19,14 +19,6 @@ function readyDiscord(){
 }
 client.on("messageCreate",gotMessage);
 //**********************************************************************************************//
-
-//Opbygning af SlashCommands med SlashCommandBuilder
-
-// const pythagorasSlash = SlashCommandBuilder()
-//   .setName('pythagoras')
-//   .setDescription('Udregner pythagoras')
-
-
 function gotMessage(msg){
     console.log(msg.content);
     let commands = msg.content.split(" ")
@@ -37,9 +29,6 @@ function gotMessage(msg){
     if(isNaN(commands[1])|| 
        isNaN(commands[2])|| 
        isNaN(commands[1]) && isNaN(commands[2])){
-      //let pythagoras = Math.sqrt(commands[1] * commands[1] + commands[2] * commands[2])
-      //msg.channel.send("Svar: " + pythagoras);
-      //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
       const pythagorasHelpEmbed = new MessageEmbed()
         .setColor('#ff0000')
         .setTitle("Pythagoras")
@@ -49,14 +38,8 @@ function gotMessage(msg){
         //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
         .addFields(
             { name: 'For at udregne med pythagoras, skriv:', value: "/pythagoras <a> <b>"},
-          //{ name: '\u200B', value: '\u200B' },
-          // { name: 'Inline field title', value: 'Some value here', inline: true },
-          // { name: 'Inline field title', value: 'Some value here', inline: true },
         )
-        //.addField('Inline field title', 'Some value here', true)
-        //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
         .setTimestamp()
-        //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
 
       msg.channel.send(
           { embeds: [pythagorasHelpEmbed] });
@@ -66,8 +49,6 @@ function gotMessage(msg){
 
         let pythagoras = Math.sqrt(commands[1] * commands[1] + commands[2] * commands[2])
 
-      
-      //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras')
       const pythagorasEmbed = new MessageEmbed()
         .setColor('#00ff00')
         .setTitle("Pythagoras")
@@ -453,7 +434,7 @@ function gotMessage(msg){
             //.addField('Inline field title', 'Some value here', true)
             //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
             .setTimestamp()
-            //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
+            //.setFooter({ text: 'Webmatematik, iconURL: https://i.imgur.com/AfFp7pu.png' });
     msg.channel.send(
         { embeds: [rumfangHelpEmbed] });
     }
@@ -486,13 +467,15 @@ function gotMessage(msg){
             .setTitle("Rumfang af en kasse")
             .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/rumfang-og-overfladeareal/kasse')
             .setAuthor({ name: 'Studiehjælperen: Udregning af rumfang for en kasse'})
-            .setDescription('Rumfangs beregning af Studiehjælperen')
+            .setDescription('Formel: l * h * h')
             .addFields(
                 { name: 'Rumfanget af en kasse: ', value: "Svar: " + rumfangKasse},    
             )
             .setTimestamp()
         msg.channel.send({ embeds: [rumfangKasseEmbed]});
     }
+
+    //Rumfang af en cylinder
 
 
 
