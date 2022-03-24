@@ -1,6 +1,3 @@
-let locationData;
-let vejrData = []
-
 // Require the necessary discord.js classes
 const { Client, Intents } = require("discord.js");
 const { MessageEmbed } = require("discord.js");
@@ -21,28 +18,23 @@ function readyDiscord(){
   console.log('Botten er tændt'); 
 }
 client.on("messageCreate",gotMessage);
+
 //**********************************************************************************************//
-
-//Opbygning af SlashCommands med SlashCommandBuilder
-
-// const pythagorasSlash = SlashCommandBuilder()
-//   .setName('pythagoras')
-//   .setDescription('Udregner pythagoras')
-
 
 function gotMessage(msg){
     console.log(msg.content);
     let commands = msg.content.split(" ")
     console.log(commands)
 
+
+  //Oversigt over hvilke kommandoer Studiehjælperen udsteder || /hjælp
+
+
   //Pythagoras funktion med embed implementeret
   if(commands[0] === "/pythagoras"){
     if(isNaN(commands[1])|| 
        isNaN(commands[2])|| 
        isNaN(commands[1]) && isNaN(commands[2])){
-      //let pythagoras = Math.sqrt(commands[1] * commands[1] + commands[2] * commands[2])
-      //msg.channel.send("Svar: " + pythagoras);
-      //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
       const pythagorasHelpEmbed = new MessageEmbed()
         .setColor('#ff0000')
         .setTitle("Pythagoras")
@@ -52,14 +44,8 @@ function gotMessage(msg){
         //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
         .addFields(
             { name: 'For at udregne med pythagoras, skriv:', value: "/pythagoras <a> <b>"},
-          //{ name: '\u200B', value: '\u200B' },
-          // { name: 'Inline field title', value: 'Some value here', inline: true },
-          // { name: 'Inline field title', value: 'Some value here', inline: true },
         )
-        //.addField('Inline field title', 'Some value here', true)
-        //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
         .setTimestamp()
-        //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
 
       msg.channel.send(
           { embeds: [pythagorasHelpEmbed] });
@@ -69,8 +55,6 @@ function gotMessage(msg){
 
         let pythagoras = Math.sqrt(commands[1] * commands[1] + commands[2] * commands[2])
 
-      
-      //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras')
       const pythagorasEmbed = new MessageEmbed()
         .setColor('#00ff00')
         .setTitle("Pythagoras")
@@ -337,13 +321,13 @@ function gotMessage(msg){
          isNaN(commands[3]) ||
          isNaN(commands[4]) || 
         (isNaN(commands[2]) && isNaN(commands[3]) && isNaN(commands[4]))){
-      //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
+
       const arealTrapezHelpEmbed = new MessageEmbed()
             .setColor('#ff0000')
             .setTitle("Areal af en trapez")
             .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/trapez')
             .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en trapez'})
-            .setDescription('Formel: 1/2 * h * (a1 + a2)')
+            //.setDescription('Formel: 1/2 * h * (a1 + a2)')
             //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
                 { name: 'For at udregne areal af et parallelogram , skriv:', value: "/areal trapez <h> <a1> <a2>"},
@@ -433,12 +417,11 @@ function gotMessage(msg){
   msg.channel.send(
       { embeds: [kvadratrodEmbed] });
         console.log("kvadratrodEmbed afsendt")
-
+        }
     }
 
-   
-    //Rumfang hjælp kommando
-    /*if(commands[0] === "/rumfang"){
+    //Rumfang hjælp
+    if(commands[0] === "/rumfang" && commands[1] === "hjælp"){
         const rumfangHelpEmbed = new MessageEmbed()
             .setColor('#ffff00')
             .setTitle("Rumfang beregning")
@@ -447,61 +430,241 @@ function gotMessage(msg){
             .setDescription('Rumfangs beregning af Studiehjælperen')
             //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
-                { name: 'For at udregne rumfang af en firkant/kasse, skriv:', value: "/rumfang firkant <l> <b> <h>"},
+                { name: 'For at udregne rumfang af en kasse, skriv:', value: "/rumfang kasse <l> <b> <h>"},
                 { name: 'For at udregne rumfang af en cylinder, skriv:', value: '/rumfang cylinder <h> <r>' },
                 { name: 'For at udregne rumfang af en kugle, skriv:', value: "/rumfang kugle <r>" },
                 { name: 'For at udregne rumfang af en kegle, skriv:', value: "/rumfang kegle <h> <r>" },
                 { name: 'For at udregne rumfang af en pyramide, skriv:', value: '/rumfang pyramide <Areal af grundfladen> <h>'},
+                { name: 'For at udregne rumfang af et prisme, skriv:', value: '/rumfang prisme <h> <g> <b>'}
 
             )
             //.addField('Inline field title', 'Some value here', true)
             //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
             .setTimestamp()
-            //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
-    msg.channel.send({ embeds: [rumfangHelpEmbed] });
-        console.log("Rumfang hjælp embed er blevet afsendt")}*/
-
-
-
-
-
-    //Vejr funktion
-    if(commands[0] === "/vejret" && isNaN(commands[1])){
-         const vejretEmbed = new MessageEmbed()
-         .setColor('#00ff00')
-         .setTitle("Vejret i " + commands[1])
-         .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/trapez')
-         .setAuthor({ name: 'Studiehjælperen: Vejrudsigt'})
-         .setDescription('Vejrudsigt for de næste 7 dage')
-         //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
-         .addFields(
-             { name: 'Vejr udsigten for i dag', value: "Temperatur: " + floor(vejrData.current.temp)},
-             { name: 'Inline field title', value: 'Some value here', inline: true },
-             { name: 'Inline field title', value: 'Some value here', inline: true },
-         )
-         //.addField('Inline field title', 'Some value here', true)
-         //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
-         .setTimestamp()
-         //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
-     
-         msg.channel.send(
-             { embeds: [vejretEmbed] });
-       
-     
-         //Vejr API:
-         //https://api.openweathermap.org/data/2.5/onecall?lat=55&lon=9&exclude=minutely,hourly&appid=74f63fb72bc6e99d62ff5a27d4a51280&units=metric&lang=DA
-         
-        }
-
+            //.setFooter({ text: 'Webmatematik, iconURL: https://i.imgur.com/AfFp7pu.png' });
+    msg.channel.send(
+        { embeds: [rumfangHelpEmbed] });
     }
 
-
+    //Rumfang af en kasse
+    if(commands[0] === "/rumfang" && commands[1] === "kasse"){ 
+        if(isNaN(commands[2]) || 
+           isNaN(commands[3]) ||
+           isNaN(commands[4]) || 
+          (isNaN(commands[2]) && isNaN(commands[3]) && isNaN(commands[4]))){
     
-    for(let i = 0; i < commands.length; i++){
-    //console.log(commands[i]);
-    }  
+        const rumfangKasseHelpEmbed = new MessageEmbed()
+            .setColor('ff0000')
+            .setTitle("Rumfang af en kasse")
+            .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/rumfang-og-overfladeareal/kasse')
+            .setAuthor({ name: 'Studiehjælperen: Udregning af rumfang for en kasse'})
+            .setDescription('Rumfangs beregning af Studiehjælperen')
+            .addFields(
+                { name: 'For at udregne rumfang af en firkant/kasse, skriv:', value: "/rumfang firkant <l> <b> <h>"},    
+            )
+            .setTimestamp()
+        msg.channel.send({ embeds: [rumfangKasseHelpEmbed]});
 
+    }else{
 
+        let rumfangKasse = (commands[2] * commands[3] * commands[4])
+
+        const rumfangKasseEmbed = new MessageEmbed()
+            .setColor('00ff00')
+            .setTitle("Rumfang af en kasse")
+            .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/rumfang-og-overfladeareal/kasse')
+            .setAuthor({ name: 'Studiehjælperen: Udregning af rumfang for en kasse'})
+            .setDescription('Formel: l * h * h')
+            .addFields(
+                { name: 'Rumfanget af en kasse: ', value: "Svar: " + rumfangKasse},    
+            )
+            .setTimestamp()
+        msg.channel.send({ embeds: [rumfangKasseEmbed]});
+    }
+  }
+
+    //Rumfang af en cylinder
+    if(commands[0] === "/rumfang" && commands[1] === "cylinder"){ 
+      if(isNaN(commands[2]) || 
+         isNaN(commands[3]) || 
+        (isNaN(commands[2]) && isNaN(commands[3]))){
+
+          const rumfangCylinderHelpEmbed = new MessageEmbed()
+            .setColor('ff0000')
+            .setTitle("Rumfang af en cylinder")
+            .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/rumfang-og-overfladeareal/cylinder')
+            .setAuthor({ name: 'Studiehjælperen: Udregning af rumfang for en kasse'})
+            .setDescription('Rumfangs beregning af Studiehjælperen')
+            .addFields(
+                { name: 'For at udregne rumfang af en cylinder, skriv:', value: "/rumfang firkant <h> <r>"},    
+            )
+            .setTimestamp()
+        msg.channel.send({ embeds: [rumfangCylinderHelpEmbed]});
+
+        }else{
+
+          let rumfangCylinder = Math.PI * commands[2] * (commands[3])^2
+
+          const rumfangCylinderEmbed = new MessageEmbed()
+            .setColor('00ff00')
+            .setTitle("Rumfang af en kasse")
+            .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/rumfang-og-overfladeareal/cylinder')
+            .setAuthor({ name: 'Studiehjælperen: Udregning af rumfang for en cylinder'})
+            .setDescription('Formel: pi * h * r^2')
+            .addFields(
+                { name: 'Rumfanget af en cylinder: ', value: "Svar: " + rumfangCylinder},    
+            )
+            .setTimestamp()
+        msg.channel.send({ embeds: [rumfangCylinderEmbed]});
+        }
+      }
+
+      //Rumfang af en kugle
+      if(commands[0] === "/rumfang" && commands[1] === "kugle"){ 
+        if(isNaN(commands[2]) ||  
+          (isNaN(commands[2]))){
+  
+            const rumfangKugleHelpEmbed = new MessageEmbed()
+              .setColor('ff0000')
+              .setTitle("Rumfang af en kugle")
+              .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/rumfang-og-overfladeareal/kugle')
+              .setAuthor({ name: 'Studiehjælperen: Udregning af rumfang for en kugle'})
+              .setDescription('Rumfangs beregning af Studiehjælperen')
+              .addFields(
+                  { name: 'For at udregne rumfang af en kugle, skriv:', value: "/rumfang kugle <r>"},    
+              )
+              .setTimestamp()
+          msg.channel.send({ embeds: [rumfangKugleHelpEmbed]});
+  
+          }else{
+  
+            let rumfangKugle = Math.PI * 4/3 * (commands[2])^3
+  
+            const rumfangKugleEmbed = new MessageEmbed()
+              .setColor('00ff00')
+              .setTitle("Rumfang af en kugle")
+              .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/rumfang-og-overfladeareal/kugle')
+              .setAuthor({ name: 'Studiehjælperen: Udregning af rumfang for en kugle'})
+              .setDescription('Formel: pi * 4/3 * r^3')
+              .addFields(
+                  { name: 'Rumfanget af en kugle: ', value: "Svar: " + rumfangKugle},    
+              )
+              .setTimestamp()
+          msg.channel.send({ embeds: [rumfangKugleEmbed]});
+          }
+        }
+
+      //Rumfang af en kegle
+      if(commands[0] === "/rumfang" && commands[1] === "kegle"){ 
+        if(isNaN(commands[2]) && isNaN(commands[3]) ||
+           isNaN(commands[2]) ||  
+           isNaN(commands[3])){
+  
+            const rumfangKegleHelpEmbed = new MessageEmbed()
+              .setColor('ff0000')
+              .setTitle("Rumfang af en kegle")
+              .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/rumfang-og-overfladeareal/kegle')
+              .setAuthor({ name: 'Studiehjælperen: Udregning af rumfang for en kegle'})
+              .setDescription('Rumfangs beregning af Studiehjælperen')
+              .addFields(
+                  { name: 'For at udregne rumfang af en kugle, skriv:', value: "/rumfang kegle <h> <r>"},    
+              )
+              .setTimestamp()
+          msg.channel.send({ embeds: [rumfangKegleHelpEmbed]});
+  
+          }else{
+  
+            let rumfangKegle = (Math.PI * commands[2] * (commands[3])^2)/3
+  
+            const rumfangKegleEmbed = new MessageEmbed()
+              .setColor('00ff00')
+              .setTitle("Rumfang af en kegle")
+              .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/rumfang-og-overfladeareal/kegle')
+              .setAuthor({ name: 'Studiehjælperen: Udregning af rumfang for en kegle'})
+              .setDescription('Formel: pi * h * r^2')
+              .addFields(
+                  { name: 'Rumfanget af en kugle: ', value: "Svar: " + rumfangKegle},    
+              )
+              .setTimestamp()
+          msg.channel.send({ embeds: [rumfangKegleEmbed]});
+          }
+        }
+  
+
+        //Rumfang af et prisme
+        if(commands[0] === "/rumfang" && commands[1] === "prisme"){ 
+          if(isNaN(commands[2]) && isNaN(commands[3]) && isNaN(commands[4]) ||
+             isNaN(commands[2]) ||
+             isNaN(commands[3]) ||
+             isNaN(commands[4])){
+    
+              const rumfangPrismeHelpEmbed = new MessageEmbed()
+                .setColor('ff0000')
+                .setTitle("Rumfang af en prisme")
+                .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/rumfang-og-overfladeareal/prisme')
+                .setAuthor({ name: 'Studiehjælperen: Udregning af rumfang for et prisme'})
+                .setDescription('Rumfangs beregning af Studiehjælperen')
+                .addFields(
+                    { name: '***HUSK** at <b> er arealet af grundfladen for prismet! Dette kan udregnes med:*', value: '/areal trekant <h> * <g>'},
+                    { name: 'For at udregne rumfang af en kugle, skriv:', value: "/rumfang prisme <h> <g> <b>"},    
+                )
+                .setTimestamp()
+            msg.channel.send({ embeds: [rumfangPrismeHelpEmbed]});
+    
+            }else{
+    
+              let rumfangPrisme = 1/2 * commands[2] * commands[3] * commands[4]
+    
+              const rumfangPrismeEmbed = new MessageEmbed()
+                .setColor('00ff00')
+                .setTitle("Rumfang af en prisme")
+                .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/rumfang-og-overfladeareal/prisme')
+                .setAuthor({ name: 'Studiehjælperen: Udregning af rumfang for et prisme'})
+                .setDescription('Formel: 1/2 * h * g * b')
+                .addFields(
+                    { name: 'Rumfanget af et prisme: ', value: "Svar: " + rumfangPrisme},    
+                )
+                .setTimestamp()
+            msg.channel.send({ embeds: [rumfangPrismeEmbed]});
+            }
+          }
+
+      //Rumfang af en pyramide
+      if(commands[0] === "/rumfang" && commands[1] === "pyramide"){ 
+        if(isNaN(commands[2]) && isNaN(commands[3]) ||
+           isNaN(commands[2]) ||
+           isNaN(commands[3])){
+  
+            const rumfangPyramideHelpEmbed = new MessageEmbed()
+              .setColor('ff0000')
+              .setTitle("Rumfang af en pyramide")
+              .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/rumfang-og-overfladeareal/pyramide')
+              .setAuthor({ name: 'Studiehjælperen: Udregning af rumfang for et pyramide'})
+              .setDescription('Rumfangs beregning af Studiehjælperen')
+              .addFields(
+                  { name: '***HUSK** at <Grundfladeareal> er arealet af grundfladen for pyramiden! Dette kan udregnes med:*', value: '/areal trekant <h> * <g>'},
+                  { name: 'For at udregne rumfang af en pyramide, skriv:', value: "/rumfang pyramide <Grundfladeareal> <h>"},    
+              )
+              .setTimestamp()
+          msg.channel.send({ embeds: [rumfangPyramideHelpEmbed]});
+  
+          }else{
+  
+            let rumfangPyramide = (commands[2] * commands[3])/3
+  
+            const rumfangPyramideEmbed = new MessageEmbed()
+              .setColor('00ff00')
+              .setTitle("Rumfang af en pyramide")
+              .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/rumfang-og-overfladeareal/pyramide')
+              .setAuthor({ name: 'Studiehjælperen: Udregning af rumfang for et pyramide'})
+              .setDescription('Formel: (Grundfladeareal * h)/3')
+              .addFields(
+                  { name: 'Rumfanget af et pyramide: ', value: "Svar: " + rumfangPyramide},    
+              )
+              .setTimestamp()
+          msg.channel.send({ embeds: [rumfangPyramideEmbed]});
+          }
+        }  
 
 
 
