@@ -5,8 +5,8 @@ const { MessageEmbed } = require("discord.js");
 require("dotenv").config();
 
 
-//Der kommer en fejl med at det ikke er den rigtige pakke der bliver åbnet når SlashCommandBuilder bliver executed
-//const pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras')
+
+
 // Create a new client instance
 const myIntents = new Intents();
     myIntents.add( Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES )
@@ -18,6 +18,10 @@ function readyDiscord(){
   console.log('Botten er tændt'); 
 }
 client.on("messageCreate",gotMessage);
+
+
+//client.user.setStatus('idle');
+//client.user.setActivity('Undersøger om en cirkant findes 🤔');
 
 //**********************************************************************************************//
 
@@ -662,6 +666,7 @@ function gotMessage(msg){
                   { name: 'Rumfanget af et pyramide: ', value: "Svar: " + rumfangPyramide},    
               )
               .setTimestamp()
+              //.setFooter( {text: ${user} } )
           msg.channel.send({ embeds: [rumfangPyramideEmbed]});
           }
         }  
