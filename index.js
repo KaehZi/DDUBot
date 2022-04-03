@@ -20,8 +20,6 @@ function readyDiscord(){
 client.on("messageCreate",gotMessage);
 
 
-//client.user.setStatus('idle');
-//client.user.setActivity('Undersøger om en cirkant findes 🤔');
 
 //**********************************************************************************************//
 
@@ -32,7 +30,27 @@ function gotMessage(msg){
 
 
   //Oversigt over hvilke kommandoer Studiehjælperen udsteder || /hjælp
+  if(commands[0] === "/hjælp"){
+    const HelpEmbed = new MessageEmbed()
+    .setColor('#ffff00')
+    .setTitle("Hjælp")
+    //.setURL('https://www.webmatematik.dk/lektioner/matematik-c/trigonometri/retvinklede-trekanter')
+    .setAuthor({ name: 'Studiehjælperen: Oversigt over funktioner'})
+    //.setDescription('Pythagoras udregning af Lone')
+    //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
+    .addFields(
+        { name: 'For at få hjælp til at udregne areal, skriv:', value: "/areal hjælp"},
+        { name: 'For at få hjælp til at udregne rumfang, skriv:', value: "/rumfang hjælp"},
+        { name: 'For at få hjælp til at udregne ligninger, skriv:', value: "/ligning hjælp"},
+        { name: 'For at få hjælp til at udregne valuta, skriv:', value: "/valuta hjælp"},
+        { name: 'For at få hjælp til at få afspillet musik, skriv:', value: "/musik hjælp"},
+    )
+    .setTimestamp()
 
+  msg.channel.send(
+      { embeds: [HelpEmbed] });
+
+  }
 
   //Pythagoras funktion med embed implementeret
   if(commands[0] === "/pythagoras"){
