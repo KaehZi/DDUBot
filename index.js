@@ -42,6 +42,7 @@ function gotMessage(msg){
         { name: 'For at få hjælp til at udregne areal, skriv:', value: "/areal hjælp"},
         { name: 'For at få hjælp til at udregne rumfang, skriv:', value: "/rumfang hjælp"},
         { name: 'For at få hjælp til at udregne ligninger, skriv:', value: "/ligning hjælp"},
+        { name: 'For at få hjælp til at udregne kvadratrod, skriv:', value: "/kvadratrod hjælp"},
         { name: 'For at få hjælp til at udregne valuta, skriv:', value: "/valuta hjælp"},
         { name: 'For at få hjælp til at få afspillet musik, skriv:', value: "/musik hjælp"},
     )
@@ -664,7 +665,7 @@ function gotMessage(msg){
               .setAuthor({ name: 'Studiehjælperen: Udregning af rumfang for et pyramide'})
               .setDescription('Rumfangs beregning af Studiehjælperen')
               .addFields(
-                  { name: '***HUSK** at <Grundfladeareal> er arealet af grundfladen for pyramiden! Dette kan udregnes med:*', value: '/areal trekant <h> * <g>'},
+                  { name: '***HUSK** at <Grundfladeareal> er arealet af grundfladen for pyramiden! Dette kan udregnes med:*', value: '/areal trekant <h> * <g> eller /areal firkant <l> * <b>'},
                   { name: 'For at udregne rumfang af en pyramide, skriv:', value: "/rumfang pyramide <Grundfladeareal> <h>"},    
               )
               .setTimestamp()
