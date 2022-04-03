@@ -31,27 +31,61 @@ function gotMessage(msg){
 
   //Oversigt over hvilke kommandoer Studiehjælperen udsteder || /hjælp
   if(commands[0] === "/hjælp"){
-    const HelpEmbed = new MessageEmbed()
-    .setColor('#ffff00')
-    .setTitle("Hjælp")
-    //.setURL('https://www.webmatematik.dk/lektioner/matematik-c/trigonometri/retvinklede-trekanter')
-    .setAuthor({ name: 'Studiehjælperen: Oversigt over funktioner'})
-    //.setDescription('Pythagoras udregning af Lone')
-    //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
-    .addFields(
-        { name: 'For at få hjælp til at udregne areal, skriv:', value: "/areal hjælp"},
-        { name: 'For at få hjælp til at udregne rumfang, skriv:', value: "/rumfang hjælp"},
-        { name: 'For at få hjælp til at udregne ligninger, skriv:', value: "/ligning hjælp"},
-        { name: 'For at få hjælp til at udregne kvadratrod, skriv:', value: "/kvadratrod hjælp"},
-        { name: 'For at få hjælp til at udregne valuta, skriv:', value: "/valuta hjælp"},
-        { name: 'For at få hjælp til at få afspillet musik, skriv:', value: "/musik hjælp"},
-    )
-    .setTimestamp()
+        const HelpEmbed = new MessageEmbed()
+        .setColor('#ffff00')
+        .setTitle("Hjælp")
+        //.setURL('https://www.webmatematik.dk/lektioner/matematik-c/trigonometri/retvinklede-trekanter')
+        .setAuthor({ name: 'Studiehjælperen: Oversigt over funktioner'})
+        //.setDescription('Pythagoras udregning af Lone')
+        //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
+        .addFields(
+            { name: 'For at få hjælp til at udregne areal, skriv:', value: "/areal hjælp"},
+            { name: 'For at få hjælp til at udregne rumfang, skriv:', value: "/rumfang hjælp"},
+            { name: 'For at få hjælp til at udregne ligninger, skriv:', value: "/ligning hjælp"},
+            { name: 'For at få hjælp til at udregne kvadratrod, skriv:', value: "/kvadratrod hjælp"},
+            { name: 'For at få hjælp til at udregne valuta, skriv:', value: "/valuta hjælp"},
+            { name: 'For at få hjælp til at få afspillet musik, skriv:', value: "/musik hjælp"},
+        )
+        .setTimestamp()
 
   msg.channel.send(
       { embeds: [HelpEmbed] });
 
   }
+
+  //Ligning hjælp embed || Lavet til formålet at der kommer et output hvis nogen prøver kommandoen som fra /hjælp
+  if(commands[0] === '/ligning' && commands[1] === 'hjælp'){
+    const ligningHelpEmbed = new MessageEmbed()
+        .setColor('#ff0000')
+        .setTitle("UNDER UDVIKLING!")
+        .setAuthor({ name: 'Studiehjælperen: Udregning af ligninger'})
+        .setTimestamp()
+     msg.channel.send(
+        { embeds: [ligningHelpEmbed] })
+    }
+
+    //Valuta hjælp embed || Lavet til formålet at der kommer et output hvis nogen prøver kommandoen som fra /hjælp
+    if(commands[0] === '/valuta' && commands[1] === 'hjælp'){
+        const valutaHelpEmbed = new MessageEmbed()
+            .setColor('#ff0000')
+            .setTitle("UNDER UDVIKLING!")
+            .setAuthor({ name: 'Studiehjælperen: Omregning af valuta'})
+            .setTimestamp()
+         msg.channel.send(
+             { embeds: [valutaHelpEmbed] })  
+        }
+  
+    //Musik hjælp embed || Lavet til formålet at der kommer et output hvis nogen prøver kommandoen som fra /hjælp
+    if(commands[0] === '/musik' && commands[1] === 'hjælp'){
+        const musikHelpEmbed = new MessageEmbed()
+            .setColor('#ff0000')
+            .setTitle("UNDER UDVIKLING!")
+            .setAuthor({ name: 'Studiehjælperen: Afspilning af musik eller andet lyd'})
+            .setTimestamp()
+        msg.channel.send(
+            { embeds: [musikHelpEmbed] })  
+        }
+
 
   //Pythagoras funktion med embed implementeret
   if(commands[0] === "/pythagoras"){
