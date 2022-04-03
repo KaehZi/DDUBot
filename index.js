@@ -1,7 +1,6 @@
 // Require the necessary discord.js classes
 const { Client, Intents } = require("discord.js");
 const { MessageEmbed } = require("discord.js");
-//const { SlashCommandBuilder } = require('./@discordjs/builders');
 require("dotenv").config();
 
 
@@ -17,7 +16,7 @@ client.on('ready', readyDiscord);
 function readyDiscord(){
   console.log('Botten er tændt'); 
 }
-client.on("messageCreate",gotMessage);
+client.on("messageCreate", gotMessage);
 
 
 
@@ -52,6 +51,7 @@ function gotMessage(msg){
       { embeds: [HelpEmbed] });
 
   }
+
 
   //Ligning hjælp embed || Lavet til formålet at der kommer et output hvis nogen prøver kommandoen som fra /hjælp
   if(commands[0] === '/ligning' && commands[1] === 'hjælp'){
@@ -133,6 +133,9 @@ function gotMessage(msg){
       msg.channel.send({ embeds: [pythagorasEmbed] });
       }
   }
+
+ 
+
     //Oversigt over areal funktioner
     if(commands[0] === "/areal" && commands[1] === "" ||
       (commands[0] === "/areal" && commands[1] === "hjælp")){
