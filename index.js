@@ -11,7 +11,7 @@ const myIntents = new Intents();
     myIntents.add( Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES )
 const client = new Client({ intents: myIntents });
 // When the client is ready, run this code
-client.login();
+client.login(process.env.DISCORD_TOKEN);
 client.on('ready', readyDiscord);
 function readyDiscord(){
   console.log('Botten er tændt'); 
