@@ -47,7 +47,7 @@ function gotMessage(msg){
         )
         .setTimestamp()
 
-  msg.channel.send(
+  msg.reply(
       { embeds: [HelpEmbed] });
 
   }
