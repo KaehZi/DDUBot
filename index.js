@@ -60,7 +60,7 @@ function gotMessage(msg){
         .setTitle("UNDER UDVIKLING!")
         .setAuthor({ name: 'Studiehjælperen: Udregning af ligninger'})
         .setTimestamp()
-     msg.channel.send(
+     msg.reply(
         { embeds: [ligningHelpEmbed] })
     }
 
@@ -71,7 +71,7 @@ function gotMessage(msg){
             .setTitle("UNDER UDVIKLING!")
             .setAuthor({ name: 'Studiehjælperen: Omregning af valuta'})
             .setTimestamp()
-         msg.channel.send(
+         msg.reply(
              { embeds: [valutaHelpEmbed] })  
         }
   
@@ -82,7 +82,7 @@ function gotMessage(msg){
             .setTitle("UNDER UDVIKLING!")
             .setAuthor({ name: 'Studiehjælperen: Afspilning af musik eller andet lyd'})
             .setTimestamp()
-        msg.channel.send(
+        msg.reply(
             { embeds: [musikHelpEmbed] })  
         }
 
@@ -104,7 +104,7 @@ function gotMessage(msg){
         )
         .setTimestamp()
 
-      msg.channel.send(
+      msg.reply(
           { embeds: [pythagorasHelpEmbed] });
     
       }else{
@@ -130,7 +130,8 @@ function gotMessage(msg){
         .setTimestamp()
         //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
 
-      msg.channel.send({ embeds: [pythagorasEmbed] });
+      msg.reply(
+        { embeds: [pythagorasEmbed] });
       }
   }
 
@@ -158,7 +159,8 @@ function gotMessage(msg){
             //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
             .setTimestamp()
             //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
-      msg.channel.send({ embeds: [arealHelpEmbed] });
+      msg.reply(
+        { embeds: [arealHelpEmbed] });
       }
       
   //Areal for en firkant funktion med embed
@@ -183,7 +185,8 @@ function gotMessage(msg){
             .setTimestamp()
             //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
 
-      msg.channel.send({ embeds: [arealfirkantHelpEmbed] });
+      msg.reply(
+        { embeds: [arealfirkantHelpEmbed] });
       
       }else{
           //console.log("else bliver executed")
@@ -208,7 +211,7 @@ function gotMessage(msg){
             .setTimestamp()
             //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
             //msg.channel.send("Første besked");
-      msg.channel.send(
+      msg.reply(
           { embeds: [arealfirkantEmbed] });
       }
       }
@@ -237,7 +240,7 @@ function gotMessage(msg){
             .setTimestamp()
             //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
 
-      msg.channel.send(
+      msg.reply(
           { embeds: [arealTrekantHelpEmbed] });
       
       }else{
@@ -263,7 +266,7 @@ function gotMessage(msg){
             .setTimestamp()
             //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
             //msg.channel.send("Første besked");
-      msg.channel.send(
+      msg.reply(
           { embeds: [arealTrekantEmbed] });
       }
   }
@@ -288,7 +291,7 @@ function gotMessage(msg){
             .setTimestamp()
             //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
 
-      msg.channel.send(
+      msg.reply(
           { embeds: [arealCirkelHelpEmbed] });
   
       }else{
@@ -315,7 +318,7 @@ function gotMessage(msg){
             //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
             //msg.channel.send("Første besked");
 
-      msg.channel.send(
+      msg.reply(
           { embeds: [arealCirkelEmbed] });
       }
   }
@@ -345,7 +348,8 @@ function gotMessage(msg){
             .setTimestamp()
             //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
 
-      msg.channel.send({ embeds: [arealParallelHelpEmbed] });
+      msg.reply(
+        { embeds: [arealParallelHelpEmbed] });
       
       }else{
           
@@ -370,7 +374,8 @@ function gotMessage(msg){
             .setTimestamp()
             //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
             //msg.channel.send("Første besked");
-      msg.channel.send({ embeds: [arealParallelEmbed] });
+      msg.reply(
+        { embeds: [arealParallelEmbed] });
       }
   }
 
@@ -400,7 +405,7 @@ function gotMessage(msg){
             .setTimestamp()
             //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
 
-      msg.channel.send(
+      msg.reply(
           { embeds: [arealTrapezHelpEmbed] });
       
       }else{
@@ -425,7 +430,8 @@ function gotMessage(msg){
                 .setTimestamp()
                 //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
                 //msg.channel.send("Første besked");
-      msg.channel.send({ embeds: [arealTrapezEmbed] });
+      msg.reply(
+        { embeds: [arealTrapezEmbed] });
       }
    }
     
@@ -450,7 +456,7 @@ function gotMessage(msg){
             .setTimestamp()
             //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
 
-  msg.channel.send(
+  msg.reply(
       { embeds: [kvadratrodHelpEmbed] });
         console.log("kvadratrodHelpEmbed afsendt")
     }else{
@@ -474,7 +480,7 @@ function gotMessage(msg){
             //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
             .setTimestamp()
             //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
-  msg.channel.send(
+  msg.reply(
       { embeds: [kvadratrodEmbed] });
         console.log("kvadratrodEmbed afsendt")
         }
@@ -502,7 +508,7 @@ function gotMessage(msg){
             //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
             .setTimestamp()
             //.setFooter({ text: 'Webmatematik, iconURL: https://i.imgur.com/AfFp7pu.png' });
-    msg.channel.send(
+    msg.reply(
         { embeds: [rumfangHelpEmbed] });
     }
 
@@ -523,7 +529,8 @@ function gotMessage(msg){
                 { name: 'For at udregne rumfang af en firkant/kasse, skriv:', value: "/rumfang firkant <l> <b> <h>"},    
             )
             .setTimestamp()
-        msg.channel.send({ embeds: [rumfangKasseHelpEmbed]});
+        msg.reply(
+          { embeds: [rumfangKasseHelpEmbed]});
 
     }else{
 
@@ -539,7 +546,8 @@ function gotMessage(msg){
                 { name: 'Rumfanget af en kasse: ', value: "Svar: " + rumfangKasse},    
             )
             .setTimestamp()
-        msg.channel.send({ embeds: [rumfangKasseEmbed]});
+        msg.reply(
+        { embeds: [rumfangKasseEmbed]});
     }
   }
 
@@ -559,7 +567,8 @@ function gotMessage(msg){
                 { name: 'For at udregne rumfang af en cylinder, skriv:', value: "/rumfang firkant <h> <r>"},    
             )
             .setTimestamp()
-        msg.channel.send({ embeds: [rumfangCylinderHelpEmbed]});
+        msg.reply(
+          { embeds: [rumfangCylinderHelpEmbed]});
 
         }else{
 
@@ -575,7 +584,8 @@ function gotMessage(msg){
                 { name: 'Rumfanget af en cylinder: ', value: "Svar: " + rumfangCylinder},    
             )
             .setTimestamp()
-        msg.channel.send({ embeds: [rumfangCylinderEmbed]});
+        msg.reply(
+          { embeds: [rumfangCylinderEmbed]});
         }
       }
 
@@ -594,7 +604,8 @@ function gotMessage(msg){
                   { name: 'For at udregne rumfang af en kugle, skriv:', value: "/rumfang kugle <r>"},    
               )
               .setTimestamp()
-          msg.channel.send({ embeds: [rumfangKugleHelpEmbed]});
+          msg.reply(
+            { embeds: [rumfangKugleHelpEmbed]});
   
           }else{
   
@@ -610,7 +621,8 @@ function gotMessage(msg){
                   { name: 'Rumfanget af en kugle: ', value: "Svar: " + rumfangKugle},    
               )
               .setTimestamp()
-          msg.channel.send({ embeds: [rumfangKugleEmbed]});
+          msg.reply(
+          { embeds: [rumfangKugleEmbed]});
           }
         }
 
@@ -630,7 +642,8 @@ function gotMessage(msg){
                   { name: 'For at udregne rumfang af en kugle, skriv:', value: "/rumfang kegle <h> <r>"},    
               )
               .setTimestamp()
-          msg.channel.send({ embeds: [rumfangKegleHelpEmbed]});
+          msg.reply(
+            { embeds: [rumfangKegleHelpEmbed]});
   
           }else{
   
@@ -646,7 +659,8 @@ function gotMessage(msg){
                   { name: 'Rumfanget af en kugle: ', value: "Svar: " + rumfangKegle},    
               )
               .setTimestamp()
-          msg.channel.send({ embeds: [rumfangKegleEmbed]});
+          msg.reply(
+            { embeds: [rumfangKegleEmbed]});
           }
         }
   
@@ -669,7 +683,8 @@ function gotMessage(msg){
                     { name: 'For at udregne rumfang af en kugle, skriv:', value: "/rumfang prisme <h> <g> <b>"},    
                 )
                 .setTimestamp()
-            msg.channel.send({ embeds: [rumfangPrismeHelpEmbed]});
+            msg.reply(
+              { embeds: [rumfangPrismeHelpEmbed]});
     
             }else{
     
@@ -685,7 +700,8 @@ function gotMessage(msg){
                     { name: 'Rumfanget af et prisme: ', value: "Svar: " + rumfangPrisme},    
                 )
                 .setTimestamp()
-            msg.channel.send({ embeds: [rumfangPrismeEmbed]});
+            msg.reply(
+              { embeds: [rumfangPrismeEmbed]});
             }
           }
 
@@ -706,7 +722,8 @@ function gotMessage(msg){
                   { name: 'For at udregne rumfang af en pyramide, skriv:', value: "/rumfang pyramide <Grundfladeareal> <h>"},    
               )
               .setTimestamp()
-          msg.channel.send({ embeds: [rumfangPyramideHelpEmbed]});
+          msg.reply(
+            { embeds: [rumfangPyramideHelpEmbed]});
   
           }else{
   
@@ -723,7 +740,8 @@ function gotMessage(msg){
               )
               .setTimestamp()
               //.setFooter( {text: ${user} } )
-          msg.channel.send({ embeds: [rumfangPyramideEmbed]});
+          msg.reply(
+            { embeds: [rumfangPyramideEmbed]});
           }
         }  
 
