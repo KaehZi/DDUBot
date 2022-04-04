@@ -744,7 +744,7 @@ function gotMessage(msg){
             { embeds: [rumfangPyramideEmbed]});
           }
         }  
-
+        //hej
 
 
 }
