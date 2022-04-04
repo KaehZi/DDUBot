@@ -21,15 +21,15 @@ client.on("messageCreate", gotMessage);
 
 
 //**********************************************************************************************//
+
+
+//Funktion for at Studiehjælperen kan løse ligninger || Wolfram|Alpha API || Step by step API
 async function ligningAPI(data){
 
-//const api_URL = api_url
-// const response = await fetch(api_url)
-// const ligningData = await response.json(); //Dette er kun til hvis at Wolfram alpha ikke spytter data ud i arrays
+const response = await fetch("http://api.wolframalpha.com/v2/query?appid="+process.env.WOLFRAMALPHA_KEY+"&solve="+ligningData+"&%3D11")
+const ligningData = await response.json(); //Dette er kun til hvis at Wolfram alpha ikke spytter data ud i arrays
 console.log(data);
 return data
-
-
 
 }
 
