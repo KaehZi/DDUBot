@@ -21,6 +21,19 @@ client.on("messageCreate", gotMessage);
 
 
 //**********************************************************************************************//
+async function ligningAPI(data){
+
+//const api_URL = api_url
+// const response = await fetch(api_url)
+// const ligningData = await response.json(); //Dette er kun til hvis at Wolfram alpha ikke spytter data ud i arrays
+console.log(data);
+return data
+
+
+
+}
+
+
 
 function gotMessage(msg){
     console.log(msg.content);
@@ -744,7 +757,19 @@ function gotMessage(msg){
             { embeds: [rumfangPyramideEmbed]});
           }
         }  
-        //hej
+        
+        if(commands[0] === "/ligning" && commands[1] === typeof String){
+
+          let ligningData = commands[1]
+
+          let resultLigning = ligningAPI(ligningData)
+
+          msg.channel.send(resultLigning)
+
+
+
+
+        }
 
 
 }
