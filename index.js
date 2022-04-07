@@ -29,7 +29,7 @@ let ligningData = "2x+8=16"
 //Funktion for at Studiehjælperen kan løse ligninger || Wolfram|Alpha API || Step by step API
 async function ligningAPI(data){
 
-  const response = await fetch("https://api.wolframalpha.com/v2/query?appid=774UYL-GLW5P969T4&input=solve+"+ligningData+"%3D11&podstate=Result__Step-by-step+solution&format=plaintext")
+  const response = await fetch("https://api.wolframalpha.com/v2/query?appid=774UYL-GLW5P969T4&input=solve+3x+7%3D11&podstate=Result__Step-by-step+solution&format=plaintext")
   const ligningDataOutput = await response.json(); //Dette er kun til hvis at Wolfram alpha ikke spytter data ud i arrays
   console.log(data);
   return data
@@ -49,10 +49,7 @@ function gotMessage(msg){
         const HelpEmbed = new MessageEmbed()
         .setColor('#ffff00')
         .setTitle("Hjælp")
-        //.setURL('https://www.webmatematik.dk/lektioner/matematik-c/trigonometri/retvinklede-trekanter')
         .setAuthor({ name: 'Studiehjælperen: Oversigt over funktioner'})
-        //.setDescription('Pythagoras udregning af Lone')
-        //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
         .addFields(
             { name: 'For at få hjælp til at udregne areal, skriv:', value: "/areal hjælp"},
             { name: 'For at få hjælp til at udregne rumfang, skriv:', value: "/rumfang hjælp"},
@@ -113,7 +110,7 @@ function gotMessage(msg){
         .setTitle("Pythagoras")
         .setURL('https://www.webmatematik.dk/lektioner/matematik-c/trigonometri/retvinklede-trekanter')
         .setAuthor({ name: 'Studiehjælperen: Udregning af Pythagoras'})
-        .setDescription('Pythagoras udregning af Lone')
+        .setDescription('Pythagoras udregning af Studiehjælperen')
         //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
         .addFields(
             { name: 'For at udregne med pythagoras, skriv:', value: "/pythagoras <a> <b>"},
@@ -133,7 +130,7 @@ function gotMessage(msg){
         .setTitle("Pythagoras")
         .setURL('https://www.webmatematik.dk/lektioner/matematik-c/trigonometri/retvinklede-trekanter')
         .setAuthor({ name: 'Studiehjælperen: Udregning af Pythagoras'})
-        .setDescription('Pythagoras udregning af Lone')
+        .setDescription('Pythagoras udregning af Studiehjælperen')
         //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
         .addFields(
             { name: 'Pythagoras udregnet:', value: "Svar: " + pythagoras},
@@ -162,7 +159,7 @@ function gotMessage(msg){
             .setTitle("Areal beregning")
             .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal')
             .setAuthor({ name: 'Studiehjælperen: Udregning af arealer'})
-            .setDescription('Areal udregning af Lone')
+            .setDescription('Areal udregning af Studiehjælperen')
             //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
                 { name: 'For at udregne areal af en firkant, skriv:', value: "/areal firkant <l> <b>"},
