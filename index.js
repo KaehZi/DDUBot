@@ -3,6 +3,9 @@ const { Client, Intents } = require("discord.js");
 const { MessageEmbed } = require("discord.js");
 require("dotenv").config();
 
+//var fetch = require('node-fetch');
+const WolframAlphaAPI = require('wolfram-alpha-api');
+const wolframAPI = WolframAlphaAPI("774UYL-GLW5P969T4");
 
 
 
@@ -21,23 +24,6 @@ client.on("messageCreate", gotMessage);
 
 
 //**********************************************************************************************//
-
-//Test af input til API'en:
-
-let ligningData = "2x+8=16"
-
-//Funktion for at Studiehjælperen kan løse ligninger || Wolfram|Alpha API || Step by step API
-async function ligningAPI(data){
-
-  const response = await fetch("https://api.wolframalpha.com/v2/query?appid=774UYL-GLW5P969T4&input=solve+3x+7%3D11&podstate=Result__Step-by-step+solution&format=plaintext")
-  const ligningDataOutput = await response.json(); //Dette er kun til hvis at Wolfram alpha ikke spytter data ud i arrays
-  console.log(data);
-  return data
-
-}
-
-
-
 function gotMessage(msg){
     console.log(msg.content);
     let commands = msg.content.split(" ")
@@ -758,18 +744,30 @@ function gotMessage(msg){
           }
         }  
         
-        if(commands[0] === "/ligning" && commands[1] === "noget"){
+        //Ligningsløser
+        if(commands[0] === "/ligning" && typeof commands[1] === "string" || commands[0] === "/ligning" && commands[1] instanceof String){
+          wolframAPI.getFull(commands[1]).then((queryresult) => {
+            output: 'json'
+            const pods = queryresult.pods;
+            const output = pods.map((pod) => {
+              const subpodContent = pod.subpods.map(subpod =>
+                `  alt="${subpod.img.alt}">`
+              ).join('\n');
+              return `<h2>${pod.title}</h2>\n${subpodContent}`;
+            }).join('\n');
+            console.log(output);
 
-          let ligningData = commands[1]
+            msg.reply(output)
 
-          let resultLigning = ligningAPI(ligningData)
+            console.log(output.Result)
 
-          msg.channel.send(resultLigning)
+            //let solution = output.split("<h2>")
+            //console.log(solution [solution.length-1]);
 
+            //let solution1 = String(solution);
+            //console.log(solution1);
 
-
-
-        }
-
-
+            //solution1.split(" ");
+            //console.log(solution1);
+})}
 }
