@@ -747,7 +747,7 @@ function gotMessage(msg){
           
         
         //Ligningsløser
-        if(commands[0] === "/ligning"){
+        if(commands[0] === "/ligning" && commands[1] === /^[A-Za-z0-9]*$/){
           wolframAPI.getFull(""+commands[1]).then((queryresult) => {
             output: 'json'
             const pods = queryresult.pods;
@@ -774,6 +774,8 @@ function gotMessage(msg){
 
               let solution7 = solution6[1]
 
+
+              //https://bobbyhadz.com/blog/javascript-check-if-string-contains-only-letters-and-numbers
         const ligningLøst = new MessageEmbed()
         .setColor('00ff00')
         .setTitle("Løsning af ligning")
