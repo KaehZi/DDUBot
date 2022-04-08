@@ -3,6 +3,9 @@ const { Client, Intents } = require("discord.js");
 const { MessageEmbed } = require("discord.js");
 require("dotenv").config();
 
+//var fetch = require('node-fetch');
+const WolframAlphaAPI = require('wolfram-alpha-api');
+const wolframAPI = WolframAlphaAPI("774UYL-GLW5P969T4");
 
 
 
@@ -17,11 +20,7 @@ function readyDiscord(){
   console.log('Botten er tændt'); 
 }
 client.on("messageCreate", gotMessage);
-
-
-
 //**********************************************************************************************//
-
 function gotMessage(msg){
     console.log(msg.content);
     let commands = msg.content.split(" ")
@@ -33,10 +32,7 @@ function gotMessage(msg){
         const HelpEmbed = new MessageEmbed()
         .setColor('#ffff00')
         .setTitle("Hjælp")
-        //.setURL('https://www.webmatematik.dk/lektioner/matematik-c/trigonometri/retvinklede-trekanter')
         .setAuthor({ name: 'Studiehjælperen: Oversigt over funktioner'})
-        //.setDescription('Pythagoras udregning af Lone')
-        //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
         .addFields(
             { name: 'For at få hjælp til at udregne areal, skriv:', value: "/areal hjælp"},
             { name: 'For at få hjælp til at udregne rumfang, skriv:', value: "/rumfang hjælp"},
@@ -54,15 +50,15 @@ function gotMessage(msg){
 
 
   //Ligning hjælp embed || Lavet til formålet at der kommer et output hvis nogen prøver kommandoen som fra /hjælp
-  if(commands[0] === '/ligning' && commands[1] === 'hjælp'){
-    const ligningHelpEmbed = new MessageEmbed()
-        .setColor('#ff0000')
-        .setTitle("UNDER UDVIKLING!")
-        .setAuthor({ name: 'Studiehjælperen: Udregning af ligninger'})
-        .setTimestamp()
-     msg.reply(
-        { embeds: [ligningHelpEmbed] })
-    }
+  // if(commands[0] === '/ligning' && commands[1] === 'hjælp'){
+  //   const ligningHelpEmbed = new MessageEmbed()
+  //       .setColor('#ff0000')
+  //       .setTitle("UNDER UDVIKLING!")
+  //       .setAuthor({ name: 'Studiehjælperen: Udregning af ligninger'})
+  //       .setTimestamp()
+  //    msg.reply(
+  //       { embeds: [ligningHelpEmbed] })
+  //   }
 
     //Valuta hjælp embed || Lavet til formålet at der kommer et output hvis nogen prøver kommandoen som fra /hjælp
     if(commands[0] === '/valuta' && commands[1] === 'hjælp'){
@@ -97,7 +93,7 @@ function gotMessage(msg){
         .setTitle("Pythagoras")
         .setURL('https://www.webmatematik.dk/lektioner/matematik-c/trigonometri/retvinklede-trekanter')
         .setAuthor({ name: 'Studiehjælperen: Udregning af Pythagoras'})
-        .setDescription('Pythagoras udregning af Lone')
+        .setDescription('Pythagoras udregning af Studiehjælperen')
         //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
         .addFields(
             { name: 'For at udregne med pythagoras, skriv:', value: "/pythagoras <a> <b>"},
@@ -117,7 +113,7 @@ function gotMessage(msg){
         .setTitle("Pythagoras")
         .setURL('https://www.webmatematik.dk/lektioner/matematik-c/trigonometri/retvinklede-trekanter')
         .setAuthor({ name: 'Studiehjælperen: Udregning af Pythagoras'})
-        .setDescription('Pythagoras udregning af Lone')
+        .setDescription('Pythagoras udregning af Studiehjælperen')
         //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
         .addFields(
             { name: 'Pythagoras udregnet:', value: "Svar: " + pythagoras},
@@ -146,7 +142,7 @@ function gotMessage(msg){
             .setTitle("Areal beregning")
             .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal')
             .setAuthor({ name: 'Studiehjælperen: Udregning af arealer'})
-            .setDescription('Areal udregning af Lone')
+            .setDescription('Areal udregning af Studiehjælperen')
             //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
                 { name: 'For at udregne areal af en firkant, skriv:', value: "/areal firkant <l> <b>"},
@@ -458,7 +454,7 @@ function gotMessage(msg){
 
   msg.reply(
       { embeds: [kvadratrodHelpEmbed] });
-        console.log("kvadratrodHelpEmbed afsendt")
+        
     }else{
       
       let kvadratrod = Math.sqrt(commands[1])
@@ -745,6 +741,48 @@ function gotMessage(msg){
           }
         }  
 
+          
+        
+        //Ligningsløser
+        if(commands[0] === "/ligning" && commands[1] === "beregning") {
+          wolframAPI.getFull(""+commands[2]).then((queryresult) => {
+            output: 'json'
+            const pods = queryresult.pods;
+            const output = pods.map((pod) => {
+              const subpodContent = pod.subpods.map(subpod =>
+                `  alt="${subpod.img.alt}">`
+              ).join('\n');
+              return `<h2>${pod.title}</h2>\n${subpodContent}`;
+            }).join('\n');
+
+              let solution = output.split("<h2>")
+
+              let solution1 = String(solution);
+
+              let solution2 = solution1.split("alt=");
+              
+              let solution3 = String(solution2)
+
+              let solution4 = solution3.split(",")
+              
+              let solution5 = solution4[solution4.length-1]
+            
+              let solution6 = solution5.split('"')
+
+              let solution7 = solution6[1]
 
 
-}
+              //https://bobbyhadz.com/blog/javascript-check-if-string-contains-only-letters-and-numbers
+        const ligningLøst = new MessageEmbed()
+        .setColor('00ff00')
+        .setTitle("Løsning af ligning")
+        .setURL('https://www.webmatematik.dk/lektioner/matematik-c/ligninger/ligninger')
+        .setAuthor({ name: 'Studiehjælperen: Udregning af ligning'})
+        .addFields(
+            { name: 'Løsning af ligningen: ', value: "Svar: " + solution7},    
+        )
+        .setTimestamp()
+        .setFooter({ text: 'Wolfram|Alpha'});
+    msg.reply(
+      { embeds: [ligningLøst]}
+      )})}}
