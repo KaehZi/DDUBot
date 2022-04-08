@@ -745,8 +745,8 @@ function gotMessage(msg){
         }  
         
         //Ligningsløser
-        if(commands[0] === "/ligning" && typeof commands[1] === "string" || commands[0] === "/ligning" && commands[1] instanceof String){
-          wolframAPI.getFull(commands[1]).then((queryresult) => {
+        if(commands[0] === "/ligning"){
+          wolframAPI.getFull(""+commands[1]).then((queryresult) => {
             output: 'json'
             const pods = queryresult.pods;
             const output = pods.map((pod) => {
@@ -755,19 +755,34 @@ function gotMessage(msg){
               ).join('\n');
               return `<h2>${pod.title}</h2>\n${subpodContent}`;
             }).join('\n');
-            console.log(output);
+            //console.log(output);
 
-            msg.reply(output)
+            
 
-            console.log(output.Result)
 
-            //let solution = output.split("<h2>")
+            let solution = output.split("<h2>")
             //console.log(solution [solution.length-1]);
 
-            //let solution1 = String(solution);
+            let solution1 = String(solution);
             //console.log(solution1);
 
-            //solution1.split(" ");
-            //console.log(solution1);
+            let solution2 = solution1.split("alt=");
+            
+            let solution3 = String(solution2)
+
+            let solution4 = solution3.split(",")
+           
+            
+            let solution5 = solution4[solution4.length-1]
+          
+            let solution6 = solution5.split('"')
+            console.log(solution6)
+
+            let solution7 = solution6[1]
+          
+
+            //let solution6 = solution5.split('"')
+
+            msg.reply("Løsning: "+solution7)
 })}
 }
