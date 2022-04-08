@@ -20,9 +20,6 @@ function readyDiscord(){
   console.log('Botten er tændt'); 
 }
 client.on("messageCreate", gotMessage);
-
-
-
 //**********************************************************************************************//
 function gotMessage(msg){
     console.log(msg.content);
@@ -53,15 +50,15 @@ function gotMessage(msg){
 
 
   //Ligning hjælp embed || Lavet til formålet at der kommer et output hvis nogen prøver kommandoen som fra /hjælp
-  if(commands[0] === '/ligning' && commands[1] === 'hjælp'){
-    const ligningHelpEmbed = new MessageEmbed()
-        .setColor('#ff0000')
-        .setTitle("UNDER UDVIKLING!")
-        .setAuthor({ name: 'Studiehjælperen: Udregning af ligninger'})
-        .setTimestamp()
-     msg.reply(
-        { embeds: [ligningHelpEmbed] })
-    }
+  // if(commands[0] === '/ligning' && commands[1] === 'hjælp'){
+  //   const ligningHelpEmbed = new MessageEmbed()
+  //       .setColor('#ff0000')
+  //       .setTitle("UNDER UDVIKLING!")
+  //       .setAuthor({ name: 'Studiehjælperen: Udregning af ligninger'})
+  //       .setTimestamp()
+  //    msg.reply(
+  //       { embeds: [ligningHelpEmbed] })
+  //   }
 
     //Valuta hjælp embed || Lavet til formålet at der kommer et output hvis nogen prøver kommandoen som fra /hjælp
     if(commands[0] === '/valuta' && commands[1] === 'hjælp'){
@@ -457,7 +454,7 @@ function gotMessage(msg){
 
   msg.reply(
       { embeds: [kvadratrodHelpEmbed] });
-        console.log("kvadratrodHelpEmbed afsendt")
+        
     }else{
       
       let kvadratrod = Math.sqrt(commands[1])
@@ -747,8 +744,8 @@ function gotMessage(msg){
           
         
         //Ligningsløser
-        if(commands[0] === "/ligning" && commands[1] === /^[A-Za-z0-9]*$/){
-          wolframAPI.getFull(""+commands[1]).then((queryresult) => {
+        if(commands[0] === "/ligning" && commands[1] === "beregning") {
+          wolframAPI.getFull(""+commands[2]).then((queryresult) => {
             output: 'json'
             const pods = queryresult.pods;
             const output = pods.map((pod) => {
@@ -781,12 +778,11 @@ function gotMessage(msg){
         .setTitle("Løsning af ligning")
         .setURL('https://www.webmatematik.dk/lektioner/matematik-c/ligninger/ligninger')
         .setAuthor({ name: 'Studiehjælperen: Udregning af ligning'})
-        //.setDescription('Formel: pi * h * r^2')
         .addFields(
             { name: 'Løsning af ligningen: ', value: "Svar: " + solution7},    
         )
         .setTimestamp()
         .setFooter({ text: 'Wolfram|Alpha'});
     msg.reply(
-      { embeds: [ligningLøst]});
-    })}}
+      { embeds: [ligningLøst]}
+      )})}}
