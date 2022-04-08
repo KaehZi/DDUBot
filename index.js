@@ -768,7 +768,7 @@ function gotMessage(msg){
         const ligningLøst = new MessageEmbed()
         .setColor('00ff00')
         .setTitle("Løsning af ligning")
-        .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/rumfang-og-overfladeareal/kegle')
+        .setURL('https://www.webmatematik.dk/lektioner/matematik-c/ligninger/ligninger')
         .setAuthor({ name: 'Studiehjælperen: Udregning af ligning'})
         //.setDescription('Formel: pi * h * r^2')
         .addFields(
