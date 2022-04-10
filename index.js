@@ -335,41 +335,28 @@ function gotMessage(msg){
             //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
                 { name: 'For at udregne areal af et parallelogram , skriv:', value: "/areal parallelogram <h> <g>"},
-            //{ name: '\u200B', value: '\u200B' },
-            // { name: 'Inline field title', value: 'Some value here', inline: true },
-            // { name: 'Inline field title', value: 'Some value here', inline: true },
             )
-            //.addField('Inline field title', 'Some value here', true)
-            //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
             .setTimestamp()
-            //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
+           
 
       msg.reply(
         { embeds: [arealParallelHelpEmbed] });
       
       }else{
-          
-
+  
           let arealParallel = (commands[2] * commands[3])
 
           const arealParallelEmbed = new MessageEmbed()
-                .setColor('#00ff00')
-                .setTitle("Areal af en trapez")
-                .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/parallellogram')
-                .setAuthor({ name: 'Studiehjælperen: Udregning af areal for et parallelogram'})
-                .setDescription('Formel: h * g')
-                //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
-                .addFields(
-                { name: 'Areal for et paralellogram udregnet:', value: "Svar: " + arealParallel},
-                //{ name: '\u200B', value: '\u200B' },
-                // { name: 'Inline field title', value: 'Some value here', inline: true },
-                // { name: 'Inline field title', value: 'Some value here', inline: true },
-            )
-            //.addField('Inline field title', 'Some value here', true)
-            //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
+            .setColor('#00ff00')
+            .setTitle("Areal af en trapez")
+            .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/parallellogram')
+            .setAuthor({ name: 'Studiehjælperen: Udregning af areal for et parallelogram'})
+            .setDescription('Formel: h * g')
+            //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
+            .addFields(
+            { name: 'Areal for et paralellogram udregnet:', value: "Svar: " + arealParallel},
+             )
             .setTimestamp()
-            //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
-            //msg.channel.send("Første besked");
       msg.reply(
         { embeds: [arealParallelEmbed] });
       }
@@ -392,14 +379,9 @@ function gotMessage(msg){
             //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
                 { name: 'For at udregne areal af et parallelogram , skriv:', value: "/areal trapez <h> <a1> <a2>"},
-            //{ name: '\u200B', value: '\u200B' },
-            // { name: 'Inline field title', value: 'Some value here', inline: true },
-            // { name: 'Inline field title', value: 'Some value here', inline: true },
-            )
-            //.addField('Inline field title', 'Some value here', true)
-            //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
+                )
             .setTimestamp()
-            //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
+           
 
       msg.reply(
           { embeds: [arealTrapezHelpEmbed] });
@@ -417,15 +399,8 @@ function gotMessage(msg){
                 //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
                 .addFields(
                 { name: 'Areal for en trapez udregnet:', value: "Svar: " + arealTrapez},
-                //{ name: '\u200B', value: '\u200B' },
-                // { name: 'Inline field title', value: 'Some value here', inline: true },
-                // { name: 'Inline field title', value: 'Some value here', inline: true },
                  )
-                //.addField('Inline field title', 'Some value here', true)
-                //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
                 .setTimestamp()
-                //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
-                //msg.channel.send("Første besked");
       msg.reply(
         { embeds: [arealTrapezEmbed] });
       }
