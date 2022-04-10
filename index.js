@@ -50,15 +50,15 @@ function gotMessage(msg){
 
 
   //Ligning hjælp embed || Lavet til formålet at der kommer et output hvis nogen prøver kommandoen som fra /hjælp
-  // if(commands[0] === '/ligning' && commands[1] === 'hjælp'){
-  //   const ligningHelpEmbed = new MessageEmbed()
-  //       .setColor('#ff0000')
-  //       .setTitle("UNDER UDVIKLING!")
-  //       .setAuthor({ name: 'Studiehjælperen: Udregning af ligninger'})
-  //       .setTimestamp()
-  //    msg.reply(
-  //       { embeds: [ligningHelpEmbed] })
-  //   }
+  if(commands[0] === '/ligning' && commands[1] === 'hjælp'){
+     const ligningHelpEmbed = new MessageEmbed()
+         .setColor('#ff0000')
+         .setTitle("UNDER UDVIKLING!")
+         .setAuthor({ name: 'Studiehjælperen: Udregning af ligninger'})
+         .setTimestamp()
+      msg.reply(
+         { embeds: [ligningHelpEmbed] })
+     }
 
     //Valuta hjælp embed || Lavet til formålet at der kommer et output hvis nogen prøver kommandoen som fra /hjælp
     if(commands[0] === '/valuta' && commands[1] === 'hjælp'){
