@@ -40,7 +40,6 @@ function gotMessage(msg){
             { name: 'For at få hjælp til at udregne kvadratrod, skriv:', value: "/kvadratrod hjælp"},
             { name: 'For at få hjælp til at udregne valuta, skriv:', value: "/valuta hjælp"},
             { name: 'For at få hjælp til at få afspillet musik, skriv:', value: "/musik hjælp"},
-            { name: ' ', value: " "},
             { name: 'For at se ekstra funktioner for Studiehjælperen, skriv:', value: "/ekstra"},
         )
         .setTimestamp()
