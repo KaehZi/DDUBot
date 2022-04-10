@@ -3,7 +3,6 @@ const { Client, Intents } = require("discord.js");
 const { MessageEmbed } = require("discord.js");
 require("dotenv").config();
 
-//var fetch = require('node-fetch');
 const WolframAlphaAPI = require('wolfram-alpha-api');
 const wolframAPI = WolframAlphaAPI("774UYL-GLW5P969T4");
 
@@ -17,7 +16,7 @@ const client = new Client({ intents: myIntents });
 client.login(process.env.DISCORD_TOKEN);
 client.on('ready', readyDiscord);
 function readyDiscord(){
-  console.log('Botten er tændt'); 
+  console.log('[INFO] Studiehjælperen er online.'); 
 }
 client.on("messageCreate", gotMessage);
 //**********************************************************************************************//
