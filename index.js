@@ -117,14 +117,8 @@ function gotMessage(msg){
         //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
         .addFields(
             { name: 'Pythagoras udregnet:', value: "Svar: " + pythagoras},
-            //{ name: '\u200B', value: '\u200B' },
-            // { name: 'Inline field title', value: 'Some value here', inline: true },
-            // { name: 'Inline field title', value: 'Some value here', inline: true },
-        )
-        //.addField('Inline field title', 'Some value here', true)
-        //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
+          )
         .setTimestamp()
-        //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
 
       msg.reply(
         { embeds: [pythagorasEmbed] });
@@ -151,10 +145,7 @@ function gotMessage(msg){
                 { name: 'For at udregne areal af en cirkel, skriv:', value: "/areal cirkel <r>" },
                 { name: 'For at udregne areal af en trapez, skriv:', value: "/areal trapez <h> <a1> <a2>" },
             )
-            //.addField('Inline field title', 'Some value here', true)
-            //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
             .setTimestamp()
-            //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
       msg.reply(
         { embeds: [arealHelpEmbed] });
       }
@@ -172,14 +163,8 @@ function gotMessage(msg){
             //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
                 { name: 'For at udregne areal af en firkant , skriv:', value: "/areal firkant <l> <b>"},
-            //{ name: '\u200B', value: '\u200B' },
-            // { name: 'Inline field title', value: 'Some value here', inline: true },
-            // { name: 'Inline field title', value: 'Some value here', inline: true },
             )
-            //.addField('Inline field title', 'Some value here', true)
-            //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
             .setTimestamp()
-            //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
 
       msg.reply(
         { embeds: [arealfirkantHelpEmbed] });
@@ -198,15 +183,9 @@ function gotMessage(msg){
                 //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
                 .addFields(
                 { name: 'Areal for en firkant udregnet:', value: "Svar: " + arealFirkant},
-                //{ name: '\u200B', value: '\u200B' },
-                // { name: 'Inline field title', value: 'Some value here', inline: true },
-                // { name: 'Inline field title', value: 'Some value here', inline: true },
-            )
-            //.addField('Inline field title', 'Some value here', true)
-            //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
-            .setTimestamp()
-            //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
-            //msg.channel.send("Første besked");
+                )
+                .setTimestamp()
+                
       msg.reply(
           { embeds: [arealfirkantEmbed] });
       }
@@ -227,14 +206,8 @@ function gotMessage(msg){
             //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
                 { name: 'For at udregne areal af en trekant , skriv:', value: "/areal trekant <h> <g>"},
-            //{ name: '\u200B', value: '\u200B' },
-            // { name: 'Inline field title', value: 'Some value here', inline: true },
-            // { name: 'Inline field title', value: 'Some value here', inline: true },
             )
-            //.addField('Inline field title', 'Some value here', true)
-            //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
             .setTimestamp()
-            //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
 
       msg.reply(
           { embeds: [arealTrekantHelpEmbed] });
@@ -253,15 +226,8 @@ function gotMessage(msg){
                 //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
                 .addFields(
                 { name: 'Areal for en trekant udregnet:', value: "Svar: " + arealTrekant},
-                //{ name: '\u200B', value: '\u200B' },
-                // { name: 'Inline field title', value: 'Some value here', inline: true },
-                // { name: 'Inline field title', value: 'Some value here', inline: true },
             )
-            //.addField('Inline field title', 'Some value here', true)
-            //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
             .setTimestamp()
-            //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
-            //msg.channel.send("Første besked");
       msg.reply(
           { embeds: [arealTrekantEmbed] });
       }
@@ -278,14 +244,9 @@ function gotMessage(msg){
             //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
                 { name: 'For at udregne areal af en cirkel , skriv:', value: "/areal cirkel <r>"},
-                //{ name: '\u200B', value: '\u200B' },
-                // { name: 'Inline field title', value: 'Some value here', inline: true },
-                // { name: 'Inline field title', value: 'Some value here', inline: true },
             )
-            //.addField('Inline field title', 'Some value here', true)
-            //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
             .setTimestamp()
-            //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
+           
 
       msg.reply(
           { embeds: [arealCirkelHelpEmbed] });
@@ -304,15 +265,8 @@ function gotMessage(msg){
             //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
             { name: 'Areal for en cirkel udregnet:', value: "Svar: " + arealCirkel},
-                //{ name: '\u200B', value: '\u200B' },
-                // { name: 'Inline field title', value: 'Some value here', inline: true },
-                // { name: 'Inline field title', value: 'Some value here', inline: true },
             )
-            //.addField('Inline field title', 'Some value here', true)
-            //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
             .setTimestamp()
-            //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
-            //msg.channel.send("Første besked");
 
       msg.reply(
           { embeds: [arealCirkelEmbed] });
@@ -418,15 +372,9 @@ function gotMessage(msg){
             //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
                 { name: 'For at tage kvadratroden af et tal, skriv:', value: "/kvadratrod <tal>"},
-            //{ name: '\u200B', value: '\u200B' },
-            // { name: 'Inline field title', value: 'Some value here', inline: true },
-            // { name: 'Inline field title', value: 'Some value here', inline: true },
+           
             )
-            //.addField('Inline field title', 'Some value here', true)
-            //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
             .setTimestamp()
-            //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
-
   msg.reply(
       { embeds: [kvadratrodHelpEmbed] });
         
@@ -443,19 +391,13 @@ function gotMessage(msg){
             //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
                 { name: 'Kvadraten af et tal:', value: "Svar: " + kvadratrod},
-            //{ name: '\u200B', value: '\u200B' },
-            // { name: 'Inline field title', value: 'Some value here', inline: true },
-            // { name: 'Inline field title', value: 'Some value here', inline: true },
             )
-            //.addField('Inline field title', 'Some value here', true)
-            //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
             .setTimestamp()
-            //.setFooter({ text: 'Some footer text here', iconURL: 'https://i.imgur.com/AfFp7pu.png' });
-  msg.reply(
-      { embeds: [kvadratrodEmbed] });
-        console.log("kvadratrodEmbed afsendt")
+      msg.reply(
+          { embeds: [kvadratrodEmbed] });
+            console.log("kvadratrodEmbed afsendt")
+            }
         }
-    }
 
     //Rumfang hjælp
     if(commands[0] === "/rumfang" && commands[1] === "hjælp"){
@@ -473,12 +415,8 @@ function gotMessage(msg){
                 { name: 'For at udregne rumfang af en kegle, skriv:', value: "/rumfang kegle <h> <r>" },
                 { name: 'For at udregne rumfang af en pyramide, skriv:', value: '/rumfang pyramide <Areal af grundfladen> <h>'},
                 { name: 'For at udregne rumfang af et prisme, skriv:', value: '/rumfang prisme <h> <g> <b>'}
-
             )
-            //.addField('Inline field title', 'Some value here', true)
-            //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
             .setTimestamp()
-            //.setFooter({ text: 'Webmatematik, iconURL: https://i.imgur.com/AfFp7pu.png' });
     msg.reply(
         { embeds: [rumfangHelpEmbed] });
     }
@@ -747,7 +685,6 @@ function gotMessage(msg){
               let solution7 = solution6[1]
 
 
-              //https://bobbyhadz.com/blog/javascript-check-if-string-contains-only-letters-and-numbers
         const ligningLøst = new MessageEmbed()
         .setColor('00ff00')
         .setTitle("Løsning af ligning")
