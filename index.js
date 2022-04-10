@@ -48,6 +48,8 @@ function gotMessage(msg){
 
   }
 
+  //Ekstra embed || Lavet til formål for easter eggs og link til GitHub repo for at følge med i udviklingen af Studiehjælperen
+
 
   //Ligning hjælp embed || Lavet til formålet at der kommer et output hvis nogen prøver kommandoen som fra /hjælp
   if(commands[0] === '/ligning' && commands[1] === 'hjælp'){
