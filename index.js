@@ -152,7 +152,6 @@ function gotMessage(msg){
   //Areal for en firkant funktion med embed
   if(commands[0] === "/areal" && commands[1] === "firkant"){ 
       if(isNaN(commands[2])|| isNaN(commands[3])|| (isNaN(commands[2]) && isNaN(commands[3]))){
-      //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
       const arealfirkantHelpEmbed = new MessageEmbed()
             .setColor('#ff0000')
             .setTitle("Areal af en firkant")
@@ -169,7 +168,6 @@ function gotMessage(msg){
         { embeds: [arealfirkantHelpEmbed] });
       
       }else{
-          //console.log("else bliver executed")
 
           let arealFirkant = (commands[2] * commands[3])
 
@@ -179,7 +177,6 @@ function gotMessage(msg){
                 .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/rektangel')
                 .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en firkant'})
                 .setDescription('Formel: l * b')
-                //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
                 .addFields(
                 { name: 'Areal for en firkant udregnet:', value: "Svar: " + arealFirkant},
                 )
@@ -212,7 +209,6 @@ function gotMessage(msg){
           { embeds: [arealTrekantHelpEmbed] });
       
       }else{
-          //console.log("else bliver executed")
 
           let arealTrekant = (1/2 * commands[2] * commands[3])
 
@@ -237,7 +233,7 @@ function gotMessage(msg){
       const arealCirkelHelpEmbed = new MessageEmbed()
             .setColor('#ff0000')
             .setTitle("Areal af en cirkel")
-            .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/rektangel')
+            .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/cirkel')
             .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en cirkel'})
             .setDescription('Formel: pi * r')
             //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
@@ -251,14 +247,14 @@ function gotMessage(msg){
           { embeds: [arealCirkelHelpEmbed] });
   
       }else{
-      //console.log("else bliver executed")
 
-      let arealCirkel = (Math.PI * (commands[2]))
+
+      let arealCirkel = (Math.PI * (commands[2]))^2
 
       const arealCirkelEmbed = new MessageEmbed()
             .setColor('#00ff00')
             .setTitle("Areal af en cirkel")
-            .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/rektangel')
+            .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/cirkel')
             .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en cirkel'})
             .setDescription('Formel: pi * r')
             //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
@@ -278,7 +274,6 @@ function gotMessage(msg){
       if(isNaN(commands[2])|| 
          isNaN(commands[3])|| 
         (isNaN(commands[2]) && isNaN(commands[3]))){
-      //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
       const arealParallelHelpEmbed = new MessageEmbed()
             .setColor('#ff0000')
             .setTitle("Areal af et parallelogram")
@@ -301,7 +296,7 @@ function gotMessage(msg){
 
           const arealParallelEmbed = new MessageEmbed()
             .setColor('#00ff00')
-            .setTitle("Areal af en trapez")
+            .setTitle("Areal af et parallellogram")
             .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/parallellogram')
             .setAuthor({ name: 'Studiehjælperen: Udregning af areal for et parallelogram'})
             .setDescription('Formel: h * g')
@@ -334,14 +329,19 @@ function gotMessage(msg){
                 { name: 'For at udregne areal af et parallelogram , skriv:', value: "/areal trapez <h> <a1> <a2>"},
                 )
             .setTimestamp()
-           
+            
+            console.log(commands[2])
+
+            console.log(commands[3])
+    
+            console.log(commands[4])
 
       msg.reply(
           { embeds: [arealTrapezHelpEmbed] });
       
       }else{
-
-          let arealTrapez = (1/2 * commands[2] * (commands[3] + commands[4]))
+        
+        let arealTrapez = 1/2 * commands[2] * (Number(commands[3]) + Number(commands[4]))
 
           const arealTrapezEmbed = new MessageEmbed()
                 .setColor('#00ff00')
@@ -365,8 +365,8 @@ function gotMessage(msg){
       const kvadratrodHelpEmbed = new MessageEmbed()
             .setColor('#ff0000')
             .setTitle("Kvadratrod")
-            .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/trapez')
-            .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en trapez'})
+            .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/algebra/kvadratrod')
+            .setAuthor({ name: 'Studiehjælperen: Kvadratrod'})
             .setDescription('Kvadratroden af et tal')
             //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
@@ -374,7 +374,7 @@ function gotMessage(msg){
            
             )
             .setTimestamp()
-  msg.reply(
+    msg.reply(
       { embeds: [kvadratrodHelpEmbed] });
         
     }else{
@@ -384,7 +384,7 @@ function gotMessage(msg){
       const kvadratrodEmbed = new MessageEmbed()
             .setColor('#00ff00')
             .setTitle("Kvadratrod")
-            .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/trapez')
+            .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/algebra/kvadratrod')
             .setAuthor({ name: 'Studiehjælperen: Kvadratrod'})
             .setDescription('Kvadratroden af et tal')
             //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
@@ -394,7 +394,6 @@ function gotMessage(msg){
             .setTimestamp()
       msg.reply(
           { embeds: [kvadratrodEmbed] });
-            console.log("kvadratrodEmbed afsendt")
             }
         }
 
