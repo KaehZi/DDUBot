@@ -1,3 +1,4 @@
+
 // Require the necessary discord.js classes
 const { Client, Intents } = require("discord.js");
 const { MessageEmbed } = require("discord.js");
@@ -24,105 +25,105 @@ function gotMessage(msg){
     console.log(msg.content);
     let commands = msg.content.split(" ")
     console.log(commands)
-
+ 
 
   //Oversigt over hvilke kommandoer Studiehjælperen udsteder || /hjælp
   if(commands[0] === "/hjælp"){
-        const HelpEmbed = new MessageEmbed()
-        .setColor('#ffff00')
-        .setTitle("Hjælp")
-        .setAuthor({ name: 'Studiehjælperen: Oversigt over funktioner'})
-        .addFields(
-            { name: 'For at få hjælp til at udregne areal, skriv:', value: "/areal hjælp"},
-            { name: 'For at få hjælp til at udregne rumfang, skriv:', value: "/rumfang hjælp"},
-            { name: 'For at få hjælp til at udregne ligninger, skriv:', value: "/ligning hjælp"},
-            { name: 'For at få hjælp til at udregne kvadratrod, skriv:', value: "/kvadratrod hjælp"},
-            { name: 'For at få hjælp til at udregne valuta, skriv:', value: "/valuta hjælp"},
-            { name: 'For at få hjælp til at få afspillet musik, skriv:', value: "/musik hjælp"},
-        )
+    const HelpEmbed = new MessageEmbed()
+    .setColor('#ffff00')
+    .setTitle("Hjælp")
+    .setAuthor({ name: 'Studiehjælperen: Oversigt over funktioner'})
+    .addFields(
+        { name: 'For at få hjælp til at udregne areal, skriv:', value: "/areal hjælp"},
+        { name: 'For at få hjælp til at udregne rumfang, skriv:', value: "/rumfang hjælp"},
+        { name: 'For at få hjælp til at udregne ligninger, skriv:', value: "/ligning hjælp"},
+        { name: 'For at få hjælp til at udregne kvadratrod, skriv:', value: "/kvadratrod hjælp"},
+        { name: 'For at få hjælp til at udregne valuta, skriv:', value: "/valuta hjælp"},
+        { name: 'For at få hjælp til at få afspillet musik, skriv:', value: "/musik hjælp"},
+    )
+    .setTimestamp()
+
+msg.reply(
+  { embeds: [HelpEmbed] });
+
+}
+
+
+//Ligning hjælp embed || Lavet til formålet at der kommer et output hvis nogen prøver kommandoen som fra /hjælp
+if(commands[0] === '/ligning' && commands[1] === 'hjælp'){
+ const ligningHelpEmbed = new MessageEmbed()
+     .setColor('#ff0000')
+     .setTitle("UNDER UDVIKLING!")
+     .setAuthor({ name: 'Studiehjælperen: Udregning af ligninger'})
+     .setTimestamp()
+  msg.reply(
+     { embeds: [ligningHelpEmbed] })
+ }
+
+//Valuta hjælp embed || Lavet til formålet at der kommer et output hvis nogen prøver kommandoen som fra /hjælp
+if(commands[0] === '/valuta' && commands[1] === 'hjælp'){
+    const valutaHelpEmbed = new MessageEmbed()
+        .setColor('#ff0000')
+        .setTitle("UNDER UDVIKLING!")
+        .setAuthor({ name: 'Studiehjælperen: Omregning af valuta'})
         .setTimestamp()
+     msg.reply(
+         { embeds: [valutaHelpEmbed] })  
+    }
+
+//Musik hjælp embed || Lavet til formålet at der kommer et output hvis nogen prøver kommandoen som fra /hjælp
+if(commands[0] === '/musik' && commands[1] === 'hjælp'){
+    const musikHelpEmbed = new MessageEmbed()
+        .setColor('#ff0000')
+        .setTitle("UNDER UDVIKLING!")
+        .setAuthor({ name: 'Studiehjælperen: Afspilning af musik eller andet lyd'})
+        .setTimestamp()
+    msg.reply(
+        { embeds: [musikHelpEmbed] })  
+    }
+
+
+//Pythagoras funktion med embed implementeret
+if(commands[0] === "/pythagoras"){
+if(isNaN(commands[1])|| 
+   isNaN(commands[2])|| 
+   isNaN(commands[1]) && isNaN(commands[2])){
+  const pythagorasHelpEmbed = new MessageEmbed()
+    .setColor('#ff0000')
+    .setTitle("Pythagoras")
+    .setURL('https://www.webmatematik.dk/lektioner/matematik-c/trigonometri/retvinklede-trekanter')
+    .setAuthor({ name: 'Studiehjælperen: Udregning af Pythagoras'})
+    .setDescription('Pythagoras udregning af Studiehjælperen')
+    //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
+    .addFields(
+        { name: 'For at udregne med pythagoras, skriv:', value: "/pythagoras <a> <b>"},
+    )
+    .setTimestamp()
 
   msg.reply(
-      { embeds: [HelpEmbed] });
+      { embeds: [pythagorasHelpEmbed] });
 
+  }else{
+    //console.log("noget")
+
+    let pythagoras = Math.sqrt(commands[1] * commands[1] + commands[2] * commands[2])
+
+  const pythagorasEmbed = new MessageEmbed()
+    .setColor('#00ff00')
+    .setTitle("Pythagoras")
+    .setURL('https://www.webmatematik.dk/lektioner/matematik-c/trigonometri/retvinklede-trekanter')
+    .setAuthor({ name: 'Studiehjælperen: Udregning af Pythagoras'})
+    .setDescription('Pythagoras udregning af Studiehjælperen')
+    //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
+    .addFields(
+        { name: 'Pythagoras udregnet:', value: "Svar: " + pythagoras},
+      )
+    .setTimestamp()
+
+  msg.reply(
+    { embeds: [pythagorasEmbed] });
   }
-
-
-  //Ligning hjælp embed || Lavet til formålet at der kommer et output hvis nogen prøver kommandoen som fra /hjælp
-  if(commands[0] === '/ligning' && commands[1] === 'hjælp'){
-     const ligningHelpEmbed = new MessageEmbed()
-         .setColor('#ff0000')
-         .setTitle("UNDER UDVIKLING!")
-         .setAuthor({ name: 'Studiehjælperen: Udregning af ligninger'})
-         .setTimestamp()
-      msg.reply(
-         { embeds: [ligningHelpEmbed] })
-     }
-
-    //Valuta hjælp embed || Lavet til formålet at der kommer et output hvis nogen prøver kommandoen som fra /hjælp
-    if(commands[0] === '/valuta' && commands[1] === 'hjælp'){
-        const valutaHelpEmbed = new MessageEmbed()
-            .setColor('#ff0000')
-            .setTitle("UNDER UDVIKLING!")
-            .setAuthor({ name: 'Studiehjælperen: Omregning af valuta'})
-            .setTimestamp()
-         msg.reply(
-             { embeds: [valutaHelpEmbed] })  
-        }
-  
-    //Musik hjælp embed || Lavet til formålet at der kommer et output hvis nogen prøver kommandoen som fra /hjælp
-    if(commands[0] === '/musik' && commands[1] === 'hjælp'){
-        const musikHelpEmbed = new MessageEmbed()
-            .setColor('#ff0000')
-            .setTitle("UNDER UDVIKLING!")
-            .setAuthor({ name: 'Studiehjælperen: Afspilning af musik eller andet lyd'})
-            .setTimestamp()
-        msg.reply(
-            { embeds: [musikHelpEmbed] })  
-        }
-
-
-  //Pythagoras funktion med embed implementeret
-  if(commands[0] === "/pythagoras"){
-    if(isNaN(commands[1])|| 
-       isNaN(commands[2])|| 
-       isNaN(commands[1]) && isNaN(commands[2])){
-      const pythagorasHelpEmbed = new MessageEmbed()
-        .setColor('#ff0000')
-        .setTitle("Pythagoras")
-        .setURL('https://www.webmatematik.dk/lektioner/matematik-c/trigonometri/retvinklede-trekanter')
-        .setAuthor({ name: 'Studiehjælperen: Udregning af Pythagoras'})
-        .setDescription('Pythagoras udregning af Studiehjælperen')
-        //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
-        .addFields(
-            { name: 'For at udregne med pythagoras, skriv:', value: "/pythagoras <a> <b>"},
-        )
-        .setTimestamp()
-
-      msg.reply(
-          { embeds: [pythagorasHelpEmbed] });
-    
-      }else{
-        //console.log("noget")
-
-        let pythagoras = Math.sqrt(commands[1] * commands[1] + commands[2] * commands[2])
-
-      const pythagorasEmbed = new MessageEmbed()
-        .setColor('#00ff00')
-        .setTitle("Pythagoras")
-        .setURL('https://www.webmatematik.dk/lektioner/matematik-c/trigonometri/retvinklede-trekanter')
-        .setAuthor({ name: 'Studiehjælperen: Udregning af Pythagoras'})
-        .setDescription('Pythagoras udregning af Studiehjælperen')
-        //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
-        .addFields(
-            { name: 'Pythagoras udregnet:', value: "Svar: " + pythagoras},
-          )
-        .setTimestamp()
-
-      msg.reply(
-        { embeds: [pythagorasEmbed] });
-      }
-  }
+}
 
  
 
@@ -341,40 +342,7 @@ function gotMessage(msg){
    }
     
    //Kvadratrod af et tal
-   if(commands[0] === "/kvadratrod"){
-    if(isNaN(commands[1])){
-      const kvadratrodHelpEmbed = new MessageEmbed()
-            .setColor('#ff0000')
-            .setTitle("Kvadratrod")
-            .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/algebra/kvadratrod')
-            .setAuthor({ name: 'Studiehjælperen: Kvadratrod'})
-            .setDescription('Kvadratroden af et tal')
-            .addFields(
-                { name: 'For at tage kvadratroden af et tal, skriv:', value: "/kvadratrod <tal>"},
-           
-            )
-            .setTimestamp()
-    msg.reply(
-      { embeds: [kvadratrodHelpEmbed] });
-        
-    }else{
-      
-      let kvadratrod = Math.sqrt(commands[1])
-
-      const kvadratrodEmbed = new MessageEmbed()
-            .setColor('#00ff00')
-            .setTitle("Kvadratrod")
-            .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/algebra/kvadratrod')
-            .setAuthor({ name: 'Studiehjælperen: Kvadratrod'})
-            .setDescription('Kvadratroden af et tal')
-            .addFields(
-                { name: 'Kvadraten af et tal:', value: "Svar: " + kvadratrod},
-            )
-            .setTimestamp()
-      msg.reply(
-          { embeds: [kvadratrodEmbed] });
-            }
-        }
+   
 
     //Rumfang hjælp
     if(commands[0] === "/rumfang" && commands[1] === "hjælp"){
