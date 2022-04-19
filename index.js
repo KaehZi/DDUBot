@@ -136,7 +136,6 @@ function gotMessage(msg){
             .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal')
             .setAuthor({ name: 'Studiehjælperen: Udregning af arealer'})
             .setDescription('Areal udregning af Studiehjælperen')
-            //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
                 { name: 'For at udregne areal af en firkant, skriv:', value: "/areal firkant <l> <b>"},
                 { name: 'For at udregne areal af en trekant, skriv:', value: '/areal trekant <h> <g>' },
@@ -158,7 +157,6 @@ function gotMessage(msg){
             .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/rektangel')
             .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en firkant'})
             .setDescription('Formel: l * b')
-            //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
                 { name: 'For at udregne areal af en firkant , skriv:', value: "/areal firkant <l> <b>"},
             )
@@ -229,20 +227,16 @@ function gotMessage(msg){
   }
   if(commands[0] === "/areal" && commands[1] === "cirkel"){ 
   if(isNaN(commands[2])){
-      //pythagorasSlash = SlashCommandBuilder().setName('pythagoras').setDescription('Udregner pythagoras'),
       const arealCirkelHelpEmbed = new MessageEmbed()
             .setColor('#ff0000')
             .setTitle("Areal af en cirkel")
             .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/cirkel')
             .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en cirkel'})
             .setDescription('Formel: pi * r')
-            //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
                 { name: 'For at udregne areal af en cirkel , skriv:', value: "/areal cirkel <r>"},
             )
             .setTimestamp()
-           
-
       msg.reply(
           { embeds: [arealCirkelHelpEmbed] });
   
@@ -257,7 +251,6 @@ function gotMessage(msg){
             .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/cirkel')
             .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en cirkel'})
             .setDescription('Formel: pi * r')
-            //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
             { name: 'Areal for en cirkel udregnet:', value: "Svar: " + arealCirkel},
             )
@@ -280,7 +273,6 @@ function gotMessage(msg){
             .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/parallellogram')
             .setAuthor({ name: 'Studiehjælperen: Udregning af areal for et parallelogram'})
             .setDescription('Formel: h * g')
-            //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
                 { name: 'For at udregne areal af et parallelogram , skriv:', value: "/areal parallelogram <h> <g>"},
             )
@@ -300,7 +292,6 @@ function gotMessage(msg){
             .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/parallellogram')
             .setAuthor({ name: 'Studiehjælperen: Udregning af areal for et parallelogram'})
             .setDescription('Formel: h * g')
-            //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
             { name: 'Areal for et paralellogram udregnet:', value: "Svar: " + arealParallel},
              )
@@ -323,19 +314,10 @@ function gotMessage(msg){
             .setTitle("Areal af en trapez")
             .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/trapez')
             .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en trapez'})
-            //.setDescription('Formel: 1/2 * h * (a1 + a2)')
-            //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
                 { name: 'For at udregne areal af et parallelogram , skriv:', value: "/areal trapez <h> <a1> <a2>"},
                 )
             .setTimestamp()
-            
-            console.log(commands[2])
-
-            console.log(commands[3])
-    
-            console.log(commands[4])
-
       msg.reply(
           { embeds: [arealTrapezHelpEmbed] });
       
@@ -349,7 +331,6 @@ function gotMessage(msg){
                 .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/trapez')
                 .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en trapez'})
                 .setDescription('Formel: 1/2 * h * (a1 + a2)')
-                //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
                 .addFields(
                 { name: 'Areal for en trapez udregnet:', value: "Svar: " + arealTrapez},
                  )
@@ -368,7 +349,6 @@ function gotMessage(msg){
             .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/algebra/kvadratrod')
             .setAuthor({ name: 'Studiehjælperen: Kvadratrod'})
             .setDescription('Kvadratroden af et tal')
-            //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
                 { name: 'For at tage kvadratroden af et tal, skriv:', value: "/kvadratrod <tal>"},
            
@@ -387,7 +367,6 @@ function gotMessage(msg){
             .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/algebra/kvadratrod')
             .setAuthor({ name: 'Studiehjælperen: Kvadratrod'})
             .setDescription('Kvadratroden af et tal')
-            //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
                 { name: 'Kvadraten af et tal:', value: "Svar: " + kvadratrod},
             )
@@ -405,7 +384,6 @@ function gotMessage(msg){
             .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/rumfang-og-overfladeareal')
             .setAuthor({ name: 'Studiehjælperen: Udregning af rumfang'})
             .setDescription('Rumfangs beregning af Studiehjælperen')
-            //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
                 { name: 'For at udregne rumfang af en kasse, skriv:', value: "/rumfang kasse <l> <b> <h>"},
                 { name: 'For at udregne rumfang af en cylinder, skriv:', value: '/rumfang cylinder <h> <r>' },
@@ -530,8 +508,8 @@ function gotMessage(msg){
               .setTimestamp()
           msg.reply(
           { embeds: [rumfangKugleEmbed]});
-          }
         }
+      }
 
       //Rumfang af en kegle
       if(commands[0] === "/rumfang" && commands[1] === "kegle"){ 
