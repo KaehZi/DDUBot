@@ -5,7 +5,7 @@ const { MessageEmbed } = require("discord.js");
 require("dotenv").config();
 
 const WolframAlphaAPI = require('wolfram-alpha-api');
-const wolframAPI = WolframAlphaAPI("774UYL-GLW5P969T4");
+const wolframAPI = WolframAlphaAPI(String(process.env.WOLFRAMALPHA_KEY));
 
 
 
