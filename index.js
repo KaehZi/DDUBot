@@ -26,7 +26,7 @@ import { valutaOmregner } from './studiehjælperen-commands/valuta-omregner.js';
 
 dotenv.config()
 //const WolframAlphaAPI = require('wolfram-alpha-api');
-const wolframAPI = WolframAlphaAPI(String(process.env.WOLFRAMALPHA_KEY));
+//const wolframAPI = WolframAlphaAPI(String(process.env.WOLFRAMALPHA_KEY));
 
 // Create a new client instance
 const myIntents = new Intents();
