@@ -7,5 +7,8 @@
     "dotenv": "^16.0.0",
     "node-fetch": "^2.6.7",
     "wolfram-alpha-api": "https://products.wolframalpha.com/api/libraries/javascript/wolfram-alpha-api-1.0.0-rc.1.tgz"
-  }
+    
+    
+  },
+  "type": "module"
 }

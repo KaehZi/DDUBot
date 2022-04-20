@@ -1,8 +1,7 @@
-const index = require('../index')
-const nogetIndex = new index
-    console.log(nogetIndex);
+import { commands } from '../index.js'
+import { MessageEmbed } from 'discord.js'
 
-if(commands[0] === "/kvadratrod"){
+export function kvadratrodCommand(){   
     if(isNaN(commands[1])){
       const kvadratrodHelpEmbed = new MessageEmbed()
             .setColor('#ff0000')
@@ -15,10 +14,9 @@ if(commands[0] === "/kvadratrod"){
            
             )
             .setTimestamp()
-    msg.reply(
-      { embeds: [kvadratrodHelpEmbed] });
+      return { embeds: [kvadratrodHelpEmbed] };
         
-    }else{
+    } else {
       
       let kvadratrod = Math.sqrt(commands[1])
 
@@ -32,7 +30,11 @@ if(commands[0] === "/kvadratrod"){
                 { name: 'Kvadraten af et tal:', value: "Svar: " + kvadratrod},
             )
             .setTimestamp()
-      msg.reply(
-          { embeds: [kvadratrodEmbed] });
+          return { embeds: [kvadratrodEmbed] };
             }
         }
+       
+
+      
+
+      
