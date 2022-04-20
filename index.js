@@ -26,7 +26,7 @@ import { valutaOmregner } from './studiehjælperen-commands/valuta-omregner.js';
 
 dotenv.config()
 //const WolframAlphaAPI = require('wolfram-alpha-api');
-//const wolframAPI = WolframAlphaAPI("774UYL-GLW5P969T4");
+const wolframAPI = WolframAlphaAPI(String(process.env.WOLFRAMALPHA_KEY));
 
 // Create a new client instance
 const myIntents = new Intents();
@@ -46,9 +46,6 @@ function gotMessage(msg){
     commands = msg.content.split(" ")
     console.log(commands)
 
-    if(commands[0] === "/kvadratrod"){
-      msg.reply(kvadratrodCommand());
-    }
     if(commands[0] === "/areal" && commands[1] === "hjælp"){
       msg.reply(arealHjælp());
     }
