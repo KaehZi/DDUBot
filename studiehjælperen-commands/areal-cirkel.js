@@ -1,9 +1,7 @@
-const messageModule = require('../index')
+import { commands } from '../index.js'
+import { MessageEmbed } from 'discord.js'
 
-  messageModule();
-
-
-if(commands[0] === "/areal" && commands[1] === "cirkel"){ 
+    export function arealCirkel(){
     if(isNaN(commands[2])){
         const arealCirkelHelpEmbed = new MessageEmbed()
               .setColor('#ff0000')
@@ -15,12 +13,10 @@ if(commands[0] === "/areal" && commands[1] === "cirkel"){
                   { name: 'For at udregne areal af en cirkel , skriv:', value: "/areal cirkel <r>"},
               )
               .setTimestamp()
-        msg.reply(
-            { embeds: [arealCirkelHelpEmbed] });
+        return { embeds: [arealCirkelHelpEmbed] };
     
         }else{
-  
-  
+
         let arealCirkel = (Math.PI * (commands[2]))^2
   
         const arealCirkelEmbed = new MessageEmbed()
@@ -34,7 +30,6 @@ if(commands[0] === "/areal" && commands[1] === "cirkel"){
               )
               .setTimestamp()
   
-        msg.reply(
-            { embeds: [arealCirkelEmbed] });
+        return { embeds: [arealCirkelEmbed] };
         }
     }

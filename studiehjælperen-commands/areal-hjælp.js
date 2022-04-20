@@ -1,10 +1,8 @@
-const messageModule = require('../index')
-
-  messageModule();
+//import { commands } from '../index.js'
+import { MessageEmbed } from 'discord.js'
 
   //Oversigt over areal funktioner
-  if(commands[0] === "/areal" && commands[1] === "" ||
-  (commands[0] === "/areal" && commands[1] === "hjælp")){
+  export function arealHjælp(){
     
   const arealHelpEmbed = new MessageEmbed()
         .setColor('#ffff00')
@@ -20,6 +18,5 @@ const messageModule = require('../index')
             { name: 'For at udregne areal af en trapez, skriv:', value: "/areal trapez <h> <a1> <a2>" },
         )
         .setTimestamp()
-  msg.reply(
-    { embeds: [arealHelpEmbed] });
+  return { embeds: [arealHelpEmbed] };
   }

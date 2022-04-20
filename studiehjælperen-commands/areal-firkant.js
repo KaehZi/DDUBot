@@ -1,9 +1,9 @@
-const messageModule = require('../index')
+import { commands } from '../index.js'
+import { MessageEmbed } from 'discord.js'
 
-  messageModule();
-
-  if(commands[0] === "/areal" && commands[1] === "firkant"){ 
-    if(isNaN(commands[2])|| isNaN(commands[3])|| (isNaN(commands[2]) && isNaN(commands[3]))){
+  export function arealFirkant(){ 
+    if(isNaN(commands[2]) || isNaN(commands[3]) 
+   || (isNaN(commands[2]) && isNaN(commands[3]))){
     const arealfirkantHelpEmbed = new MessageEmbed()
           .setColor('#ff0000')
           .setTitle("Areal af en firkant")
@@ -15,8 +15,7 @@ const messageModule = require('../index')
           )
           .setTimestamp()
 
-    msg.reply(
-      { embeds: [arealfirkantHelpEmbed] });
+return { embeds: [arealfirkantHelpEmbed] };
     
     }else{
 
@@ -33,7 +32,6 @@ const messageModule = require('../index')
               )
               .setTimestamp()
               
-    msg.reply(
-        { embeds: [arealfirkantEmbed] });
+      return { embeds: [arealfirkantEmbed] };
     }
 }
