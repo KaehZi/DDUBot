@@ -1,8 +1,6 @@
-const messageModule = require('../index')
+import { MessageEmbed } from 'discord.js'
 
-  messageModule();
-
-  if(commands[0] === "/hjælp"){
+  export function hjælpOversigt(){
     const HelpEmbed = new MessageEmbed()
     .setColor('#ffff00')
     .setTitle("Hjælp")
@@ -17,7 +15,6 @@ const messageModule = require('../index')
     )
     .setTimestamp()
 
-msg.reply(
-  { embeds: [HelpEmbed] });
+return { embeds: [HelpEmbed] };
 
 }

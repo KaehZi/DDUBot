@@ -1,13 +1,10 @@
-const messageModule = require('../index')
+import { MessageEmbed } from 'discord.js'
 
-  messageModule();
-
-  if(commands[0] === '/valuta' && commands[1] === 'hjælp'){
+  export function valutaHjælp(){
     const valutaHelpEmbed = new MessageEmbed()
         .setColor('#ff0000')
         .setTitle("UNDER UDVIKLING!")
         .setAuthor({ name: 'Studiehjælperen: Omregning af valuta'})
         .setTimestamp()
-     msg.reply(
-         { embeds: [valutaHelpEmbed] })  
+     return { embeds: [valutaHelpEmbed] };  
     }

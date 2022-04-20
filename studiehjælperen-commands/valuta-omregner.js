@@ -1,3 +1,8 @@
-const messageModule = require('../index')
+import { commands } from '../index.js'
+import { MessageEmbed } from 'discord.js'
 
-  messageModule();
+export async function valutaOmregner(){
+
+
+  
+}

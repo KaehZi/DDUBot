@@ -1,8 +1,7 @@
-const messageModule = require('../index')
+import { commands } from '../index.js'
+import { MessageEmbed } from 'discord.js'
 
-  messageModule();
-
-  if(commands[0] === "/rumfang" && commands[1] === "kasse"){ 
+  export function rumfangKasse(){
     if(isNaN(commands[2]) || 
        isNaN(commands[3]) ||
        isNaN(commands[4]) || 
@@ -18,8 +17,7 @@ const messageModule = require('../index')
             { name: 'For at udregne rumfang af en firkant/kasse, skriv:', value: "/rumfang firkant <l> <b> <h>"},    
         )
         .setTimestamp()
-    msg.reply(
-      { embeds: [rumfangKasseHelpEmbed]});
+    return { embeds: [rumfangKasseHelpEmbed]};
 
 }else{
 
@@ -35,7 +33,6 @@ const messageModule = require('../index')
             { name: 'Rumfanget af en kasse: ', value: "Svar: " + rumfangKasse},    
         )
         .setTimestamp()
-    msg.reply(
-    { embeds: [rumfangKasseEmbed]});
+    return { embeds: [rumfangKasseEmbed]};
     }
 }

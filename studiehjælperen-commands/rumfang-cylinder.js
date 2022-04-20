@@ -1,8 +1,7 @@
-const messageModule = require('../index')
+import { commands } from '../index.js'
+import { MessageEmbed } from 'discord.js'
 
-  messageModule();
-
-  if(commands[0] === "/rumfang" && commands[1] === "cylinder"){ 
+  export function arealCylinder(){
     if(isNaN(commands[2]) || 
        isNaN(commands[3]) || 
       (isNaN(commands[2]) && isNaN(commands[3]))){
@@ -17,8 +16,7 @@ const messageModule = require('../index')
               { name: 'For at udregne rumfang af en cylinder, skriv:', value: "/rumfang cylinder <h> <r>"},    
           )
           .setTimestamp()
-      msg.reply(
-        { embeds: [rumfangCylinderHelpEmbed]});
+      return { embeds: [rumfangCylinderHelpEmbed]};
 
       }else{
 
@@ -34,7 +32,6 @@ const messageModule = require('../index')
               { name: 'Rumfanget af en cylinder: ', value: "Svar: " + rumfangCylinder},    
           )
           .setTimestamp()
-      msg.reply(
-        { embeds: [rumfangCylinderEmbed]});
+      return { embeds: [rumfangCylinderEmbed]};
       }
     }

@@ -1,8 +1,7 @@
-const messageModule = require('../index')
+import { commands } from '../index.js'
+import { MessageEmbed } from 'discord.js'
 
-  messageModule();
-
-  if(commands[0] === "/ligning" && commands[1] === "beregning") {
+  export function ligningBeregner(){
     wolframAPI.getFull(""+commands[2]).then((queryresult) => {
       output: 'json'
       const pods = queryresult.pods;
@@ -40,6 +39,5 @@ const messageModule = require('../index')
   )
   .setTimestamp()
   .setFooter({ text: 'Wolfram|Alpha'});
-msg.reply(
-{ embeds: [ligningLøst]}
-)})}
+return { embeds: [ligningLøst]}
+})}

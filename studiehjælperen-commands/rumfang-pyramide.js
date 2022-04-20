@@ -1,8 +1,7 @@
-const messageModule = require('../index')
+import { commands } from '../index.js'
+import { MessageEmbed } from 'discord.js'
 
-  messageModule();
-
-  if(commands[0] === "/rumfang" && commands[1] === "pyramide"){ 
+  export function rumfangPyramide(){
     if(isNaN(commands[2]) && isNaN(commands[3]) ||
        isNaN(commands[2]) ||
        isNaN(commands[3])){
@@ -18,8 +17,7 @@ const messageModule = require('../index')
               { name: 'For at udregne rumfang af en pyramide, skriv:', value: "/rumfang pyramide <Grundfladeareal> <h>"},    
           )
           .setTimestamp()
-      msg.reply(
-        { embeds: [rumfangPyramideHelpEmbed]});
+      return { embeds: [rumfangPyramideHelpEmbed]};
 
       }else{
 
@@ -36,7 +34,6 @@ const messageModule = require('../index')
           )
           .setTimestamp()
           //.setFooter( {text: ${user} } )
-      msg.reply(
-        { embeds: [rumfangPyramideEmbed]});
+      return { embeds: [rumfangPyramideEmbed]};
       }
     }  

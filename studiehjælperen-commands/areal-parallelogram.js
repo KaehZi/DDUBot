@@ -1,9 +1,7 @@
-const messageModule = require('../index')
+import { commands } from '../index.js'
+import { MessageEmbed } from 'discord.js'
 
-  messageModule();
-
-  if(commands[0] === "/areal" && commands[1] === "parallelogram" 
-  || commands[0] === "areal" && commands[1] === "parallel"){ 
+  export function arealParallel(){
       if(isNaN(commands[2])|| 
          isNaN(commands[3])|| 
         (isNaN(commands[2]) && isNaN(commands[3]))){

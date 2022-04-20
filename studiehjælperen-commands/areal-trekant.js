@@ -1,8 +1,7 @@
-const messageModule = require('../index')
+import { commands } from '../index.js'
+import { MessageEmbed } from 'discord.js'
 
-  messageModule();
-
-  if(commands[0] === "/areal" && commands[1] === "trekant"){ 
+  export function arealTrekant(){
     if(isNaN(commands[2])||
        isNaN(commands[3])|| 
       (isNaN(commands[2]) && isNaN(commands[3]))){
@@ -19,8 +18,7 @@ const messageModule = require('../index')
           )
           .setTimestamp()
 
-    msg.reply(
-        { embeds: [arealTrekantHelpEmbed] });
+    return { embeds: [arealTrekantHelpEmbed] };
     
     }else{
 
@@ -37,7 +35,6 @@ const messageModule = require('../index')
               { name: 'Areal for en trekant udregnet:', value: "Svar: " + arealTrekant},
           )
           .setTimestamp()
-    msg.reply(
-        { embeds: [arealTrekantEmbed] });
+    return { embeds: [arealTrekantEmbed] };
     }
 }

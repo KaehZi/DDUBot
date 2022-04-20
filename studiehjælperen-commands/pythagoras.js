@@ -1,8 +1,7 @@
-const messageModule = require('../index')
+import { commands } from '../index.js'
+import { MessageEmbed } from 'discord.js'
 
-  messageModule();
-
-  if(commands[0] === "/pythagoras"){
+  export function pythagoras(){
     if(isNaN(commands[1])|| 
        isNaN(commands[2])|| 
        isNaN(commands[1]) && isNaN(commands[2])){
@@ -18,11 +17,9 @@ const messageModule = require('../index')
         )
         .setTimestamp()
 
-      msg.reply(
-          { embeds: [pythagorasHelpEmbed] });
+      return { embeds: [pythagorasHelpEmbed] };
     
       }else{
-        //console.log("noget")
 
         let pythagoras = Math.sqrt(commands[1] * commands[1] + commands[2] * commands[2])
 
@@ -38,7 +35,6 @@ const messageModule = require('../index')
           )
         .setTimestamp()
 
-      msg.reply(
-        { embeds: [pythagorasEmbed] });
+      return { embeds: [pythagorasEmbed] };
       }
   }

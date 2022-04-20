@@ -1,8 +1,6 @@
-const messageModule = require('../index')
+import { MessageEmbed } from 'discord.js'
 
-  messageModule();
-
-  if(commands[0] === "/rumfang" && commands[1] === "hjælp"){
+  export function rumfangHjælp(){
     const rumfangHelpEmbed = new MessageEmbed()
         .setColor('#ffff00')
         .setTitle("Rumfang beregning")
@@ -18,6 +16,5 @@ const messageModule = require('../index')
             { name: 'For at udregne rumfang af et prisme, skriv:', value: '/rumfang prisme <h> <g> <b>'}
         )
         .setTimestamp()
-msg.reply(
-    { embeds: [rumfangHelpEmbed] });
+    return { embeds: [rumfangHelpEmbed] };
 }

@@ -1,8 +1,7 @@
-const messageModule = require('../index')
+import { commands } from '../index.js'
+import { MessageEmbed } from 'discord.js'
 
-  messageModule();
-
-  if(commands[0] === "/rumfang" && commands[1] === "kugle"){ 
+  export function rumfangKugle(){
     if(isNaN(commands[2]) ||  
       (isNaN(commands[2]))){
 
@@ -16,8 +15,7 @@ const messageModule = require('../index')
               { name: 'For at udregne rumfang af en kugle, skriv:', value: "/rumfang kugle <r>"},    
           )
           .setTimestamp()
-      msg.reply(
-        { embeds: [rumfangKugleHelpEmbed]});
+      return { embeds: [rumfangKugleHelpEmbed]};
 
       }else{
 
@@ -33,7 +31,6 @@ const messageModule = require('../index')
               { name: 'Rumfanget af en kugle: ', value: "Svar: " + rumfangKugle},    
           )
           .setTimestamp()
-      msg.reply(
-      { embeds: [rumfangKugleEmbed]});
+      return { embeds: [rumfangKugleEmbed]};
     }
   }

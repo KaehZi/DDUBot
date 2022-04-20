@@ -1,13 +1,11 @@
-const messageModule = require('../index')
+import { commands } from '../index.js'
+import { MessageEmbed } from 'discord.js'
 
-  messageModule();
-
-    if(commands[0] === '/ligning' && commands[1] === 'hjælp'){
+    export function ligningHjælp(){
         const ligningHelpEmbed = new MessageEmbed()
             .setColor('#ff0000')
             .setTitle("UNDER UDVIKLING!")
             .setAuthor({ name: 'Studiehjælperen: Udregning af ligninger'})
             .setTimestamp()
-        msg.reply(
-            { embeds: [ligningHelpEmbed] })
+        return { embeds: [ligningHelpEmbed] }
         }
