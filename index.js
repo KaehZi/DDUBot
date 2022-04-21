@@ -26,7 +26,13 @@ import { valutaOmregner } from './studiehjælperen-commands/valuta-omregner.js';
 
 dotenv.config()
 //const WolframAlphaAPI = require('wolfram-alpha-api');
-//const wolframAPI = WolframAlphaAPI(String(process.env.WOLFRAMALPHA_KEY));
+
+
+//import 'wolfram-alpha-api'
+/*
+const WolframAlphaAPI = require('wolfram-alpha-api');
+const wolframAPI = WolframAlphaAPI(String(process.env.WOLFRAMALPHA_KEY));
+*/
 
 // Create a new client instance
 const myIntents = new Intents();
@@ -104,7 +110,11 @@ function gotMessage(msg){
     if(commands[0] === "/valuta" && commands[1] === "omregn"){
       msg.reply(valutaOmregner());
     }
+    if(commands[0] === "/kvadratrod"){
+      msg.reply(kvadratrodCommand());
+    }
 
 }
 
 export { commands }
+//export { wolframAPI }
