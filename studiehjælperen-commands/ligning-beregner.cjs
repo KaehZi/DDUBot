@@ -5,7 +5,7 @@
 
 //let _hello = import('../index.js');
 
-let _hello = import('../index,js'); 
+let _hello = import('../index.js'); 
 
 async function runApp() {
   console.log(await (await _hello).hello());
@@ -30,7 +30,7 @@ const { MessageEmbed } = require("discord.js");
 //console.log(wolframAPI)
 
 const WolframAlphaAPI = require('wolfram-alpha-api');
-const { commands } = require('../index.js');
+//const { commands } = require('../index.js');
 //const waApi = WolframAlphaAPI('DEMO-APPID');
 const wolframAPI = WolframAlphaAPI("774UYL-GLW5P969T4");
 
