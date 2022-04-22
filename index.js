@@ -11,7 +11,7 @@ import { arealHjælp } from './studiehjælperen-commands/areal-hjælp.js';
 import { arealParallel } from './studiehjælperen-commands/areal-parallelogram.js';
 import { arealTrekant } from './studiehjælperen-commands/areal-trekant.js';
 import { hjælpOversigt } from './studiehjælperen-commands/hjælp-oversigt.js';
-import { ligningBeregner } from './studiehjælperen-commands/ligning-beregner.js';
+import { ligningBeregner } from './studiehjælperen-commands/ligning-beregner.cjs';
 import { ligningHjælp } from './studiehjælperen-commands/ligning-hjælp.js';
 import { pythagoras } from './studiehjælperen-commands/pythagoras.js';
 import { arealCylinder } from './studiehjælperen-commands/rumfang-cylinder.js';
@@ -24,16 +24,10 @@ import { rumfangPyramide } from './studiehjælperen-commands/rumfang-pyramide.js
 import { valutaHjælp } from './studiehjælperen-commands/valuta-hjælp.js';
 import { valutaOmregner } from './studiehjælperen-commands/valuta-omregner.js';
 
+//import pkg from './studiehjælperen-commands/ligning-beregner.cjs';
+//const { ligningBeregner } = pkg;
+
 dotenv.config()
-//const WolframAlphaAPI = require('wolfram-alpha-api');
-
-
-//import 'wolfram-alpha-api'
-/*
-const WolframAlphaAPI = require('wolfram-alpha-api');
-const wolframAPI = WolframAlphaAPI(String(process.env.WOLFRAMALPHA_KEY));
-*/
-
 // Create a new client instance
 const myIntents = new Intents();
     myIntents.add( Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES )
@@ -117,4 +111,4 @@ function gotMessage(msg){
 }
 
 export { commands }
-//export { wolframAPI }
+//module.exports = { commands }
