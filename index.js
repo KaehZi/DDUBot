@@ -11,7 +11,7 @@ import { arealHjælp } from './studiehjælperen-commands/areal-hjælp.js';
 import { arealParallel } from './studiehjælperen-commands/areal-parallelogram.js';
 import { arealTrekant } from './studiehjælperen-commands/areal-trekant.js';
 import { hjælpOversigt } from './studiehjælperen-commands/hjælp-oversigt.js';
-import { ligningBeregner } from './studiehjælperen-commands/ligning-beregner.cjs';
+//import { ligningBeregner } from './studiehjælperen-commands/ligning-beregner.cjs';
 import { ligningHjælp } from './studiehjælperen-commands/ligning-hjælp.js';
 import { pythagoras } from './studiehjælperen-commands/pythagoras.js';
 import { arealCylinder } from './studiehjælperen-commands/rumfang-cylinder.js';
@@ -24,8 +24,8 @@ import { rumfangPyramide } from './studiehjælperen-commands/rumfang-pyramide.js
 import { valutaHjælp } from './studiehjælperen-commands/valuta-hjælp.js';
 import { valutaOmregner } from './studiehjælperen-commands/valuta-omregner.js';
 
-//import pkg from './studiehjælperen-commands/ligning-beregner.cjs';
-//const { ligningBeregner } = pkg;
+import pkg from './studiehjælperen-commands/ligning-beregner.cjs';
+const { ligningBeregner } = pkg;
 
 dotenv.config()
 // Create a new client instance

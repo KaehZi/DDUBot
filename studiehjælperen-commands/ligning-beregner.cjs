@@ -5,16 +5,16 @@
 
 //let _hello = import('../index.js');
 
-let _hello = import('../index.js'); 
+//let _hello = import('../index.js'); 
 
-async function runApp() {
-  console.log(await (await _hello).hello());
-  console.log((await _hello).func1());
-  console.log("Test ")
-}
+//async function runApp() {
+  //console.log(await (await _hello).hello());
+  //console.log((await _hello).func1());
+  //console.log("Test ")
+//}
 
-runApp()
-.catch(err => { console.log(err); });
+//runApp()
+//.catch(err => { console.log(err); });
 
 //const { commands } = require('../index');
 const { MessageEmbed } = require("discord.js");
@@ -31,14 +31,17 @@ const { MessageEmbed } = require("discord.js");
 
 const WolframAlphaAPI = require('wolfram-alpha-api');
 //const { commands } = require('../index.js');
+
+//const { commands } = require('../index.js');
 //const waApi = WolframAlphaAPI('DEMO-APPID');
 const wolframAPI = WolframAlphaAPI("774UYL-GLW5P969T4");
 
 
-
- function ligningBeregner(){
-    console.log("Noget " + _hello.commands)
-    wolframAPI.getFull(""+_hello.commands[2]).then((queryresult) => {
+import { commands } from '../index.js';
+ function ligningBeregner(){  
+ 
+    console.log("Noget " + commands)
+    wolframAPI.getFull(commands[2]).then((queryresult) => {
       output: 'json'
       const pods = queryresult.pods;
       const output = pods.map((pod) => {
