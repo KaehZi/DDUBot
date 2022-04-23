@@ -45,7 +45,7 @@ function gotMessage(msg){
     console.log(msg.content);
     commands = msg.content.split(" ")
     console.log(commands)
-
+    //
     if(commands[0] === "/areal" && commands[1] === "hjælp"){
       msg.reply(arealHjælp());
     }
