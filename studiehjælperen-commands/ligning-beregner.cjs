@@ -1,43 +1,15 @@
 //import { commands } from '../index.js'
 //import { MessageEmbed } from 'discord.js'
-
-
-
-//let _hello = import('../index.js');
-
-//let _hello = import('../index.js'); 
-
-//async function runApp() {
-  //console.log(await (await _hello).hello());
-  //console.log((await _hello).func1());
-  //console.log("Test ")
-//}
-
-//runApp()
-//.catch(err => { console.log(err); });
-
-//const { commands } = require('../index');
 const { MessageEmbed } = require("discord.js");
 
  
-//WolframAlphaAPI() = import ('wolfram-alpha-api');
-//import pkg from 'wolfram-alpha-api';
-//import { WolframAlphaAPI } from "../node_modules/wolfram-alpha-api/lib/WolframAlphaAPI.cjs"
-//const WolframAlphaAPI = pkg;
-//import WolframAlphaAPI from 'wolfram-alpha-api';
-//const { WolframAlphaAPI } = pkg;
 
-//console.log(wolframAPI)
 
 const WolframAlphaAPI = require('wolfram-alpha-api');
-//const { commands } = require('../index.js');
-
-//const { commands } = require('../index.js');
-//const waApi = WolframAlphaAPI('DEMO-APPID');
 const wolframAPI = WolframAlphaAPI("774UYL-GLW5P969T4");
 
 
-import { commands } from '../index.js';
+//import { commands } from '../index.js';
  function ligningBeregner(){  
  
     console.log("Noget " + commands)
