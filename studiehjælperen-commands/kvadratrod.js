@@ -1,8 +1,12 @@
-import { commands } from '../index.js'
-import { MessageEmbed } from 'discord.js'
+// import { commands } from '../index.js'
+// import { MessageEmbed } from 'discord.js'
+const { MessageEmbed } = require('discord.js');
+//let input = require("../index")
+let commands = require('../index')
 
-export function kvadratrodCommand(){   
+function kvadratrodCommand(){   
     if(isNaN(commands[1])){
+      console.log("Hul: " + commands)
       const kvadratrodHelpEmbed = new MessageEmbed()
             .setColor('#ff0000')
             .setTitle("Kvadratrod")
@@ -34,7 +38,7 @@ export function kvadratrodCommand(){
             }
         }
        
+module.exports = kvadratrodCommand;
 
-      
 
       

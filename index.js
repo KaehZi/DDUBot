@@ -1,33 +1,38 @@
 let commands;
 
 // Require the necessary discord.js classes
-import { Client, Intents } from 'discord.js'
-import dotenv from 'dotenv'
-import { kvadratrodCommand } from './studiehjælperen-commands/kvadratrod.js'
-import { arealTrapez } from './studiehjælperen-commands/areal-trapez.js';
-import { arealCirkel } from './studiehjælperen-commands/areal-cirkel.js';
-import { arealFirkant } from './studiehjælperen-commands/areal-firkant.js';
-import { arealHjælp } from './studiehjælperen-commands/areal-hjælp.js';
-import { arealParallel } from './studiehjælperen-commands/areal-parallelogram.js';
-import { arealTrekant } from './studiehjælperen-commands/areal-trekant.js';
-import { hjælpOversigt } from './studiehjælperen-commands/hjælp-oversigt.js';
-//import { ligningBeregner } from './studiehjælperen-commands/ligning-beregner.cjs';
-import { ligningHjælp } from './studiehjælperen-commands/ligning-hjælp.js';
-import { pythagoras } from './studiehjælperen-commands/pythagoras.js';
-import { arealCylinder } from './studiehjælperen-commands/rumfang-cylinder.js';
-import { rumfangHjælp } from './studiehjælperen-commands/rumfang-hjælp.js';
-import { rumfangKasse } from './studiehjælperen-commands/rumfang-kasse.js';
-import { rumfangKugle } from './studiehjælperen-commands/rumfang-kugle.js';
-import { rumfangKegle } from './studiehjælperen-commands/rumfang-kegle.js';
-import { rumfangPrisme } from './studiehjælperen-commands/rumfang-prisme.js';
-import { rumfangPyramide } from './studiehjælperen-commands/rumfang-pyramide.js';
-import { valutaHjælp } from './studiehjælperen-commands/valuta-hjælp.js';
-import { valutaOmregner } from './studiehjælperen-commands/valuta-omregner.js';
+// import { Client, Intents } from 'discord.js'
+// import dotenv from 'dotenv'
+// import { kvadratrodCommand } from './studiehjælperen-commands/kvadratrod.js'
+// import { arealTrapez } from './studiehjælperen-commands/areal-trapez.js';
+// import { arealCirkel } from './studiehjælperen-commands/areal-cirkel.js';
+// import { arealFirkant } from './studiehjælperen-commands/areal-firkant.js';
+// import { arealHjælp } from './studiehjælperen-commands/areal-hjælp.js';
+// import { arealParallel } from './studiehjælperen-commands/areal-parallelogram.js';
+// import { arealTrekant } from './studiehjælperen-commands/areal-trekant.js';
+// import { hjælpOversigt } from './studiehjælperen-commands/hjælp-oversigt.js';
+// import { ligningBeregner } from './studiehjælperen-commands/ligning-beregner.cjs';
+// import { ligningHjælp } from './studiehjælperen-commands/ligning-hjælp.js';
+// import { pythagoras } from './studiehjælperen-commands/pythagoras.js';
+// import { arealCylinder } from './studiehjælperen-commands/rumfang-cylinder.js';
+// import { rumfangHjælp } from './studiehjælperen-commands/rumfang-hjælp.js';
+// import { rumfangKasse } from './studiehjælperen-commands/rumfang-kasse.js';
+// import { rumfangKugle } from './studiehjælperen-commands/rumfang-kugle.js';
+// import { rumfangKegle } from './studiehjælperen-commands/rumfang-kegle.js';
+// import { rumfangPrisme } from './studiehjælperen-commands/rumfang-prisme.js';
+// import { rumfangPyramide } from './studiehjælperen-commands/rumfang-pyramide.js';
+// import { valutaHjælp } from './studiehjælperen-commands/valuta-hjælp.js';
+// import { valutaOmregner } from './studiehjælperen-commands/valuta-omregner.js';
+//import pkg from './studiehjælperen-commands/ligning-beregner.cjs';
+//const { ligningBeregner } = pkg;
 
-import pkg from './studiehjælperen-commands/ligning-beregner.cjs';
-const { ligningBeregner } = pkg;
+const kvadratrodCommand = require('./studiehjælperen-commands/kvadratrod');
 
-dotenv.config()
+const { Client, Intents } = require('discord.js');
+require('dotenv').config()
+
+//dotenv.config()
+
 // Create a new client instance
 const myIntents = new Intents();
     myIntents.add( Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES )
@@ -43,8 +48,10 @@ client.on("messageCreate", gotMessage);
 //**********************************************************************************************//
 function gotMessage(msg){
     console.log(msg.content);
-    commands = msg.content.split(" ")
-    console.log(commands)
+    splitCommands = msg.content.split(" ");
+    commands = splitCommands;
+    console.log(commands);
+    module.exports.commands = commands;
     //
     if(commands[0] === "/areal" && commands[1] === "hjælp"){
       msg.reply(arealHjælp());
@@ -110,5 +117,7 @@ function gotMessage(msg){
 
 }
 
-export { commands }
+//export { commands }
+
+//exports.commands = commands;
 //module.exports = { commands }
