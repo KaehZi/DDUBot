@@ -36,6 +36,7 @@ function gotMessage(msg){
         .addFields(
             { name: 'For at få hjælp til at udregne areal, skriv:', value: "/areal hjælp"},
             { name: 'For at få hjælp til at udregne rumfang, skriv:', value: "/rumfang hjælp"},
+            { name: 'For at få hjælp til at udregne pythagoras, skriv:', value: "/pythagoras hjælp"},
             { name: 'For at få hjælp til at udregne ligninger, skriv:', value: "/ligning hjælp"},
             { name: 'For at få hjælp til at udregne kvadratrod, skriv:', value: "/kvadratrod hjælp"},
             { name: 'For at få hjælp til at udregne valuta, skriv:', value: "/valuta hjælp"},
@@ -235,7 +236,6 @@ function gotMessage(msg){
             .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/rektangel')
             .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en cirkel'})
             .setDescription('Formel: pi * r')
-            //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
                 { name: 'For at udregne areal af en cirkel , skriv:', value: "/areal cirkel <r>"},
             )
