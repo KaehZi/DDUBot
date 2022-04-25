@@ -17,7 +17,7 @@ const client = new Client({ intents: myIntents });
 client.login(process.env.DISCORD_TOKEN);
 client.on('ready', readyDiscord);
 function readyDiscord(){
-  console.log('Botten er tændt'); 
+  console.log('[INFO] Studiehjælperen er online.'); 
 }
 client.on("messageCreate", gotMessage);
 //**********************************************************************************************//
@@ -51,15 +51,18 @@ function gotMessage(msg){
 
 
   //Ligning hjælp embed || Lavet til formålet at der kommer et output hvis nogen prøver kommandoen som fra /hjælp
-  // if(commands[0] === '/ligning' && commands[1] === 'hjælp'){
-  //   const ligningHelpEmbed = new MessageEmbed()
-  //       .setColor('#ff0000')
-  //       .setTitle("UNDER UDVIKLING!")
-  //       .setAuthor({ name: 'Studiehjælperen: Udregning af ligninger'})
-  //       .setTimestamp()
-  //    msg.reply(
-  //       { embeds: [ligningHelpEmbed] })
-  //   }
+  if(commands[0] === '/ligning' && commands[1] === 'hjælp'){
+    const ligningHelpEmbed = new MessageEmbed()
+        .setColor('#ffff00')
+        .setTitle("Udregning af ligninger")
+        .setAuthor({ name: 'Studiehjælperen: Udregning af ligninger'})
+        .addFields(
+          {name: "For at udregne en ligning, skriv:", value: '/ligning beregning <ligning>'}
+        )
+        .setTimestamp()
+     msg.reply(
+        { embeds: [ligningHelpEmbed] })
+    }
 
     //Valuta hjælp embed || Lavet til formålet at der kommer et output hvis nogen prøver kommandoen som fra /hjælp
     if(commands[0] === '/valuta' && commands[1] === 'hjælp'){
@@ -83,12 +86,25 @@ function gotMessage(msg){
             { embeds: [musikHelpEmbed] })  
         }
 
+    //Pythagoras hjælp
+    if(commands[0] === '/pythagoras' && commands[1] === 'hjælp'){
+      const pythagorasHelpEmbed = new MessageEmbed()
+          .setColor('#ffff00')
+          .setTitle("Udregning af Pythagoras")
+          .setAuthor({ name: 'Studiehjælperen: Udregning af Pythagoras'})
+          .addFields(
+            {name: "For at udregne Pythagoras, skriv:", value: '/pythagoras beregn <a> <b>'}
+          )
+          .setTimestamp()
+       msg.reply(
+          { embeds: [pythagorasHelpEmbed] })
+      }
 
   //Pythagoras funktion med embed implementeret
-  if(commands[0] === "/pythagoras"){
-    if(isNaN(commands[1])|| 
-       isNaN(commands[2])|| 
-       isNaN(commands[1]) && isNaN(commands[2])){
+  if(commands[0] === "/pythagoras" && commands[1] === "beregn"){
+    if(isNaN(commands[2])|| 
+       isNaN(commands[3])|| 
+       isNaN(commands[2]) && isNaN(commands[3])){
       const pythagorasHelpEmbed = new MessageEmbed()
         .setColor('#ff0000')
         .setTitle("Pythagoras")
