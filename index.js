@@ -112,7 +112,7 @@ function gotMessage(msg){
         .setAuthor({ name: 'Studiehjælperen: Udregning af Pythagoras'})
         .setDescription('Pythagoras udregning af Studiehjælperen')
         .addFields(
-            { name: 'For at udregne med pythagoras, skriv:', value: "/pythagoras <a> <b>"},
+            { name: 'For at udregne med pythagoras, skriv:', value: "/pythagoras beregn <a> <b>"},
         )
         .setTimestamp()
 
@@ -121,7 +121,7 @@ function gotMessage(msg){
     
       }else{
 
-        let pythagoras = Math.sqrt(commands[1] * commands[1] + commands[2] * commands[2])
+        let pythagoras = Math.sqrt(Number(commands[2]) * Number(commands[3]) + Number(commands[2]) * Number(commands[3]))
 
       const pythagorasEmbed = new MessageEmbed()
         .setColor('#00ff00')
