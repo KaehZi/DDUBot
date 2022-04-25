@@ -249,7 +249,7 @@ function gotMessage(msg){
       const arealCirkelHelpEmbed = new MessageEmbed()
             .setColor('#ff0000')
             .setTitle("Areal af en cirkel")
-            .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/rektangel')
+            .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/cirkell')
             .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en cirkel'})
             .setDescription('Formel: pi * r')
             .addFields(
@@ -268,7 +268,7 @@ function gotMessage(msg){
       const arealCirkelEmbed = new MessageEmbed()
             .setColor('#00ff00')
             .setTitle("Areal af en cirkel")
-            .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/rektangel')
+            .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/cirkel')
             .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en cirkel'})
             .setDescription('Formel: pi * r')
             //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
@@ -373,7 +373,7 @@ function gotMessage(msg){
       const kvadratrodHelpEmbed = new MessageEmbed()
             .setColor('#ff0000')
             .setTitle("Kvadratrod")
-            .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/trapez')
+            .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/algebra/kvadratrod')
             .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en trapez'})
             .setDescription('Kvadratroden af et tal')
             //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
@@ -392,9 +392,9 @@ function gotMessage(msg){
       const kvadratrodEmbed = new MessageEmbed()
             .setColor('#00ff00')
             .setTitle("Kvadratrod")
-            .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/trapez')
+            .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/algebra/kvadratrod')
             .setAuthor({ name: 'Studiehjælperen: Kvadratrod'})
-            .setDescription('Kvadratroden af et tal')
+            .setDescription('Kvadratroden af '+commands[1])
             //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
                 { name: 'Kvadraten af et tal:', value: "Svar: " + kvadratrod},
@@ -483,7 +483,7 @@ function gotMessage(msg){
             .setAuthor({ name: 'Studiehjælperen: Udregning af rumfang for en kasse'})
             .setDescription('Rumfangs beregning af Studiehjælperen')
             .addFields(
-                { name: 'For at udregne rumfang af en cylinder, skriv:', value: "/rumfang firkant <h> <r>"},    
+                { name: 'For at udregne rumfang af en cylinder, skriv:', value: "/rumfang cylinder <h> <r>"},    
             )
             .setTimestamp()
         msg.reply(
