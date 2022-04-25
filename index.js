@@ -215,7 +215,6 @@ function gotMessage(msg){
             .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/trekant')
             .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en trekant'})
             .setDescription('Formel: 1/2 * h * g')
-            //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
                 { name: 'For at udregne areal af en trekant , skriv:', value: "/areal trekant <h> <g>"},
             )
@@ -337,8 +336,6 @@ function gotMessage(msg){
             .setTitle("Areal af en trapez")
             .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/trapez')
             .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en trapez'})
-            //.setDescription('Formel: 1/2 * h * (a1 + a2)')
-            //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
                 { name: 'For at udregne areal af et parallelogram , skriv:', value: "/areal trapez <h> <a1> <a2>"},
             )
@@ -357,7 +354,6 @@ function gotMessage(msg){
                 .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/trapez')
                 .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en trapez'})
                 .setDescription('Formel: 1/2 * h * (a1 + a2)')
-                //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
                 .addFields(
                 { name: 'Areal for en trapez udregnet:', value: "Svar: " + arealTrapez},
                  )
@@ -394,10 +390,10 @@ function gotMessage(msg){
             .setTitle("Kvadratrod")
             .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/algebra/kvadratrod')
             .setAuthor({ name: 'Studiehjælperen: Kvadratrod'})
-            .setDescription('Kvadratroden af '+commands[1])
-            //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
+            .setDescription('Kvadratroden af et tal')
+            
             .addFields(
-                { name: 'Kvadraten af et tal:', value: "Svar: " + kvadratrod},
+                { name: 'Kvadraten af ' + commands[1], value: "Svar: " + kvadratrod},
             )
             .setTimestamp()
   msg.reply(
