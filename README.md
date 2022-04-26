@@ -1,3 +1,5 @@
+# Invitationslink for Studiehjælperen: https://discord.com/api/oauth2/authorize?client_id=949224242094931988&permissions=8&scope=bot
+
 # For at kunne benytte Studiehjælperen skal følgende udføres:
 ## - Installér Node.js (https://nodejs.org/en/download/)
 ## - Indtast følgende i terminalen i Studiehjælperens kode:
