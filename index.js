@@ -3,7 +3,6 @@ const { Client, Intents } = require("discord.js");
 const { MessageEmbed } = require("discord.js");
 require("dotenv").config();
 
-//var fetch = require('node-fetch');
 const WolframAlphaAPI = require('wolfram-alpha-api');
 const wolframAPI = WolframAlphaAPI("774UYL-GLW5P969T4");
 
@@ -654,7 +653,6 @@ function gotMessage(msg){
                   { name: 'Rumfanget af et pyramide: ', value: "Svar: " + rumfangPyramide},    
               )
               .setTimestamp()
-              //.setFooter( {text: ${user} } )
           msg.reply(
             { embeds: [rumfangPyramideEmbed]});
           }
@@ -696,7 +694,7 @@ function gotMessage(msg){
         .setURL('https://www.webmatematik.dk/lektioner/matematik-c/ligninger/ligninger')
         .setAuthor({ name: 'Studiehjælperen: Udregning af ligning'})
         .addFields(
-            { name: 'Løsning af ligningen: ', value: "Svar: " + solution7},    
+            { name: 'Løsning af ligningen '+commands[2]+': ', value: "Svar: " + solution7},    
         )
         .setTimestamp()
         .setFooter({ text: 'Wolfram|Alpha'});
