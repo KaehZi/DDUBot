@@ -40,7 +40,7 @@ function gotMessage(msg){
             { name: 'For at få hjælp til at udregne ligninger, skriv:', value: "/ligning hjælp"},
             { name: 'For at få hjælp til at udregne kvadratrod, skriv:', value: "/kvadratrod hjælp"},
             { name: 'For at få hjælp til at udregne valuta, skriv:', value: "/valuta hjælp"},
-            { name: 'For at få hjælp til at få afspillet musik, skriv:', value: "/musik hjælp"},
+            { name: 'For at få hjælp til at omregne enheder, skriv:', value: "/enhedsomregning hjælp"},
         )
         .setTimestamp()
 
@@ -75,15 +75,15 @@ function gotMessage(msg){
              { embeds: [valutaHelpEmbed] })  
         }
   
-    //Musik hjælp embed || Lavet til formålet at der kommer et output hvis nogen prøver kommandoen som fra /hjælp
-    if(commands[0] === '/musik' && commands[1] === 'hjælp'){
-        const musikHelpEmbed = new MessageEmbed()
+    //Enhedsomregning hjælp embed || Lavet til formålet at der kommer et output hvis nogen prøver kommandoen som fra /hjælp
+    if(commands[0] === '/enhedsomregning' && commands[1] === 'hjælp'){
+        const enhedHelpEmbed = new MessageEmbed()
             .setColor('#ff0000')
             .setTitle("UNDER UDVIKLING!")
-            .setAuthor({ name: 'Studiehjælperen: Afspilning af musik eller andet lyd'})
+            .setAuthor({ name: 'Studiehjælperen: Omregning af enheder'})
             .setTimestamp()
         msg.reply(
-            { embeds: [musikHelpEmbed] })  
+            { embeds: [enhedHelpEmbed] })  
         }
 
     //Pythagoras hjælp
