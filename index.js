@@ -4,7 +4,7 @@ const { MessageEmbed } = require("discord.js");
 require("dotenv").config();
 
 const WolframAlphaAPI = require('wolfram-alpha-api');
-const wolframAPI = WolframAlphaAPI("774UYL-GLW5P969T4");
+const wolframAPI = WolframAlphaAPI(String(process.env.WOLFRAMALPHAPPID));
 
 
 
@@ -139,8 +139,6 @@ function gotMessage(msg){
       }
   }
 
- 
-
     //Oversigt over areal funktioner
     if(commands[0] === "/areal" && commands[1] === "" ||
       (commands[0] === "/areal" && commands[1] === "hjælp")){
@@ -158,8 +156,6 @@ function gotMessage(msg){
                 { name: 'For at udregne areal af en cirkel, skriv:', value: "/areal cirkel <r>" },
                 { name: 'For at udregne areal af en trapez, skriv:', value: "/areal trapez <h> <a1> <a2>" },
             )
-            //.addField('Inline field title', 'Some value here', true)
-            //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
             .setTimestamp()
       msg.reply(
         { embeds: [arealHelpEmbed] });
@@ -193,7 +189,6 @@ function gotMessage(msg){
                 .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/rektangel')
                 .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en firkant'})
                 .setDescription('Formel: l * b')
-                //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
                 .addFields(
                 { name: 'Areal for en firkant udregnet:', value: "Svar: " + arealFirkant},
             )
@@ -223,7 +218,6 @@ function gotMessage(msg){
           { embeds: [arealTrekantHelpEmbed] });
       
       }else{
-          //console.log("else bliver executed")
 
           let arealTrekant = (1/2 * commands[2] * commands[3])
 
@@ -233,7 +227,6 @@ function gotMessage(msg){
                 .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/trekant')
                 .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en trekant'})
                 .setDescription('Formel: 1/2 * h * g')
-                //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
                 .addFields(
                 { name: 'Areal for en trekant udregnet:', value: "Svar: " + arealTrekant},
             )
@@ -259,7 +252,6 @@ function gotMessage(msg){
           { embeds: [arealCirkelHelpEmbed] });
   
       }else{
-      //console.log("else bliver executed")
 
       let arealCirkel = (Math.PI * (commands[2]))
 
@@ -269,7 +261,6 @@ function gotMessage(msg){
             .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/cirkel')
             .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en cirkel'})
             .setDescription('Formel: pi * r')
-            //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
             { name: 'Areal for en cirkel udregnet:', value: "Svar: " + arealCirkel},
             )   
@@ -292,7 +283,6 @@ function gotMessage(msg){
             .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/parallellogram')
             .setAuthor({ name: 'Studiehjælperen: Udregning af areal for et parallelogram'})
             .setDescription('Formel: h * g')
-            //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
                 { name: 'For at udregne areal af et parallelogram , skriv:', value: "/areal parallelogram <h> <g>"},
             )
@@ -312,7 +302,6 @@ function gotMessage(msg){
                 .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/parallellogram')
                 .setAuthor({ name: 'Studiehjælperen: Udregning af areal for et parallelogram'})
                 .setDescription('Formel: h * g')
-                //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
                 .addFields(
                 { name: 'Areal for et paralellogram udregnet:', value: "Svar: " + arealParallel},
             )
@@ -321,7 +310,6 @@ function gotMessage(msg){
         { embeds: [arealParallelEmbed] });
       }
   }
-
 
   //Areal af parallelogram
   if(commands[0] === "/areal" && commands[1] === "trapez"){ 
@@ -371,7 +359,6 @@ function gotMessage(msg){
             .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/algebra/kvadratrod')
             .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en trapez'})
             .setDescription('Kvadratroden af et tal')
-            //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
             .addFields(
                 { name: 'For at tage kvadratroden af et tal, skriv:', value: "/kvadratrod <tal>"},
             )
@@ -418,10 +405,7 @@ function gotMessage(msg){
                 { name: 'For at udregne rumfang af et prisme, skriv:', value: '/rumfang prisme <h> <g> <b>'}
 
             )
-            //.addField('Inline field title', 'Some value here', true)
-            //.setImage('https://i.imgur.com/pn9c0BL.jpeg')
             .setTimestamp()
-            //.setFooter({ text: 'Webmatematik, iconURL: https://i.imgur.com/AfFp7pu.png' });
     msg.reply(
         { embeds: [rumfangHelpEmbed] });
     }
@@ -658,8 +642,6 @@ function gotMessage(msg){
           }
         }  
 
-          
-        
         //Ligningsløser
         if(commands[0] === "/ligning" && commands[1] === "beregning") {
           wolframAPI.getFull(""+commands[2]).then((queryresult) => {
@@ -671,22 +653,23 @@ function gotMessage(msg){
               ).join('\n');
               return `<h2>${pod.title}</h2>\n${subpodContent}`;
             }).join('\n');
-
-              let solution = output.split("<h2>")
-
-              let solution1 = String(solution);
-
-              let solution2 = solution1.split("alt=");
-              
-              let solution3 = String(solution2)
-
-              let solution4 = solution3.split(",")
-              
-              let solution5 = solution4[solution4.length-1]
             
-              let solution6 = solution5.split('"')
+            let solution = output.split("<h2>")
 
-              let solution7 = solution6[1]
+            let solution1 = String(solution);
+
+            let solution2 = solution1.split("alt=");
+            
+            let solution3 = String(solution2)
+
+            let solution4 = solution3.split(",")
+            
+            let solution5 = solution4[solution4.length-1]
+            
+            let solution6 = solution5.split('"')
+            
+            let solution7 = solution6[1]
+  
 
         const ligningLøst = new MessageEmbed()
         .setColor('00ff00')
