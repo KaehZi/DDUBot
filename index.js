@@ -649,10 +649,11 @@ function gotMessage(msg){
             const pods = queryresult.pods;
             const output = pods.map((pod) => {
               const subpodContent = pod.subpods.map(subpod =>
-                `  alt="${subpod.img.alt}">`
+                `  <img src="${subpod.img.src}" alt="${subpod.img.alt}">`
               ).join('\n');
               return `<h2>${pod.title}</h2>\n${subpodContent}`;
             }).join('\n');
+            console.log(output);
             
             let solution = output.split("<h2>")
 
