@@ -653,7 +653,7 @@ function gotMessage(msg){
               ).join('\n');
               return `<h2>${pod.title}</h2>\n${subpodContent}`;
             }).join('\n');
-            console.log(output);
+            //console.log(output);
             
             let solution = output.split("<h2>")
 
@@ -671,6 +671,7 @@ function gotMessage(msg){
             
             let solution7 = solution6[1]
   
+            console.log(solution7)
 
         const ligningLøst = new MessageEmbed()
         .setColor('00ff00')
