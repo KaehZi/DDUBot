@@ -27,19 +27,19 @@ function gotMessage(msg){
 
 
   //Oversigt over hvilke kommandoer Studiehjælperen udsteder || /hjælp
-  if(commands[0] === "/hjælp"){
+  if(commands[0] === "!hjælp"){
         const HelpEmbed = new MessageEmbed()
         .setColor('#ffff00')
         .setTitle("Hjælp")
         .setAuthor({ name: 'Studiehjælperen: Oversigt over funktioner'})
         .addFields(
-            { name: 'For at få hjælp til at udregne areal, skriv:', value: "/areal hjælp"},
-            { name: 'For at få hjælp til at udregne rumfang, skriv:', value: "/rumfang hjælp"},
-            { name: 'For at få hjælp til at udregne pythagoras, skriv:', value: "/pythagoras hjælp"},
-            { name: 'For at få hjælp til at udregne ligninger, skriv:', value: "/ligning hjælp"},
-            { name: 'For at få hjælp til at udregne kvadratrod, skriv:', value: "/kvadratrod hjælp"},
-            { name: 'For at få hjælp til at udregne valuta, skriv:', value: "/valuta hjælp"},
-            { name: 'For at få hjælp til at omregne enheder, skriv:', value: "/enhedsomregning hjælp"},
+            { name: 'For at få hjælp til at udregne areal, skriv:', value: "!areal hjælp"},
+            { name: 'For at få hjælp til at udregne rumfang, skriv:', value: "!rumfang hjælp"},
+            { name: 'For at få hjælp til at udregne pythagoras, skriv:', value: "!pythagoras hjælp"},
+            { name: 'For at få hjælp til at udregne ligninger, skriv:', value: "!ligning hjælp"},
+            { name: 'For at få hjælp til at udregne kvadratrod, skriv:', value: "!kvadratrod hjælp"},
+            { name: 'For at få hjælp til at udregne valuta, skriv:', value: "!valuta hjælp"},
+            { name: 'For at få hjælp til at omregne enheder, skriv:', value: "!enhedsomregning hjælp"},
         )
         .setTimestamp()
 
@@ -50,13 +50,13 @@ function gotMessage(msg){
 
 
   //Ligning hjælp embed || Lavet til formålet at der kommer et output hvis nogen prøver kommandoen som fra /hjælp
-  if(commands[0] === '/ligning' && commands[1] === 'hjælp'){
+  if(commands[0] === '!ligning' && commands[1] === 'hjælp'){
     const ligningHelpEmbed = new MessageEmbed()
         .setColor('#ffff00')
         .setTitle("Udregning af ligninger")
         .setAuthor({ name: 'Studiehjælperen: Udregning af ligninger'})
         .addFields(
-          {name: "For at udregne en ligning, skriv:", value: '/ligning beregning <ligning>'}
+          {name: "For at udregne en ligning, skriv:", value: '!ligning beregning <ligning>'}
         )
         .setTimestamp()
      msg.reply(
@@ -64,7 +64,7 @@ function gotMessage(msg){
     }
 
     //Valuta hjælp embed || Lavet til formålet at der kommer et output hvis nogen prøver kommandoen som fra /hjælp
-    if(commands[0] === '/valuta' && commands[1] === 'hjælp'){
+    if(commands[0] === '!valuta' && commands[1] === 'hjælp'){
         const valutaHelpEmbed = new MessageEmbed()
             .setColor('#ff0000')
             .setTitle("UNDER UDVIKLING!")
@@ -75,7 +75,7 @@ function gotMessage(msg){
         }
   
     //Enhedsomregning hjælp embed || Lavet til formålet at der kommer et output hvis nogen prøver kommandoen som fra /hjælp
-    if(commands[0] === '/enhedsomregning' && commands[1] === 'hjælp'){
+    if(commands[0] === '!enhedsomregning' && commands[1] === 'hjælp'){
         const enhedHelpEmbed = new MessageEmbed()
             .setColor('#ff0000')
             .setTitle("UNDER UDVIKLING!")
@@ -86,13 +86,13 @@ function gotMessage(msg){
         }
 
     //Pythagoras hjælp
-    if(commands[0] === '/pythagoras' && commands[1] === 'hjælp'){
+    if(commands[0] === '!pythagoras' && commands[1] === 'hjælp'){
       const pythagorasHelpEmbed = new MessageEmbed()
           .setColor('#ffff00')
           .setTitle("Udregning af Pythagoras")
           .setAuthor({ name: 'Studiehjælperen: Udregning af Pythagoras'})
           .addFields(
-            {name: "For at udregne Pythagoras, skriv:", value: '/pythagoras beregn <a> <b>'}
+            {name: "For at udregne Pythagoras, skriv:", value: '!pythagoras beregn <a> <b>'}
           )
           .setTimestamp()
        msg.reply(
@@ -100,7 +100,7 @@ function gotMessage(msg){
       }
 
   //Pythagoras funktion med embed implementeret
-  if(commands[0] === "/pythagoras" && commands[1] === "beregn"){
+  if(commands[0] === "!pythagoras" && commands[1] === "beregn"){
     if(isNaN(commands[2])|| 
        isNaN(commands[3])|| 
        isNaN(commands[2]) && isNaN(commands[3])){
@@ -111,7 +111,7 @@ function gotMessage(msg){
         .setAuthor({ name: 'Studiehjælperen: Udregning af Pythagoras'})
         .setDescription('Pythagoras udregning af Studiehjælperen')
         .addFields(
-            { name: 'For at udregne med pythagoras, skriv:', value: "/pythagoras beregn <a> <b>"},
+            { name: 'For at udregne med pythagoras, skriv:', value: "!pythagoras beregn <a> <b>"},
         )
         .setTimestamp()
 
@@ -128,7 +128,6 @@ function gotMessage(msg){
         .setURL('https://www.webmatematik.dk/lektioner/matematik-c/trigonometri/retvinklede-trekanter')
         .setAuthor({ name: 'Studiehjælperen: Udregning af Pythagoras'})
         .setDescription('Pythagoras udregning af Studiehjælperen')
-        //.setThumbnail('https://i.imgur.com/AfFp7pu.png')
         .addFields(
             { name: 'Pythagoras udregnet:', value: "Svar: " + pythagoras},
         )
@@ -140,8 +139,8 @@ function gotMessage(msg){
   }
 
     //Oversigt over areal funktioner
-    if(commands[0] === "/areal" && commands[1] === "" ||
-      (commands[0] === "/areal" && commands[1] === "hjælp")){
+    if(commands[0] === "!areal" && commands[1] === "" ||
+      (commands[0] === "!areal" && commands[1] === "hjælp")){
         
       const arealHelpEmbed = new MessageEmbed()
             .setColor('#ffff00')
@@ -150,11 +149,11 @@ function gotMessage(msg){
             .setAuthor({ name: 'Studiehjælperen: Udregning af arealer'})
             .setDescription('Areal udregning af Studiehjælperen')
             .addFields(
-                { name: 'For at udregne areal af en firkant, skriv:', value: "/areal firkant <l> <b>"},
-                { name: 'For at udregne areal af en trekant, skriv:', value: '/areal trekant <h> <g>' },
-                { name: 'For at udregne areal af et paralellogram, skriv:', value: '/areal parallelogram <h> <g>' },
-                { name: 'For at udregne areal af en cirkel, skriv:', value: "/areal cirkel <r>" },
-                { name: 'For at udregne areal af en trapez, skriv:', value: "/areal trapez <h> <a1> <a2>" },
+                { name: 'For at udregne areal af en firkant, skriv:', value: "!areal firkant <l> <b>"},
+                { name: 'For at udregne areal af en trekant, skriv:', value: '!areal trekant <h> <g>' },
+                { name: 'For at udregne areal af et paralellogram, skriv:', value: '!areal parallelogram <h> <g>' },
+                { name: 'For at udregne areal af en cirkel, skriv:', value: "!areal cirkel <r>" },
+                { name: 'For at udregne areal af en trapez, skriv:', value: "!areal trapez <h> <a1> <a2>" },
             )
             .setTimestamp()
       msg.reply(
@@ -162,7 +161,7 @@ function gotMessage(msg){
       }
       
   //Areal for en firkant funktion med embed
-  if(commands[0] === "/areal" && commands[1] === "firkant"){ 
+  if(commands[0] === "!areal" && commands[1] === "firkant"){ 
       if(isNaN(commands[2])|| isNaN(commands[3])|| (isNaN(commands[2]) && isNaN(commands[3]))){
       const arealfirkantHelpEmbed = new MessageEmbed()
             .setColor('#ff0000')
@@ -171,7 +170,7 @@ function gotMessage(msg){
             .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en firkant'})
             .setDescription('Formel: l * b')
             .addFields(
-                { name: 'For at udregne areal af en firkant , skriv:', value: "/areal firkant <l> <b>"},
+                { name: 'For at udregne areal af en firkant , skriv:', value: "!areal firkant <l> <b>"},
             )
             .setTimestamp()
 
@@ -199,7 +198,7 @@ function gotMessage(msg){
       }
 
   //Areal for en trekant funktion med embed
-  if(commands[0] === "/areal" && commands[1] === "trekant"){ 
+  if(commands[0] === "!areal" && commands[1] === "trekant"){ 
       if(isNaN(commands[2])||
          isNaN(commands[3])|| 
         (isNaN(commands[2]) && isNaN(commands[3]))){
@@ -210,7 +209,7 @@ function gotMessage(msg){
             .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en trekant'})
             .setDescription('Formel: 1/2 * h * g')
             .addFields(
-                { name: 'For at udregne areal af en trekant , skriv:', value: "/areal trekant <h> <g>"},
+                { name: 'For at udregne areal af en trekant , skriv:', value: "!areal trekant <h> <g>"},
             )
             .setTimestamp()
 
@@ -235,7 +234,7 @@ function gotMessage(msg){
           { embeds: [arealTrekantEmbed] });
       }
   }
-  if(commands[0] === "/areal" && commands[1] === "cirkel"){ 
+  if(commands[0] === "!areal" && commands[1] === "cirkel"){ 
   if(isNaN(commands[2])){
       const arealCirkelHelpEmbed = new MessageEmbed()
             .setColor('#ff0000')
@@ -244,7 +243,7 @@ function gotMessage(msg){
             .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en cirkel'})
             .setDescription('Formel: pi * r')
             .addFields(
-                { name: 'For at udregne areal af en cirkel , skriv:', value: "/areal cirkel <r>"},
+                { name: 'For at udregne areal af en cirkel , skriv:', value: "!areal cirkel <r>"},
             )
             .setTimestamp()
 
@@ -272,8 +271,8 @@ function gotMessage(msg){
   }
 
   //Areal af parallelogram
-  if(commands[0] === "/areal" && commands[1] === "parallelogram" 
-  || commands[0] === "areal" && commands[1] === "parallel"){ 
+  if(commands[0] === "!areal" && commands[1] === "parallelogram" 
+  || commands[0] === "!areal" && commands[1] === "parallel"){ 
       if(isNaN(commands[2])|| 
          isNaN(commands[3])|| 
         (isNaN(commands[2]) && isNaN(commands[3]))){
@@ -284,7 +283,7 @@ function gotMessage(msg){
             .setAuthor({ name: 'Studiehjælperen: Udregning af areal for et parallelogram'})
             .setDescription('Formel: h * g')
             .addFields(
-                { name: 'For at udregne areal af et parallelogram , skriv:', value: "/areal parallelogram <h> <g>"},
+                { name: 'For at udregne areal af et parallelogram , skriv:', value: "!areal parallelogram <h> <g>"},
             )
             .setTimestamp()
 
@@ -312,7 +311,7 @@ function gotMessage(msg){
   }
 
   //Areal af parallelogram
-  if(commands[0] === "/areal" && commands[1] === "trapez"){ 
+  if(commands[0] === "!areal" && commands[1] === "trapez"){ 
       if(isNaN(commands[2]) || 
          isNaN(commands[3]) ||
          isNaN(commands[4]) || 
@@ -324,7 +323,7 @@ function gotMessage(msg){
             .setURL('https://www.webmatematik.dk/lektioner/7-9-klasse/areal/trapez')
             .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en trapez'})
             .addFields(
-                { name: 'For at udregne areal af et parallelogram , skriv:', value: "/areal trapez <h> <a1> <a2>"},
+                { name: 'For at udregne areal af et parallelogram , skriv:', value: "!areal trapez <h> <a1> <a2>"},
             )
             .setTimestamp()
 
@@ -351,7 +350,7 @@ function gotMessage(msg){
    }
     
    //Kvadratrod af et tal
-   if(commands[0] === "/kvadratrod"){
+   if(commands[0] === "!kvadratrod"){
     if(isNaN(commands[1])){
       const kvadratrodHelpEmbed = new MessageEmbed()
             .setColor('#ff0000')
@@ -360,7 +359,7 @@ function gotMessage(msg){
             .setAuthor({ name: 'Studiehjælperen: Udregning af areal for en trapez'})
             .setDescription('Kvadratroden af et tal')
             .addFields(
-                { name: 'For at tage kvadratroden af et tal, skriv:', value: "/kvadratrod <tal>"},
+                { name: 'For at tage kvadratroden af et tal, skriv:', value: "!kvadratrod <tal>"},
             )
             .setTimestamp()
 
@@ -384,12 +383,11 @@ function gotMessage(msg){
             .setTimestamp()
   msg.reply(
       { embeds: [kvadratrodEmbed] });
-        console.log("kvadratrodEmbed afsendt")
         }
     }
 
     //Rumfang hjælp
-    if(commands[0] === "/rumfang" && commands[1] === "hjælp"){
+    if(commands[0] === "!rumfang" && commands[1] === "hjælp"){
         const rumfangHelpEmbed = new MessageEmbed()
             .setColor('#ffff00')
             .setTitle("Rumfang beregning")
@@ -397,12 +395,12 @@ function gotMessage(msg){
             .setAuthor({ name: 'Studiehjælperen: Udregning af rumfang'})
             .setDescription('Rumfangs beregning af Studiehjælperen')
             .addFields(
-                { name: 'For at udregne rumfang af en kasse, skriv:', value: "/rumfang kasse <l> <b> <h>"},
-                { name: 'For at udregne rumfang af en cylinder, skriv:', value: '/rumfang cylinder <h> <r>' },
-                { name: 'For at udregne rumfang af en kugle, skriv:', value: "/rumfang kugle <r>" },
-                { name: 'For at udregne rumfang af en kegle, skriv:', value: "/rumfang kegle <h> <r>" },
-                { name: 'For at udregne rumfang af en pyramide, skriv:', value: '/rumfang pyramide <Areal af grundfladen> <h>'},
-                { name: 'For at udregne rumfang af et prisme, skriv:', value: '/rumfang prisme <h> <g> <b>'}
+                { name: 'For at udregne rumfang af en kasse, skriv:', value: "!rumfang kasse <l> <b> <h>"},
+                { name: 'For at udregne rumfang af en cylinder, skriv:', value: '!rumfang cylinder <h> <r>' },
+                { name: 'For at udregne rumfang af en kugle, skriv:', value: "!rumfang kugle <r>" },
+                { name: 'For at udregne rumfang af en kegle, skriv:', value: "!rumfang kegle <h> <r>" },
+                { name: 'For at udregne rumfang af en pyramide, skriv:', value: '!rumfang pyramide <Areal af grundfladen> <h>'},
+                { name: 'For at udregne rumfang af et prisme, skriv:', value: '!rumfang prisme <h> <g> <b>'}
 
             )
             .setTimestamp()
@@ -411,7 +409,7 @@ function gotMessage(msg){
     }
 
     //Rumfang af en kasse
-    if(commands[0] === "/rumfang" && commands[1] === "kasse"){ 
+    if(commands[0] === "!rumfang" && commands[1] === "kasse"){ 
         if(isNaN(commands[2]) || 
            isNaN(commands[3]) ||
            isNaN(commands[4]) || 
@@ -424,7 +422,7 @@ function gotMessage(msg){
             .setAuthor({ name: 'Studiehjælperen: Udregning af rumfang for en kasse'})
             .setDescription('Rumfangs beregning af Studiehjælperen')
             .addFields(
-                { name: 'For at udregne rumfang af en firkant/kasse, skriv:', value: "/rumfang firkant <l> <b> <h>"},    
+                { name: 'For at udregne rumfang af en firkant/kasse, skriv:', value: "!rumfang firkant <l> <b> <h>"},    
             )
             .setTimestamp()
         msg.reply(
@@ -450,7 +448,7 @@ function gotMessage(msg){
   }
 
     //Rumfang af en cylinder
-    if(commands[0] === "/rumfang" && commands[1] === "cylinder"){ 
+    if(commands[0] === "!rumfang" && commands[1] === "cylinder"){ 
       if(isNaN(commands[2]) || 
          isNaN(commands[3]) || 
         (isNaN(commands[2]) && isNaN(commands[3]))){
@@ -462,7 +460,7 @@ function gotMessage(msg){
             .setAuthor({ name: 'Studiehjælperen: Udregning af rumfang for en kasse'})
             .setDescription('Rumfangs beregning af Studiehjælperen')
             .addFields(
-                { name: 'For at udregne rumfang af en cylinder, skriv:', value: "/rumfang cylinder <h> <r>"},    
+                { name: 'For at udregne rumfang af en cylinder, skriv:', value: "!rumfang cylinder <h> <r>"},    
             )
             .setTimestamp()
         msg.reply(
@@ -482,13 +480,13 @@ function gotMessage(msg){
                 { name: 'Rumfanget af en cylinder: ', value: "Svar: " + rumfangCylinder},    
             )
             .setTimestamp()
-        msg.reply(
+          msg.reply(
           { embeds: [rumfangCylinderEmbed]});
         }
       }
 
       //Rumfang af en kugle
-      if(commands[0] === "/rumfang" && commands[1] === "kugle"){ 
+      if(commands[0] === "!rumfang" && commands[1] === "kugle"){ 
         if(isNaN(commands[2]) ||  
           (isNaN(commands[2]))){
   
@@ -499,7 +497,7 @@ function gotMessage(msg){
               .setAuthor({ name: 'Studiehjælperen: Udregning af rumfang for en kugle'})
               .setDescription('Rumfangs beregning af Studiehjælperen')
               .addFields(
-                  { name: 'For at udregne rumfang af en kugle, skriv:', value: "/rumfang kugle <r>"},    
+                  { name: 'For at udregne rumfang af en kugle, skriv:', value: "!rumfang kugle <r>"},    
               )
               .setTimestamp()
           msg.reply(
@@ -525,7 +523,7 @@ function gotMessage(msg){
         }
 
       //Rumfang af en kegle
-      if(commands[0] === "/rumfang" && commands[1] === "kegle"){ 
+      if(commands[0] === "!rumfang" && commands[1] === "kegle"){ 
         if(isNaN(commands[2]) && isNaN(commands[3]) ||
            isNaN(commands[2]) ||  
            isNaN(commands[3])){
@@ -537,7 +535,7 @@ function gotMessage(msg){
               .setAuthor({ name: 'Studiehjælperen: Udregning af rumfang for en kegle'})
               .setDescription('Rumfangs beregning af Studiehjælperen')
               .addFields(
-                  { name: 'For at udregne rumfang af en kugle, skriv:', value: "/rumfang kegle <h> <r>"},    
+                  { name: 'For at udregne rumfang af en kugle, skriv:', value: "!rumfang kegle <h> <r>"},    
               )
               .setTimestamp()
           msg.reply(
@@ -564,7 +562,7 @@ function gotMessage(msg){
   
 
         //Rumfang af et prisme
-        if(commands[0] === "/rumfang" && commands[1] === "prisme"){ 
+        if(commands[0] === "!rumfang" && commands[1] === "prisme"){ 
           if(isNaN(commands[2]) && isNaN(commands[3]) && isNaN(commands[4]) ||
              isNaN(commands[2]) ||
              isNaN(commands[3]) ||
@@ -604,7 +602,7 @@ function gotMessage(msg){
           }
 
       //Rumfang af en pyramide
-      if(commands[0] === "/rumfang" && commands[1] === "pyramide"){ 
+      if(commands[0] === "!rumfang" && commands[1] === "pyramide"){ 
         if(isNaN(commands[2]) && isNaN(commands[3]) ||
            isNaN(commands[2]) ||
            isNaN(commands[3])){
@@ -643,7 +641,7 @@ function gotMessage(msg){
         }  
 
         //Ligningsløser
-        if(commands[0] === "/ligning" && commands[1] === "beregning") {
+        if(commands[0] === "!ligning" && commands[1] === "beregning") {
           wolframAPI.getFull(""+commands[2]).then((queryresult) => {
             output: 'json'
             const pods = queryresult.pods;
