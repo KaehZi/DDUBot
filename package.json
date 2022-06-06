@@ -1,7 +1,14 @@
 {
  
 
-
+  
+    "name": "studiehjaelperen",
+    "description": "eksamensprojekt i teknikfag ddu 2022",
+    "version": "1.0.0",
+    "engines": {
+      "node": "17.6.0"
+    },
+  
  
 
   "dependencies": {
